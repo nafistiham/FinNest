@@ -1,0 +1,633 @@
+{
+ "version": "appsafety-0.2-lamda-lgbm-305",
+ "trained_at": "2026-10-16T15:47:08.350271+00:00",
+ "trainer": "bhorosha_app_safety_check.train_lamda",
+ "dataset": {
+  "name": "LAMDA Baseline (IQSeC Lab, UTEP), permissions + declared services",
+  "licence": "MIT",
+  "source_url": "https://huggingface.co/datasets/IQSeC-Lab/LAMDA",
+  "paper": "https://arxiv.org/abs/2505.18551",
+  "label_column": "label",
+  "label_rule": "VirusTotal detections >= 4 -> malware (1); AndroZoo APKs",
+  "train_years": [
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "future_years": [
+   2023,
+   2024
+  ],
+  "excluded_years": {
+   "years": [
+    2016,
+    2017,
+    2018
+   ],
+   "reason": "2016-2018 excluded: with them the pooled in-distribution hold-out AUC fell to 0.92 (per-year AUC 2016 0.87, 2017 0.82, 2018 0.82 vs 2019-2022 0.94-0.97) and the 2023 AUC stayed at 0.92, i.e. measured drift in the oldest years without future gain; refit with --years 2016-2022 to reproduce"
+  },
+  "rows": 288554,
+  "positives": 132172,
+  "rows_per_year": {
+   "2019": {
+    "train": 72840,
+    "train_positives": 33268,
+    "test": 18210,
+    "test_positives": 8317
+   },
+   "2020": {
+    "train": 81658,
+    "train_positives": 37084,
+    "test": 20415,
+    "test_positives": 9271
+   },
+   "2021": {
+    "train": 64924,
+    "train_positives": 28502,
+    "test": 16231,
+    "test_positives": 7125
+   },
+   "2022": {
+    "train": 69132,
+    "train_positives": 33318,
+    "test": 17284,
+    "test_positives": 8330
+   },
+   "2023": {
+    "rows": 54354,
+    "positives": 7892,
+    "used_for": "future-year evaluation only"
+   },
+   "2024": {
+    "rows": 48427,
+    "positives": 794,
+    "used_for": "future-year evaluation only"
+   }
+  }
+ },
+ "features": {
+  "count": 178,
+  "source": "RequestedPermissionList_android.permission.* tokens as android.permission.* columns; two derived service columns",
+  "derived_service_columns": {
+   "android.permission.BIND_ACCESSIBILITY_SERVICE": [
+    "IntentFilterList_android.accessibilityservice.AccessibilityService",
+    "RequestedPermissionList_android.permission.BIND_ACCESSIBILITY_SERVICE"
+   ],
+   "android.permission.BIND_NOTIFICATION_LISTENER_SERVICE": [
+    "IntentFilterList_android.service.notification.NotificationListenerService",
+    "RequestedPermissionList_android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"
+   ]
+  },
+  "dropped_permissions": [
+   "POST_NOTIFICATIONS",
+   "READ_PHONE_STATE",
+   "READ_EXTERNAL_STORAGE",
+   "WRITE_EXTERNAL_STORAGE",
+   "MOUNT_UNMOUNT_FILESYSTEMS",
+   "GET_TASKS",
+   "READ_LOGS"
+  ],
+  "intents_included": false
+ },
+ "split": {
+  "scheme": "time-aware: fit 2019-2022 train parquets with 30% of 2022 held back (early stopping, calibration); in-distribution hold-out = 2019-2022 test parquets; future = 2023, 2024 train+test",
+  "fit": 267814,
+  "validation": 20740,
+  "validation_year": 2022,
+  "holdout_test": 72140,
+  "seed": 42
+ },
+ "params": {
+  "objective": "binary",
+  "num_leaves": 127,
+  "learning_rate": 0.1,
+  "feature_fraction": 0.8,
+  "bagging_fraction": 0.8,
+  "bagging_freq": 1,
+  "min_data_in_leaf": 20,
+  "lambda_l2": 1.0,
+  "seed": 42,
+  "verbose": -1,
+  "num_threads": 0,
+  "num_boost_round": 305,
+  "early_stopping_rounds": 50,
+  "best_iteration": 350,
+  "rounds_trimmed_for_size": 45,
+  "size_target_bytes": 4500000
+ },
+ "train_seconds": 7.8,
+ "model_bytes": 4352998,
+ "metrics": {
+  "accuracy": 0.9028,
+  "macro_f1": 0.9024,
+  "roc_auc": 0.9648,
+  "brier": 0.0712,
+  "recall_at_0.8": 0.834,
+  "benign_flag_rate_at_0.8": 0.0365,
+  "confusion_matrix": {
+   "labels": [
+    "benign",
+    "malicious"
+   ],
+   "rows": [
+    [
+     34763,
+     4334
+    ],
+    [
+     2681,
+     30362
+    ]
+   ]
+  },
+  "test_rows": 72140,
+  "test_positives": 33043,
+  "predict_ms_per_app": 0.065
+ },
+ "metrics_uncalibrated": {
+  "accuracy": 0.911,
+  "macro_f1": 0.9099,
+  "roc_auc": 0.9653,
+  "brier": 0.0677
+ },
+ "metrics_by_year": {
+  "2019": {
+   "accuracy": 0.8671,
+   "macro_f1": 0.867,
+   "roc_auc": 0.9493,
+   "brier": 0.0949,
+   "recall_at_0.8": 0.8318,
+   "benign_flag_rate_at_0.8": 0.0658,
+   "confusion_matrix": {
+    "labels": [
+     "benign",
+     "malicious"
+    ],
+    "rows": [
+     [
+      8144,
+      1749
+     ],
+     [
+      672,
+      7645
+     ]
+    ]
+   },
+   "test_rows": 18210,
+   "test_positives": 8317
+  },
+  "2020": {
+   "accuracy": 0.9015,
+   "macro_f1": 0.901,
+   "roc_auc": 0.9634,
+   "brier": 0.0722,
+   "recall_at_0.8": 0.8385,
+   "benign_flag_rate_at_0.8": 0.0339,
+   "confusion_matrix": {
+    "labels": [
+     "benign",
+     "malicious"
+    ],
+    "rows": [
+     [
+      9901,
+      1243
+     ],
+     [
+      768,
+      8503
+     ]
+    ]
+   },
+   "test_rows": 20415,
+   "test_positives": 9271
+  },
+  "2021": {
+   "accuracy": 0.9161,
+   "macro_f1": 0.9151,
+   "roc_auc": 0.9692,
+   "brier": 0.0632,
+   "recall_at_0.8": 0.8371,
+   "benign_flag_rate_at_0.8": 0.0268,
+   "confusion_matrix": {
+    "labels": [
+     "benign",
+     "malicious"
+    ],
+    "rows": [
+     [
+      8333,
+      773
+     ],
+     [
+      588,
+      6537
+     ]
+    ]
+   },
+   "test_rows": 16231,
+   "test_positives": 7125
+  },
+  "2022": {
+   "accuracy": 0.9293,
+   "macro_f1": 0.9292,
+   "roc_auc": 0.9798,
+   "brier": 0.0525,
+   "recall_at_0.8": 0.8286,
+   "benign_flag_rate_at_0.8": 0.0173,
+   "confusion_matrix": {
+    "labels": [
+     "benign",
+     "malicious"
+    ],
+    "rows": [
+     [
+      8385,
+      569
+     ],
+     [
+      653,
+      7677
+     ]
+    ]
+   },
+   "test_rows": 17284,
+   "test_positives": 8330
+  }
+ },
+ "future_metrics": {
+  "2023": {
+   "accuracy": 0.9262,
+   "macro_f1": 0.8473,
+   "roc_auc": 0.927,
+   "brier": 0.0561,
+   "recall_at_0.8": 0.5846,
+   "benign_flag_rate_at_0.8": 0.0068,
+   "confusion_matrix": {
+    "labels": [
+     "benign",
+     "malicious"
+    ],
+    "rows": [
+     [
+      44701,
+      1761
+     ],
+     [
+      2253,
+      5639
+     ]
+    ]
+   },
+   "test_rows": 54354,
+   "test_positives": 7892
+  },
+  "2024": {
+   "accuracy": 0.9557,
+   "macro_f1": 0.6402,
+   "roc_auc": 0.8569,
+   "brier": 0.0334,
+   "recall_at_0.8": 0.4509,
+   "benign_flag_rate_at_0.8": 0.0074,
+   "confusion_matrix": {
+    "labels": [
+     "benign",
+     "malicious"
+    ],
+    "rows": [
+     [
+      45815,
+      1818
+     ],
+     [
+      327,
+      467
+     ]
+    ]
+   },
+   "test_rows": 48427,
+   "test_positives": 794
+  }
+ },
+ "naticusdroid_continuity": {
+  "file": "naticusdroid.csv",
+  "common_columns": 50,
+  "rows": 29332,
+  "accuracy": 0.7697,
+  "macro_f1": 0.7692,
+  "roc_auc": 0.8413,
+  "brier": 0.1646,
+  "recall_at_0.8": 0.5642,
+  "benign_flag_rate_at_0.8": 0.0627,
+  "confusion_matrix": {
+   "labels": [
+    "benign",
+    "malicious"
+   ],
+   "rows": [
+    [
+     10642,
+     3990
+    ],
+    [
+     2766,
+     11934
+    ]
+   ]
+  },
+  "test_rows": 29332,
+  "test_positives": 14700
+ },
+ "calibration": {
+  "method": "isotonic regression, piecewise-linear between thresholds, clipped outside",
+  "fitted_on": "2022 validation slice (20740 rows)",
+  "knots_raw": [
+   4.7e-05,
+   0.001994,
+   0.001999,
+   0.009775,
+   0.009778,
+   0.011913,
+   0.011915,
+   0.02054,
+   0.020555,
+   0.027442,
+   0.027483,
+   0.03237,
+   0.032381,
+   0.036211,
+   0.036234,
+   0.037369,
+   0.037379,
+   0.071977,
+   0.072031,
+   0.076274,
+   0.076325,
+   0.090543,
+   0.090586,
+   0.091885,
+   0.092388,
+   0.097084,
+   0.097155,
+   0.108143,
+   0.108254,
+   0.160427,
+   0.16066,
+   0.193733,
+   0.193949,
+   0.196684,
+   0.196743,
+   0.259492,
+   0.260055,
+   0.278512,
+   0.279001,
+   0.285644,
+   0.285921,
+   0.303703,
+   0.303786,
+   0.419194,
+   0.420355,
+   0.44409,
+   0.444219,
+   0.446953,
+   0.447149,
+   0.448143,
+   0.448447,
+   0.487336,
+   0.48813,
+   0.607814,
+   0.607865,
+   0.626409,
+   0.626798,
+   0.673033,
+   0.674036,
+   0.705929,
+   0.70673,
+   0.730298,
+   0.730364,
+   0.74069,
+   0.741205,
+   0.823369,
+   0.823369,
+   0.837647,
+   0.837759,
+   0.837963,
+   0.83807,
+   0.864867,
+   0.865053,
+   0.87624,
+   0.876284,
+   0.880226,
+   0.880288,
+   0.903548,
+   0.903576,
+   0.91013,
+   0.910381,
+   0.915248,
+   0.915265,
+   0.947423,
+   0.947445,
+   0.955695,
+   0.955702,
+   0.968509,
+   0.968567,
+   0.980394,
+   0.980405,
+   0.984067,
+   0.984075,
+   0.998576,
+   0.998587,
+   0.999946
+  ],
+  "knots_calibrated": [
+   0.001,
+   0.001,
+   0.002658,
+   0.002658,
+   0.003367,
+   0.003367,
+   0.004274,
+   0.004274,
+   0.00937,
+   0.00937,
+   0.021352,
+   0.021352,
+   0.028302,
+   0.028302,
+   0.032787,
+   0.032787,
+   0.03752,
+   0.03752,
+   0.078947,
+   0.078947,
+   0.084615,
+   0.084615,
+   0.105263,
+   0.105263,
+   0.121212,
+   0.121212,
+   0.13089,
+   0.13089,
+   0.158645,
+   0.158645,
+   0.266423,
+   0.266423,
+   0.266667,
+   0.266667,
+   0.325843,
+   0.325843,
+   0.365854,
+   0.365854,
+   0.473684,
+   0.473684,
+   0.48,
+   0.48,
+   0.502778,
+   0.502778,
+   0.595745,
+   0.595745,
+   0.599156,
+   0.599156,
+   0.666667,
+   0.666667,
+   0.69863,
+   0.69863,
+   0.749196,
+   0.749196,
+   0.75,
+   0.75,
+   0.765957,
+   0.765957,
+   0.771429,
+   0.771429,
+   0.804878,
+   0.804878,
+   0.814815,
+   0.814815,
+   0.890438,
+   0.890438,
+   0.92233,
+   0.92233,
+   0.928571,
+   0.928571,
+   0.934211,
+   0.934211,
+   0.954955,
+   0.954955,
+   0.959184,
+   0.959184,
+   0.962406,
+   0.962406,
+   0.974359,
+   0.974359,
+   0.979058,
+   0.979058,
+   0.985953,
+   0.985953,
+   0.989011,
+   0.989011,
+   0.989662,
+   0.989662,
+   0.991979,
+   0.991979,
+   0.997525,
+   0.997525,
+   0.997681,
+   0.997681,
+   0.999,
+   0.999
+  ],
+  "validation_brier_before": 0.0542,
+  "validation_brier_after": 0.0501
+ },
+ "gates": {
+  "accuracy_ge_0.90": true,
+  "roc_auc_ge_0.95": true,
+  "model_under_5mb": true
+ },
+ "gates_passed": true,
+ "top_features": [
+  {
+   "feature": "CHANGE_WIFI_STATE",
+   "gain_share": 0.3341
+  },
+  {
+   "feature": "WRITE_SETTINGS",
+   "gain_share": 0.0832
+  },
+  {
+   "feature": "ACCESS_WIFI_STATE",
+   "gain_share": 0.0628
+  },
+  {
+   "feature": "WAKE_LOCK",
+   "gain_share": 0.0577
+  },
+  {
+   "feature": "SEND_SMS",
+   "gain_share": 0.0499
+  },
+  {
+   "feature": "REQUEST_INSTALL_PACKAGES",
+   "gain_share": 0.0478
+  },
+  {
+   "feature": "SYSTEM_ALERT_WINDOW",
+   "gain_share": 0.0448
+  },
+  {
+   "feature": "FOREGROUND_SERVICE",
+   "gain_share": 0.0415
+  },
+  {
+   "feature": "READ_APP_BADGE",
+   "gain_share": 0.0149
+  },
+  {
+   "feature": "RESTART_PACKAGES",
+   "gain_share": 0.0141
+  },
+  {
+   "feature": "CHANGE_NETWORK_STATE",
+   "gain_share": 0.0126
+  },
+  {
+   "feature": "CAMERA",
+   "gain_share": 0.0101
+  },
+  {
+   "feature": "RECEIVE_BOOT_COMPLETED",
+   "gain_share": 0.0095
+  },
+  {
+   "feature": "RECEIVE_USER_PRESENT",
+   "gain_share": 0.0087
+  },
+  {
+   "feature": "USE_FINGERPRINT",
+   "gain_share": 0.0081
+  },
+  {
+   "feature": "GET_ACCOUNTS",
+   "gain_share": 0.0081
+  },
+  {
+   "feature": "ACCESS_COARSE_LOCATION",
+   "gain_share": 0.0078
+  },
+  {
+   "feature": "RECEIVE_SMS",
+   "gain_share": 0.0071
+  },
+  {
+   "feature": "ACCESS_LOCATION_EXTRA_COMMANDS",
+   "gain_share": 0.0066
+  },
+  {
+   "feature": "VIBRATE",
+   "gain_share": 0.0065
+  }
+ ]
+}

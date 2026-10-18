@@ -1,0 +1,44 @@
+# OS and editors
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Secrets and local config (never commit)
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.jks
+*.keystore
+key.properties
+service-account*.json
+*-sa.json
+google-services.json
+GoogleService-Info.plist
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+.coverage
+htmlcov/
+
+# Node
+node_modules/
+dist/
+
+# Build outputs
+build/
+coverage/
+.deploy/
+vendor/
+
+# Generated evaluation output (re-create with the eval scripts)
+**/eval/results/

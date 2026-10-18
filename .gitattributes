@@ -1,0 +1,18 @@
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ogg binary
+*.wav binary
+*.ttf binary
+*.otf binary
+*.woff binary
+*.woff2 binary
+*.pkl binary
+*.joblib binary
+*.lgb binary
+*.parquet binary
+*.jar binary
+*.jsonl linguist-generated=true -diff
+data/** linguist-generated=true
+apps/mobile/lib/l10n/app_localizations*.dart linguist-generated=true

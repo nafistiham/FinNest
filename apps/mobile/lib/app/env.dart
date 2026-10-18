@@ -63,6 +63,34 @@ abstract final class AppEnv {
     required bool flag,
   }) => debugBuild || flag;
 
+  /// A fixed App Check debug token for a sideloaded demo APK, where Play
+  /// Integrity fails. Empty by default: the debug provider then makes a
+  /// random token per install, which is not on the Firebase allow list.
+  /// Pass it only through `tool/build_judges_apk.sh`, which reads it from the
+  /// `FINNEST_APPCHECK_TOKEN` environment variable. Never commit the value.
+  /// Used only when the debug provider is on ([useAppCheckDebugProvider]).
+  static const appCheckDebugToken = String.fromEnvironment(
+    'APP_CHECK_DEBUG_TOKEN',
+    defaultValue: '',
+  );
+
+  /// The token the debug provider is given, or `null` to let it make its
+  /// own ([appCheckDebugToken] is ignored with Play Integrity).
+  static String? get fixedAppCheckDebugToken => appCheckDebugTokenFor(
+    debugProvider: useAppCheckDebugProvider,
+    token: appCheckDebugToken,
+  );
+
+  /// [fixedAppCheckDebugToken] as a pure function, for tests.
+  @visibleForTesting
+  static String? appCheckDebugTokenFor({
+    required bool debugProvider,
+    required String token,
+  }) {
+    final t = token.trim();
+    return debugProvider && t.isNotEmpty ? t : null;
+  }
+
   /// The demo panel (long-press on the logo, `/demo`): it can force a
   /// safety verdict, mint demo integrity tokens, confirm cash-ins and switch
   /// persona, so a release APK hides it unless built with

@@ -3,6 +3,7 @@ import 'package:bhorosha/core/log.dart';
 import 'package:bhorosha/data/firebase/firebase_options.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 
 /// Outcome of [FirebaseBootstrap.tryInit]; gates every `firebase_*`
 /// consumer through `firebaseStatusProvider`.
@@ -45,20 +46,35 @@ abstract final class FirebaseBootstrap {
   }
 
   /// Debug provider in debug builds (or with `APP_CHECK_DEBUG=true`), Play
-  /// Integrity otherwise ([AppEnv.useAppCheckDebugProvider]). A failure here
-  /// must not take the app down: the risk-api in demo mode does not verify
-  /// App Check tokens.
+  /// Integrity otherwise ([AppEnv.useAppCheckDebugProvider]). With
+  /// `APP_CHECK_DEBUG_TOKEN` the debug provider uses that fixed, registered
+  /// token instead of a random one per install. A failure here must not take
+  /// the app down: risk-mw in demo mode does not verify App Check tokens.
   static Future<void> _activateAppCheck() async {
     final debug = AppEnv.useAppCheckDebugProvider;
+    final token = AppEnv.fixedAppCheckDebugToken;
     try {
       await FirebaseAppCheck.instance.activate(
-        providerAndroid: debug
-            ? const AndroidDebugProvider()
-            : const AndroidPlayIntegrityProvider(),
+        providerAndroid: androidProviderFor(debug: debug, debugToken: token),
       );
-      Log.i(_tag, 'App Check active (${debug ? 'debug' : 'play_integrity'})');
+      // Never log the token itself.
+      Log.i(
+        _tag,
+        'App Check active (${debug ? (token != null ? 'debug, fixed token' : 'debug') : 'play_integrity'})',
+      );
     } on Object catch (e) {
       Log.w(_tag, 'App Check activation failed', e);
     }
   }
+
+  /// The Android provider [_activateAppCheck] installs, as a pure function
+  /// for tests: Play Integrity unless [debug]; the debug provider with
+  /// [debugToken] (a `null` token lets the SDK make and persist its own).
+  @visibleForTesting
+  static AndroidAppCheckProvider androidProviderFor({
+    required bool debug,
+    String? debugToken,
+  }) => debug
+      ? AndroidDebugProvider(debugToken: debugToken)
+      : const AndroidPlayIntegrityProvider();
 }

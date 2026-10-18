@@ -1,0 +1,2038 @@
+{
+  "version": "safety_kb.v1",
+  "updated": "2026-10-18",
+  "policy": "FinNest and public agencies only: no private business name",
+  "sources": {
+    "bb_cipc": {
+      "name": "Bangladesh Bank Customer Interest Protection Centre (CIPC) complaint procedure",
+      "url": "https://www.bb.org.bd/en/index.php/services/cipc_procedure",
+      "level": "official"
+    },
+    "bb_mfs_guideline": {
+      "name": "Bangladesh Bank MFS Guidelines (2011, amended)",
+      "url": "https://www.bb.org.bd/aboutus/regulationguideline/mfsguideline.pdf",
+      "level": "official"
+    },
+    "police_portal": {
+      "name": "Bangladesh Police portal (999 National Emergency Service)",
+      "url": "https://www.police.gov.bd/",
+      "level": "official"
+    },
+    "pcsw": {
+      "name": "Police Cyber Support for Women",
+      "url": "https://www.police.gov.bd/en/police_cyber_support_for_women",
+      "level": "official"
+    },
+    "cid_cyber": {
+      "name": "CID Cyber Crime Complain page",
+      "url": "https://www.cid.gov.bd/hot-line-number-for-cyber-complain",
+      "level": "official"
+    },
+    "btrc": {
+      "name": "BTRC (Bangladesh Telecommunication Regulatory Commission)",
+      "url": "https://www.btrc.gov.bd/",
+      "level": "official"
+    },
+    "election_commission": {
+      "name": "Bangladesh Election Commission",
+      "url": "https://www.ecs.gov.bd/",
+      "level": "official"
+    },
+    "mobile_money_guidance": {
+      "name": "Official mobile-money safety guidance",
+      "level": "official"
+    },
+    "phone_platform_guidance": {
+      "name": "Phone platform safety guidance",
+      "level": "official"
+    },
+    "news_reports": {
+      "name": "News reports",
+      "level": "news"
+    },
+    "ftc_sim_swap": {
+      "name": "US FTC: SIM swap scams, how to protect yourself (2019)",
+      "url": "https://consumer.ftc.gov/consumer-alerts/2019/10/sim-swap-scams-how-protect-yourself",
+      "level": "agency"
+    },
+    "fcc_sim_swap": {
+      "name": "US FCC: SIM swap tip card",
+      "url": "https://www.fcc.gov/sites/default/files/sim_swap_tip_card.pdf",
+      "level": "agency"
+    },
+    "fcc_spoofing": {
+      "name": "US FCC: Caller ID spoofing guide",
+      "url": "https://www.fcc.gov/consumers/guides/spoofing",
+      "level": "agency"
+    },
+    "finnest_app": {
+      "name": "FinNest app features (product specification)",
+      "url": "about:finnest",
+      "level": "official"
+    }
+  },
+  "synonyms": [
+    [
+      "otp",
+      "ওটিপি",
+      "কোড",
+      "code",
+      "verification code",
+      "ভেরিফিকেশন কোড",
+      "one time password",
+      "এসএমএস কোড",
+      "sms code",
+      "secret code",
+      "security code"
+    ],
+    [
+      "pin",
+      "পিন",
+      "গোপন নম্বর",
+      "pin number",
+      "পিন নম্বর",
+      "password",
+      "পাসওয়ার্ড"
+    ],
+    [
+      "mobile money",
+      "মোবাইল ব্যাংকিং",
+      "mobile banking",
+      "mfs",
+      "wallet",
+      "ওয়ালেট"
+    ],
+    [
+      "finnest",
+      "ফিননেস্ট",
+      "finnest app",
+      "ফিননেস্ট অ্যাপ",
+      "my bank",
+      "আমার ব্যাংক"
+    ],
+    [
+      "customer care",
+      "কাস্টমার কেয়ার",
+      "helpline",
+      "হেল্পলাইন",
+      "call center",
+      "কল সেন্টার",
+      "agent",
+      "এজেন্ট",
+      "অফিসার",
+      "officer"
+    ],
+    [
+      "sim",
+      "সিম",
+      "sim card",
+      "সিম কার্ড",
+      "sim swap",
+      "সিম সোয়াপ",
+      "sim replacement",
+      "সিম বদল",
+      "no network",
+      "নেটওয়ার্ক নেই",
+      "no service"
+    ],
+    [
+      "telecom operator",
+      "অপারেটর",
+      "mobile operator",
+      "মোবাইল কোম্পানি"
+    ],
+    [
+      "remote control app",
+      "রিমোট অ্যাপ",
+      "screen share",
+      "স্ক্রিন শেয়ার",
+      "screen sharing"
+    ],
+    [
+      "social media account",
+      "সোশ্যাল মিডিয়া",
+      "আইডি হ্যাক",
+      "id hack"
+    ],
+    [
+      "chat app",
+      "চ্যাট অ্যাপ"
+    ],
+    [
+      "online shop",
+      "অনলাইন শপ",
+      "f-commerce",
+      "পেজ থেকে কেনা",
+      "online order",
+      "অনলাইন অর্ডার",
+      "advance payment",
+      "অগ্রিম টাকা"
+    ],
+    [
+      "app scanner",
+      "app safety scan",
+      "virus scan",
+      "ভাইরাস",
+      "app store",
+      "অ্যাপ স্টোর"
+    ],
+    [
+      "apk",
+      "এপিকে",
+      "sideload",
+      "link theke app",
+      "লিংক থেকে অ্যাপ",
+      "unknown app",
+      "অচেনা অ্যাপ",
+      "install",
+      "ইনস্টল"
+    ],
+    [
+      "accessibility",
+      "অ্যাক্সেসিবিলিটি",
+      "permission",
+      "পারমিশন",
+      "অনুমতি"
+    ],
+    [
+      "police",
+      "পুলিশ",
+      "999",
+      "৯৯৯",
+      "thana",
+      "থানা",
+      "arrest",
+      "গ্রেফতার",
+      "মামলা",
+      "case",
+      "digital arrest",
+      "ডিজিটাল অ্যারেস্ট",
+      "rab",
+      "র‍্যাব",
+      "db"
+    ],
+    [
+      "lottery",
+      "লটারি",
+      "prize",
+      "পুরস্কার",
+      "gift",
+      "উপহার",
+      "offer",
+      "অফার",
+      "jitechen",
+      "জিতেছেন",
+      "you won"
+    ],
+    [
+      "loan app",
+      "লোন অ্যাপ",
+      "loan",
+      "লোন",
+      "ঋণ",
+      "quick loan",
+      "instant loan"
+    ],
+    [
+      "job offer",
+      "চাকরি",
+      "job",
+      "part time",
+      "পার্ট টাইম",
+      "work from home",
+      "ঘরে বসে আয়",
+      "task job"
+    ],
+    [
+      "wrong number",
+      "ভুল নম্বর",
+      "vul kore",
+      "ভুল করে",
+      "mistake send",
+      "টাকা ফেরত",
+      "return money",
+      "refund",
+      "ফেরত দিন"
+    ],
+    [
+      "nid",
+      "এনআইডি",
+      "জাতীয় পরিচয়পত্র",
+      "national id",
+      "kyc",
+      "কেওয়াইসি",
+      "update",
+      "হালনাগাদ",
+      "আপডেট"
+    ],
+    [
+      "qr",
+      "কিউআর",
+      "qr code",
+      "কিউআর কোড",
+      "scan",
+      "স্ক্যান",
+      "bangla qr"
+    ],
+    [
+      "recharge",
+      "রিচার্জ",
+      "cashback",
+      "ক্যাশব্যাক",
+      "free data",
+      "ফ্রি ডাটা",
+      "bonus",
+      "বোনাস"
+    ],
+    [
+      "link",
+      "লিংক",
+      "sms link",
+      "phishing",
+      "ফিশিং",
+      "fake website",
+      "নকল ওয়েবসাইট",
+      "website",
+      "ওয়েবসাইট"
+    ],
+    [
+      "scam",
+      "প্রতারণা",
+      "fraud",
+      "ফ্রড",
+      "প্রতারক",
+      "scammer",
+      "batpar",
+      "বাটপার",
+      "ধোঁকা",
+      "thok",
+      "ঠক"
+    ],
+    [
+      "block account",
+      "অ্যাকাউন্ট বন্ধ",
+      "lock",
+      "লক",
+      "freeze",
+      "account block",
+      "অ্যাকাউন্ট ব্লক"
+    ],
+    [
+      "balance",
+      "ব্যালেন্স",
+      "statement",
+      "স্টেটমেন্ট",
+      "transaction",
+      "লেনদেন",
+      "history",
+      "হিস্ট্রি",
+      "check balance"
+    ],
+    [
+      "complaint",
+      "অভিযোগ",
+      "report",
+      "রিপোর্ট",
+      "জিডি",
+      "gd",
+      "nalish",
+      "নালিশ"
+    ],
+    [
+      "relative",
+      "আত্মীয়",
+      "accident",
+      "দুর্ঘটনা",
+      "hospital",
+      "হাসপাতাল",
+      "emergency",
+      "জরুরি",
+      "ছেলে",
+      "মেয়ে",
+      "ভাই"
+    ],
+    [
+      "trusted person",
+      "বিশ্বস্ত মানুষ",
+      "trusted contact",
+      "approve",
+      "অনুমোদন",
+      "family member",
+      "পরিবারের লোক"
+    ],
+    [
+      "hold",
+      "আটকে রাখা",
+      "payment held",
+      "টাকা আটকে আছে",
+      "on hold",
+      "হোল্ড"
+    ]
+  ],
+  "chunks": [
+    {
+      "id": "fake_agent_care_call__signs",
+      "kind": "playbook",
+      "title_bn": "ভুয়া এজেন্ট বা কাস্টমার কেয়ার কল: কীভাবে চিনবেন",
+      "title_en": "Fake agent or customer care call: how it works and the signs",
+      "text_bn": "কেউ ফোন করে বলে সে এজেন্ট বা কাস্টমার কেয়ার থেকে বলছে। সে বলে আপনার অ্যাকাউন্টে সমস্যা হয়েছে বা বন্ধ হয়ে যাবে। তারপর সে পিন বা এসএমএসে আসা কোড চায়। আসল কর্মী কখনো পিন বা কোড চায় না। কেউ চাইলে বুঝবেন, সে প্রতারক।",
+      "text_en": "Someone calls and says they are an agent or customer care. They say your account has a problem or will be closed. Then they ask for your PIN or the code sent by SMS. Real staff never ask for a PIN or a code. Anyone who asks is a scammer.",
+      "tags": [
+        "fake agent",
+        "customer care call",
+        "ভুয়া এজেন্ট",
+        "কাস্টমার কেয়ার",
+        "pin",
+        "পিন",
+        "otp",
+        "কোড",
+        "signs",
+        "লক্ষণ"
+      ],
+      "sources": [
+        "mobile_money_guidance",
+        "news_reports"
+      ]
+    },
+    {
+      "id": "fake_agent_care_call__do_now",
+      "kind": "playbook",
+      "title_bn": "ভুয়া এজেন্ট বা কাস্টমার কেয়ার কল: এখন কী করবেন",
+      "title_en": "Fake agent or customer care call: what to do now",
+      "text_bn": "কল কেটে দিন। পিন বা কোড বলবেন না। নিজে ফিননেস্ট হেল্পলাইন {{HELPLINE}}-এ ফোন করে ঘটনাটা বলুন। পিন বা কোড বলে ফেললে এখনই অ্যাপে পিন বদলান।",
+      "text_en": "Hang up. Do not say your PIN or code. Call the FinNest helpline {{HELPLINE}} yourself and explain what happened. If you already shared a PIN or code, change your PIN in the app now.",
+      "tags": [
+        "fake agent",
+        "customer care call",
+        "ভুয়া এজেন্ট",
+        "কাস্টমার কেয়ার",
+        "pin",
+        "পিন",
+        "otp",
+        "কোড",
+        "what to do",
+        "কী করব"
+      ],
+      "sources": [
+        "mobile_money_guidance",
+        "news_reports"
+      ]
+    },
+    {
+      "id": "fake_agent_care_call__prevent",
+      "kind": "playbook",
+      "title_bn": "ভুয়া এজেন্ট বা কাস্টমার কেয়ার কল: কীভাবে বাঁচবেন",
+      "title_en": "Fake agent or customer care call: how to prevent it",
+      "text_bn": "মনে রাখুন, কোনো ব্যাংক বা মোবাইল ব্যাংকিংয়ের কর্মী পিন চায় না। কিছু যাচাই করতে হলে নিজে অফিসিয়াল হেল্পলাইনে ফোন করুন। আসা কলের নম্বর দেখে ভরসা করবেন না।",
+      "text_en": "Remember, no bank or mobile-money staff will ask for your PIN. To check anything, call the official helpline yourself. Do not trust a call just because of the number on the screen.",
+      "tags": [
+        "fake agent",
+        "customer care call",
+        "ভুয়া এজেন্ট",
+        "কাস্টমার কেয়ার",
+        "pin",
+        "পিন",
+        "otp",
+        "কোড",
+        "prevent",
+        "সাবধান"
+      ],
+      "sources": [
+        "mobile_money_guidance",
+        "news_reports"
+      ]
+    },
+    {
+      "id": "wrong_send_return__signs",
+      "kind": "playbook",
+      "title_bn": "ভুল করে টাকা পাঠানোর গল্প: কীভাবে চিনবেন",
+      "title_en": "Money sent by mistake, please return it: how it works and the signs",
+      "text_bn": "কেউ ফোন বা এসএমএস করে বলে, ভুল করে আপনার নম্বরে টাকা গেছে। সে টাকা ফেরত দিতে খুব তাড়া দেয়। অনেক সময় আসলে কোনো টাকা আসেনি। শুধু একটা নকল এসএমএস এসেছে।",
+      "text_en": "Someone calls or texts to say money reached your number by mistake. They push you to send it back fast. Often no money came at all. You only got a fake SMS.",
+      "tags": [
+        "wrong number",
+        "ভুল নম্বর",
+        "ভুল করে টাকা",
+        "return money",
+        "টাকা ফেরত",
+        "fake sms",
+        "নকল এসএমএস",
+        "signs",
+        "লক্ষণ"
+      ],
+      "sources": [
+        "mobile_money_guidance",
+        "news_reports"
+      ]
+    },
+    {
+      "id": "wrong_send_return__do_now",
+      "kind": "playbook",
+      "title_bn": "ভুল করে টাকা পাঠানোর গল্প: এখন কী করবেন",
+      "title_en": "Money sent by mistake, please return it: what to do now",
+      "text_bn": "অ্যাপ খুলে ব্যালেন্স আর লেনদেনের তালিকা দেখুন। এসএমএস দেখে বিশ্বাস করবেন না। নিজে কোনো টাকা ফেরত পাঠাবেন না। লোকটিকে ফিননেস্ট হেল্পলাইন {{HELPLINE}}-এ যোগাযোগ করতে বলুন।",
+      "text_en": "Open the app and check your balance and transaction list. Do not trust the SMS. Do not send any money back yourself. Ask the person to contact the FinNest helpline {{HELPLINE}}.",
+      "tags": [
+        "wrong number",
+        "ভুল নম্বর",
+        "ভুল করে টাকা",
+        "return money",
+        "টাকা ফেরত",
+        "fake sms",
+        "নকল এসএমএস",
+        "what to do",
+        "কী করব"
+      ],
+      "sources": [
+        "mobile_money_guidance",
+        "news_reports"
+      ]
+    },
+    {
+      "id": "wrong_send_return__prevent",
+      "kind": "playbook",
+      "title_bn": "ভুল করে টাকা পাঠানোর গল্প: কীভাবে বাঁচবেন",
+      "title_en": "Money sent by mistake, please return it: how to prevent it",
+      "text_bn": "ভুল লেনদেন ঠিক করার কাজ হেল্পলাইনের মাধ্যমে হয়, অচেনা মানুষের কথায় নয়। সবসময় শুধু অ্যাপের ব্যালেন্সকে বিশ্বাস করুন।",
+      "text_en": "Mistaken payments are fixed through the helpline, not by a stranger's request. Always trust only the balance in the app.",
+      "tags": [
+        "wrong number",
+        "ভুল নম্বর",
+        "ভুল করে টাকা",
+        "return money",
+        "টাকা ফেরত",
+        "fake sms",
+        "নকল এসএমএস",
+        "prevent",
+        "সাবধান"
+      ],
+      "sources": [
+        "mobile_money_guidance",
+        "news_reports"
+      ]
+    },
+    {
+      "id": "lottery_prize__signs",
+      "kind": "playbook",
+      "title_bn": "লটারি বা পুরস্কারের ফাঁদ: কীভাবে চিনবেন",
+      "title_en": "Lottery or prize trap: how it works and the signs",
+      "text_bn": "কেউ বলে আপনি লটারি বা পুরস্কার জিতেছেন। পুরস্কার পেতে আগে ফি দিতে বলে। অথবা পিন বা কোড চায়। আপনি কোনো লটারিতে নাম না দিলে এটা অবশ্যই প্রতারণা।",
+      "text_en": "Someone says you won a lottery or a prize. They ask you to pay a fee first. Or they ask for your PIN or code. If you never entered a lottery, this is a scam.",
+      "tags": [
+        "lottery",
+        "লটারি",
+        "prize",
+        "পুরস্কার",
+        "gift",
+        "উপহার",
+        "fee",
+        "ফি",
+        "signs",
+        "লক্ষণ"
+      ],
+      "sources": [
+        "mobile_money_guidance",
+        "news_reports"
+      ]
+    },
+    {
+      "id": "lottery_prize__do_now",
+      "kind": "playbook",
+      "title_bn": "লটারি বা পুরস্কারের ফাঁদ: এখন কী করবেন",
+      "title_en": "Lottery or prize trap: what to do now",
+      "text_bn": "উত্তর দেবেন না, টাকা পাঠাবেন না। কল কেটে দিন বা মেসেজ মুছে ফেলুন। সন্দেহ থাকলে ফিননেস্ট হেল্পলাইন {{HELPLINE}}-এ জিজ্ঞেস করুন।",
+      "text_en": "Do not reply and do not pay. Hang up or delete the message. If you are unsure, ask the FinNest helpline {{HELPLINE}}.",
+      "tags": [
+        "lottery",
+        "লটারি",
+        "prize",
+        "পুরস্কার",
+        "gift",
+        "উপহার",
+        "fee",
+        "ফি",
+        "what to do",
+        "কী করব"
+      ],
+      "sources": [
+        "mobile_money_guidance",
+        "news_reports"
+      ]
+    },
+    {
+      "id": "lottery_prize__prevent",
+      "kind": "playbook",
+      "title_bn": "লটারি বা পুরস্কারের ফাঁদ: কীভাবে বাঁচবেন",
+      "title_en": "Lottery or prize trap: how to prevent it",
+      "text_bn": "পুরস্কার পেতে কখনো টাকা বা পিন লাগে না। আসল অফার অ্যাপের ভেতরেই দেখা যায়।",
+      "text_en": "A real prize never needs money or your PIN. Real offers show inside the official app.",
+      "tags": [
+        "lottery",
+        "লটারি",
+        "prize",
+        "পুরস্কার",
+        "gift",
+        "উপহার",
+        "fee",
+        "ফি",
+        "prevent",
+        "সাবধান"
+      ],
+      "sources": [
+        "mobile_money_guidance",
+        "news_reports"
+      ]
+    },
+    {
+      "id": "fake_job_or_loan_app__signs",
+      "kind": "playbook",
+      "title_bn": "ভুয়া চাকরি বা লোন অ্যাপ: কীভাবে চিনবেন",
+      "title_en": "Fake job or loan app: how it works and the signs",
+      "text_bn": "চ্যাট অ্যাপে ঘরে বসে চাকরি, অথবা খুব সহজ লোনের অফার আসে। আগে রেজিস্ট্রেশন বা প্রসেসিং ফি চায়। কিছু লোন অ্যাপ এনআইডি, কন্টাক্ট আর ছবি নিয়ে নেয়। পরে হুমকি দিয়ে বেশি টাকা চায়।",
+      "text_en": "A chat app offers a work-from-home job or a very easy loan. They ask for a registration or processing fee first. Some loan apps take your NID, contacts and photos. Later they threaten you and demand more money.",
+      "tags": [
+        "loan app",
+        "লোন অ্যাপ",
+        "job",
+        "চাকরি",
+        "advance fee",
+        "অগ্রিম ফি",
+        "harassment",
+        "হুমকি",
+        "work from home",
+        "ঘরে বসে আয়",
+        "signs",
+        "লক্ষণ"
+      ],
+      "sources": [
+        "news_reports"
+      ]
+    },
+    {
+      "id": "fake_job_or_loan_app__do_now",
+      "kind": "playbook",
+      "title_bn": "ভুয়া চাকরি বা লোন অ্যাপ: এখন কী করবেন",
+      "title_en": "Fake job or loan app: what to do now",
+      "text_bn": "আর কোনো টাকা দেবেন না। অ্যাপটা মুছে ফেলুন, তারপর ফোনের নিরাপত্তা পরীক্ষা চালান। স্ক্রিনশট রেখে দিন। সিআইডি সাইবার অভিযোগ নম্বর ০১৩২০০১০১৪৮-এ জানান।",
+      "text_en": "Do not pay any more money. Delete the app, then run the phone safety check. Keep screenshots. Report it to the CID cyber crime complaint number 01320010148.",
+      "tags": [
+        "loan app",
+        "লোন অ্যাপ",
+        "job",
+        "চাকরি",
+        "advance fee",
+        "অগ্রিম ফি",
+        "harassment",
+        "হুমকি",
+        "work from home",
+        "ঘরে বসে আয়",
+        "what to do",
+        "কী করব"
+      ],
+      "sources": [
+        "news_reports"
+      ]
+    },
+    {
+      "id": "fake_job_or_loan_app__prevent",
+      "kind": "playbook",
+      "title_bn": "ভুয়া চাকরি বা লোন অ্যাপ: কীভাবে বাঁচবেন",
+      "title_en": "Fake job or loan app: how to prevent it",
+      "text_bn": "লোন বা চাকরির আগে ফি চাইলে সেটা প্রতারণার লক্ষণ। অচেনা অ্যাপকে কন্টাক্ট, ছবি বা এনআইডি দেবেন না।",
+      "text_en": "A fee before a loan or job is a sign of a scam. Do not give contacts, photos or your NID to an unknown app.",
+      "tags": [
+        "loan app",
+        "লোন অ্যাপ",
+        "job",
+        "চাকরি",
+        "advance fee",
+        "অগ্রিম ফি",
+        "harassment",
+        "হুমকি",
+        "work from home",
+        "ঘরে বসে আয়",
+        "prevent",
+        "সাবধান"
+      ],
+      "sources": [
+        "news_reports"
+      ]
+    },
+    {
+      "id": "sim_swap__signs",
+      "kind": "playbook",
+      "title_bn": "সিম সোয়াপ বা সিম বদলের প্রতারণা: কীভাবে চিনবেন",
+      "title_en": "SIM swap or SIM replacement fraud: how it works and the signs",
+      "text_bn": "প্রতারক আপনার নম্বরের একটা নতুন সিম তুলে নেয়। তখন আপনার কোড তার ফোনে যায়। হঠাৎ ফোনে নেটওয়ার্ক চলে যাওয়া প্রথম লক্ষণ। না চাইতেই কোড আসাও সাবধান হওয়ার লক্ষণ।",
+      "text_en": "A scammer gets a new SIM for your number. Then your codes go to their phone. Losing network signal suddenly is the first sign. Codes you did not ask for are also a warning.",
+      "tags": [
+        "sim swap",
+        "সিম সোয়াপ",
+        "no network",
+        "নেটওয়ার্ক নেই",
+        "sim replacement",
+        "সিম বদল",
+        "otp",
+        "কোড",
+        "signs",
+        "লক্ষণ"
+      ],
+      "sources": [
+        "news_reports",
+        "ftc_sim_swap",
+        "fcc_sim_swap",
+        "btrc"
+      ]
+    },
+    {
+      "id": "sim_swap__do_now",
+      "kind": "playbook",
+      "title_bn": "সিম সোয়াপ বা সিম বদলের প্রতারণা: এখন কী করবেন",
+      "title_en": "SIM swap or SIM replacement fraud: what to do now",
+      "text_bn": "অন্য ফোন থেকে আপনার মোবাইল অপারেটরকে জানান। ফিননেস্ট হেল্পলাইন {{HELPLINE}}-এ ফোন করে অ্যাকাউন্ট আটকাতে বলুন। থানায় বা সিআইডিতে অভিযোগ করুন।",
+      "text_en": "Call your mobile operator from another phone. Call the FinNest helpline {{HELPLINE}} and ask to block your account. Report it to the police or the CID.",
+      "tags": [
+        "sim swap",
+        "সিম সোয়াপ",
+        "no network",
+        "নেটওয়ার্ক নেই",
+        "sim replacement",
+        "সিম বদল",
+        "otp",
+        "কোড",
+        "what to do",
+        "কী করব"
+      ],
+      "sources": [
+        "news_reports",
+        "ftc_sim_swap",
+        "fcc_sim_swap",
+        "btrc"
+      ]
+    },
+    {
+      "id": "sim_swap__prevent",
+      "kind": "playbook",
+      "title_bn": "সিম সোয়াপ বা সিম বদলের প্রতারণা: কীভাবে বাঁচবেন",
+      "title_en": "SIM swap or SIM replacement fraud: how to prevent it",
+      "text_bn": "পিন কাউকে বলবেন না, তাহলে সিম গেলেও টাকা নেওয়া কঠিন হয়। মাঝে মাঝে *১৬০০১# ডায়াল করে দেখুন আপনার নামে কয়টি সিম আছে।",
+      "text_en": "Never tell anyone your PIN, so a stolen SIM alone is not enough. Now and then, dial *16001# to see how many SIMs are in your name.",
+      "tags": [
+        "sim swap",
+        "সিম সোয়াপ",
+        "no network",
+        "নেটওয়ার্ক নেই",
+        "sim replacement",
+        "সিম বদল",
+        "otp",
+        "কোড",
+        "prevent",
+        "সাবধান"
+      ],
+      "sources": [
+        "news_reports",
+        "ftc_sim_swap",
+        "fcc_sim_swap",
+        "btrc"
+      ]
+    },
+    {
+      "id": "police_impersonation__signs",
+      "kind": "playbook",
+      "title_bn": "পুলিশ সেজে ভয় দেখানো: কীভাবে চিনবেন",
+      "title_en": "Fake police or digital arrest threat: how it works and the signs",
+      "text_bn": "কেউ পুলিশ বা সরকারি অফিসার সেজে ফোন করে। কখনো নম্বরটা ৯৯৯-এর মতো দেখায়। বলে আপনার নামে মামলা হয়েছে, গ্রেফতার হবেন। তারপর টাকা বা পিন চায়, আর কাউকে বলতে মানা করে।",
+      "text_en": "Someone calls pretending to be police or a government officer. Sometimes the number looks like 999. They say there is a case against you and you will be arrested. Then they ask for money or your PIN, and tell you not to tell anyone.",
+      "tags": [
+        "police",
+        "পুলিশ",
+        "arrest",
+        "গ্রেফতার",
+        "case",
+        "মামলা",
+        "999",
+        "৯৯৯",
+        "digital arrest",
+        "ডিজিটাল অ্যারেস্ট",
+        "signs",
+        "লক্ষণ"
+      ],
+      "sources": [
+        "news_reports"
+      ]
+    },
+    {
+      "id": "police_impersonation__do_now",
+      "kind": "playbook",
+      "title_bn": "পুলিশ সেজে ভয় দেখানো: এখন কী করবেন",
+      "title_en": "Fake police or digital arrest threat: what to do now",
+      "text_bn": "কল কেটে দিন। কোনো টাকা পাঠাবেন না, পিন বলবেন না। নিজে ৯৯৯ বা কাছের থানায় ফোন করে যাচাই করুন। পরিবারের কাউকে জানান।",
+      "text_en": "Hang up. Do not send money and do not share your PIN. Call 999 or your local police station yourself to check. Tell someone in your family.",
+      "tags": [
+        "police",
+        "পুলিশ",
+        "arrest",
+        "গ্রেফতার",
+        "case",
+        "মামলা",
+        "999",
+        "৯৯৯",
+        "digital arrest",
+        "ডিজিটাল অ্যারেস্ট",
+        "what to do",
+        "কী করব"
+      ],
+      "sources": [
+        "news_reports"
+      ]
+    },
+    {
+      "id": "police_impersonation__prevent",
+      "kind": "playbook",
+      "title_bn": "পুলিশ সেজে ভয় দেখানো: কীভাবে বাঁচবেন",
+      "title_en": "Fake police or digital arrest threat: how to prevent it",
+      "text_bn": "৯৯৯ বা পুলিশ কখনো মোবাইল ব্যাংকিংয়ের পিন চায় না। মামলা মোবাইলে টাকা দিয়ে মেটানো যায় না।",
+      "text_en": "999 and the police never ask for a mobile-money PIN. A police case is never settled by sending mobile money.",
+      "tags": [
+        "police",
+        "পুলিশ",
+        "arrest",
+        "গ্রেফতার",
+        "case",
+        "মামলা",
+        "999",
+        "৯৯৯",
+        "digital arrest",
+        "ডিজিটাল অ্যারেস্ট",
+        "prevent",
+        "সাবধান"
+      ],
+      "sources": [
+        "news_reports"
+      ]
+    },
+    {
+      "id": "screen_share_remote__signs",
+      "kind": "playbook",
+      "title_bn": "স্ক্রিন শেয়ার বা রিমোট অ্যাপের ফাঁদ: কীভাবে চিনবেন",
+      "title_en": "Screen sharing or remote-control app trap: how it works and the signs",
+      "text_bn": "কলের মধ্যে কেউ একটা অ্যাপ নামাতে বলে, সমস্যা ঠিক করার কথা বলে। অ্যাপটা দিয়ে সে আপনার স্ক্রিন দেখে বা ফোন চালায়। তখন সে আপনার পিন আর কোড দেখে ফেলে। কলে থাকা অবস্থায় টাকার অ্যাপ খুলতে বললে সাবধান।",
+      "text_en": "During a call, someone asks you to install an app to fix a problem. With that app they can see your screen or control your phone. Then they see your PIN and codes. Be careful if they ask you to open a money app while on the call.",
+      "tags": [
+        "remote control app",
+        "রিমোট অ্যাপ",
+        "screen share",
+        "স্ক্রিন শেয়ার",
+        "install app",
+        "অ্যাপ ইনস্টল",
+        "accessibility",
+        "অ্যাক্সেসিবিলিটি",
+        "signs",
+        "লক্ষণ"
+      ],
+      "sources": [
+        "phone_platform_guidance"
+      ]
+    },
+    {
+      "id": "screen_share_remote__do_now",
+      "kind": "playbook",
+      "title_bn": "স্ক্রিন শেয়ার বা রিমোট অ্যাপের ফাঁদ: এখন কী করবেন",
+      "title_en": "Screen sharing or remote-control app trap: what to do now",
+      "text_bn": "কল কেটে দিন আর স্ক্রিন শেয়ার বন্ধ করুন। অ্যাপটা মুছে ফেলুন। অ্যাপে পিন বদলান। ফিননেস্ট হেল্পলাইন {{HELPLINE}}-এ জানান।",
+      "text_en": "End the call and stop screen sharing. Delete the app. Change your PIN in the app. Tell the FinNest helpline {{HELPLINE}}.",
+      "tags": [
+        "remote control app",
+        "রিমোট অ্যাপ",
+        "screen share",
+        "স্ক্রিন শেয়ার",
+        "install app",
+        "অ্যাপ ইনস্টল",
+        "accessibility",
+        "অ্যাক্সেসিবিলিটি",
+        "what to do",
+        "কী করব"
+      ],
+      "sources": [
+        "phone_platform_guidance"
+      ]
+    },
+    {
+      "id": "screen_share_remote__prevent",
+      "kind": "playbook",
+      "title_bn": "স্ক্রিন শেয়ার বা রিমোট অ্যাপের ফাঁদ: কীভাবে বাঁচবেন",
+      "title_en": "Screen sharing or remote-control app trap: how to prevent it",
+      "text_bn": "অচেনা কারো কথায় কোনো অ্যাপ নামাবেন না। স্ক্রিন শেয়ার চালু থাকলে টাকার অ্যাপ খুলবেন না।",
+      "text_en": "Never install an app because a stranger told you to. Do not open a money app while your screen is shared.",
+      "tags": [
+        "remote control app",
+        "রিমোট অ্যাপ",
+        "screen share",
+        "স্ক্রিন শেয়ার",
+        "install app",
+        "অ্যাপ ইনস্টল",
+        "accessibility",
+        "অ্যাক্সেসিবিলিটি",
+        "prevent",
+        "সাবধান"
+      ],
+      "sources": [
+        "phone_platform_guidance"
+      ]
+    },
+    {
+      "id": "fake_kyc_nid_update__signs",
+      "kind": "playbook",
+      "title_bn": "ভুয়া এনআইডি বা কেওয়াইসি হালনাগাদ: কীভাবে চিনবেন",
+      "title_en": "Fake NID or KYC update: how it works and the signs",
+      "text_bn": "এসএমএস বা বিজ্ঞাপনে বলে, এনআইডি হালনাগাদ না করলে অ্যাকাউন্ট বন্ধ হবে। সাথে একটা লিংক থাকে। লিংকের পাতায় এনআইডি, পিন আর কোড চায়। প্রতারকের কাছে আপনার কিছু তথ্য আগে থেকেই থাকতে পারে, তাই এটা আসল মনে হয়।",
+      "text_en": "An SMS or ad says your account will be closed unless you update your NID. It has a link. The page asks for your NID, PIN and code. Scammers may already have some of your details, so it can look real.",
+      "tags": [
+        "nid",
+        "এনআইডি",
+        "kyc",
+        "কেওয়াইসি",
+        "update",
+        "হালনাগাদ",
+        "account blocked",
+        "অ্যাকাউন্ট বন্ধ",
+        "link",
+        "লিংক",
+        "signs",
+        "লক্ষণ"
+      ],
+      "sources": [
+        "election_commission",
+        "news_reports",
+        "mobile_money_guidance"
+      ]
+    },
+    {
+      "id": "fake_kyc_nid_update__do_now",
+      "kind": "playbook",
+      "title_bn": "ভুয়া এনআইডি বা কেওয়াইসি হালনাগাদ: এখন কী করবেন",
+      "title_en": "Fake NID or KYC update: what to do now",
+      "text_bn": "লিংকে চাপ দেবেন না, কিছু লিখবেন না। যদি লিখে ফেলেন, এখনই পিন বদলান। তারপর ফিননেস্ট হেল্পলাইন {{HELPLINE}}-এ জানান।",
+      "text_en": "Do not tap the link and do not type anything. If you already did, change your PIN now. Then tell the FinNest helpline {{HELPLINE}}.",
+      "tags": [
+        "nid",
+        "এনআইডি",
+        "kyc",
+        "কেওয়াইসি",
+        "update",
+        "হালনাগাদ",
+        "account blocked",
+        "অ্যাকাউন্ট বন্ধ",
+        "link",
+        "লিংক",
+        "what to do",
+        "কী করব"
+      ],
+      "sources": [
+        "election_commission",
+        "news_reports",
+        "mobile_money_guidance"
+      ]
+    },
+    {
+      "id": "fake_kyc_nid_update__prevent",
+      "kind": "playbook",
+      "title_bn": "ভুয়া এনআইডি বা কেওয়াইসি হালনাগাদ: কীভাবে বাঁচবেন",
+      "title_en": "Fake NID or KYC update: how to prevent it",
+      "text_bn": "তথ্য হালনাগাদ শুধু অফিসিয়াল অ্যাপে বা অফিসে করুন। এসএমএসের লিংকে কখনো পিন দেবেন না।",
+      "text_en": "Update your details only in the official app or office. Never enter your PIN on a page from an SMS link.",
+      "tags": [
+        "nid",
+        "এনআইডি",
+        "kyc",
+        "কেওয়াইসি",
+        "update",
+        "হালনাগাদ",
+        "account blocked",
+        "অ্যাকাউন্ট বন্ধ",
+        "link",
+        "লিংক",
+        "prevent",
+        "সাবধান"
+      ],
+      "sources": [
+        "election_commission",
+        "news_reports",
+        "mobile_money_guidance"
+      ]
+    },
+    {
+      "id": "relative_emergency__signs",
+      "kind": "playbook",
+      "title_bn": "আত্মীয়ের বিপদের নাম করে প্রতারণা: কীভাবে চিনবেন",
+      "title_en": "Relative in an emergency: how it works and the signs",
+      "text_bn": "কেউ ফোন করে বলে আপনার আত্মীয় দুর্ঘটনায় পড়েছে বা বিপদে আছে। এখনই অচেনা নম্বরে টাকা পাঠাতে বলে। অনেক সময় আত্মীয়ের ফোন বন্ধ থাকে, তাই যাচাই করা যায় না। তাড়া দেওয়া আর ভয় দেখানো এর মূল লক্ষণ।",
+      "text_en": "Someone calls to say your relative had an accident or is in trouble. They ask you to send money to an unknown number right now. Often the relative's phone is off, so you cannot check. Rushing and fear are the main signs.",
+      "tags": [
+        "relative",
+        "আত্মীয়",
+        "accident",
+        "দুর্ঘটনা",
+        "hospital",
+        "হাসপাতাল",
+        "urgent money",
+        "জরুরি টাকা",
+        "signs",
+        "লক্ষণ"
+      ],
+      "sources": [
+        "news_reports"
+      ]
+    },
+    {
+      "id": "relative_emergency__do_now",
+      "kind": "playbook",
+      "title_bn": "আত্মীয়ের বিপদের নাম করে প্রতারণা: এখন কী করবেন",
+      "title_en": "Relative in an emergency: what to do now",
+      "text_bn": "একটু থামুন, তাড়াহুড়া করবেন না। চেনা নম্বরে আত্মীয় বা পরিবারের অন্য কাউকে ফোন করুন। নিশ্চিত না হয়ে টাকা পাঠাবেন না।",
+      "text_en": "Pause and do not rush. Call your relative or another family member on a number you know. Do not send money until you are sure.",
+      "tags": [
+        "relative",
+        "আত্মীয়",
+        "accident",
+        "দুর্ঘটনা",
+        "hospital",
+        "হাসপাতাল",
+        "urgent money",
+        "জরুরি টাকা",
+        "what to do",
+        "কী করব"
+      ],
+      "sources": [
+        "news_reports"
+      ]
+    },
+    {
+      "id": "relative_emergency__prevent",
+      "kind": "playbook",
+      "title_bn": "আত্মীয়ের বিপদের নাম করে প্রতারণা: কীভাবে বাঁচবেন",
+      "title_en": "Relative in an emergency: how to prevent it",
+      "text_bn": "পরিবারে একটা গোপন শব্দ ঠিক করে রাখুন। বিপদের খবর এলে সবসময় অন্য পথে যাচাই করুন।",
+      "text_en": "Agree a secret word with your family. When you hear bad news, always check it another way.",
+      "tags": [
+        "relative",
+        "আত্মীয়",
+        "accident",
+        "দুর্ঘটনা",
+        "hospital",
+        "হাসপাতাল",
+        "urgent money",
+        "জরুরি টাকা",
+        "prevent",
+        "সাবধান"
+      ],
+      "sources": [
+        "news_reports"
+      ]
+    },
+    {
+      "id": "fake_ecommerce_link__signs",
+      "kind": "playbook",
+      "title_bn": "ভুয়া অনলাইন শপ বা পেমেন্ট লিংক: কীভাবে চিনবেন",
+      "title_en": "Fake online shop or payment link: how it works and the signs",
+      "text_bn": "নকল পেজ বা ওয়েবসাইটে খুব বেশি ছাড় দেখায়। অগ্রিম টাকা চায়, তারপর আর যোগাযোগ করে না। কিছু পাতায় পিন আর কোড চায়। কোডের এসএমএসে অন্য কোনো দোকানের নাম থাকলে সাবধান।",
+      "text_en": "A fake page or website shows very big discounts. It asks for money in advance, then stops replying. Some pages ask for your PIN and code. Be careful if the code SMS names a different shop or purpose.",
+      "tags": [
+        "online shop",
+        "অনলাইন শপ",
+        "payment link",
+        "পেমেন্ট লিংক",
+        "advance",
+        "অগ্রিম",
+        "discount",
+        "ছাড়",
+        "signs",
+        "লক্ষণ"
+      ],
+      "sources": [
+        "news_reports"
+      ]
+    },
+    {
+      "id": "fake_ecommerce_link__do_now",
+      "kind": "playbook",
+      "title_bn": "ভুয়া অনলাইন শপ বা পেমেন্ট লিংক: এখন কী করবেন",
+      "title_en": "Fake online shop or payment link: what to do now",
+      "text_bn": "থামুন, পিন বা কোড দেবেন না। কোডের এসএমএস পুরোটা পড়ুন। টাকা দিয়ে ফেললে ফিননেস্ট হেল্পলাইন {{HELPLINE}}-এ জানান। স্ক্রিনশট রেখে দিন।",
+      "text_en": "Stop and do not enter your PIN or code. Read the whole code SMS. If you already paid, tell the FinNest helpline {{HELPLINE}}. Keep screenshots.",
+      "tags": [
+        "online shop",
+        "অনলাইন শপ",
+        "payment link",
+        "পেমেন্ট লিংক",
+        "advance",
+        "অগ্রিম",
+        "discount",
+        "ছাড়",
+        "what to do",
+        "কী করব"
+      ],
+      "sources": [
+        "news_reports"
+      ]
+    },
+    {
+      "id": "fake_ecommerce_link__prevent",
+      "kind": "playbook",
+      "title_bn": "ভুয়া অনলাইন শপ বা পেমেন্ট লিংক: কীভাবে বাঁচবেন",
+      "title_en": "Fake online shop or payment link: how to prevent it",
+      "text_bn": "সম্ভব হলে পণ্য হাতে পেয়ে টাকা দিন। পেমেন্ট শুধু অফিসিয়াল অ্যাপের ভেতর থেকে করুন।",
+      "text_en": "When you can, pay after you receive the item. Pay only from inside the official app.",
+      "tags": [
+        "online shop",
+        "অনলাইন শপ",
+        "payment link",
+        "পেমেন্ট লিংক",
+        "advance",
+        "অগ্রিম",
+        "discount",
+        "ছাড়",
+        "prevent",
+        "সাবধান"
+      ],
+      "sources": [
+        "news_reports"
+      ]
+    },
+    {
+      "id": "recharge_cashback__signs",
+      "kind": "playbook",
+      "title_bn": "রিচার্জ বা ক্যাশব্যাক অফারের ফাঁদ: কীভাবে চিনবেন",
+      "title_en": "Recharge or cashback bait: how it works and the signs",
+      "text_bn": "এসএমএস বা বিজ্ঞাপনে ফ্রি ডাটা বা বড় ক্যাশব্যাকের কথা বলে। একটা কোড ডায়াল করতে বা লিংকে চাপ দিতে বলে। লিংকের পাতা পিন বা কোড চায়।",
+      "text_en": "An SMS or ad promises free data or a big cashback. It asks you to dial a code or tap a link. The page then asks for your PIN or code.",
+      "tags": [
+        "recharge",
+        "রিচার্জ",
+        "cashback",
+        "ক্যাশব্যাক",
+        "free data",
+        "ফ্রি ডাটা",
+        "offer",
+        "অফার",
+        "signs",
+        "লক্ষণ"
+      ],
+      "sources": [
+        "mobile_money_guidance",
+        "news_reports"
+      ]
+    },
+    {
+      "id": "recharge_cashback__do_now",
+      "kind": "playbook",
+      "title_bn": "রিচার্জ বা ক্যাশব্যাক অফারের ফাঁদ: এখন কী করবেন",
+      "title_en": "Recharge or cashback bait: what to do now",
+      "text_bn": "কোড ডায়াল করবেন না, লিংকে চাপ দেবেন না। মেসেজটা মুছে ফেলুন। অফার আসল কিনা অ্যাপে দেখে নিন।",
+      "text_en": "Do not dial the code and do not tap the link. Delete the message. Check in the app whether the offer is real.",
+      "tags": [
+        "recharge",
+        "রিচার্জ",
+        "cashback",
+        "ক্যাশব্যাক",
+        "free data",
+        "ফ্রি ডাটা",
+        "offer",
+        "অফার",
+        "what to do",
+        "কী করব"
+      ],
+      "sources": [
+        "mobile_money_guidance",
+        "news_reports"
+      ]
+    },
+    {
+      "id": "recharge_cashback__prevent",
+      "kind": "playbook",
+      "title_bn": "রিচার্জ বা ক্যাশব্যাক অফারের ফাঁদ: কীভাবে বাঁচবেন",
+      "title_en": "Recharge or cashback bait: how to prevent it",
+      "text_bn": "আসল অফার অপারেটর বা মোবাইল ব্যাংকিংয়ের অফিসিয়াল অ্যাপে থাকে। অফার পেতে কখনো পিন লাগে না।",
+      "text_en": "Real offers are listed in the operator's or provider's official app. An offer never needs your PIN.",
+      "tags": [
+        "recharge",
+        "রিচার্জ",
+        "cashback",
+        "ক্যাশব্যাক",
+        "free data",
+        "ফ্রি ডাটা",
+        "offer",
+        "অফার",
+        "prevent",
+        "সাবধান"
+      ],
+      "sources": [
+        "mobile_money_guidance",
+        "news_reports"
+      ]
+    },
+    {
+      "id": "social_account_takeover__signs",
+      "kind": "playbook",
+      "title_bn": "হ্যাক হওয়া সোশ্যাল মিডিয়া আইডি থেকে টাকা চাওয়া: কীভাবে চিনবেন",
+      "title_en": "Hacked social-media account asks for money: how it works and the signs",
+      "text_bn": "প্রতারক লিংক পাঠিয়ে কারো সোশ্যাল মিডিয়া আইডি হ্যাক করে। তারপর সেই আইডি থেকে বন্ধুদের কাছে জরুরি টাকা চায়। নতুন অচেনা নম্বরে টাকা পাঠাতে বলে। লেখার ধরন অন্যরকম লাগতে পারে।",
+      "text_en": "A scammer hacks a social-media account with a link. Then they message the owner's friends asking for urgent money. They ask you to send it to a new number. The writing style may feel different.",
+      "tags": [
+        "social media",
+        "সোশ্যাল মিডিয়া",
+        "hacked",
+        "হ্যাক",
+        "friend asks money",
+        "বন্ধু টাকা চায়",
+        "message",
+        "মেসেজ",
+        "signs",
+        "লক্ষণ"
+      ],
+      "sources": [
+        "news_reports",
+        "phone_platform_guidance",
+        "pcsw"
+      ]
+    },
+    {
+      "id": "social_account_takeover__do_now",
+      "kind": "playbook",
+      "title_bn": "হ্যাক হওয়া সোশ্যাল মিডিয়া আইডি থেকে টাকা চাওয়া: এখন কী করবেন",
+      "title_en": "Hacked social-media account asks for money: what to do now",
+      "text_bn": "বন্ধুকে সরাসরি ফোন করে যাচাই করুন। নিশ্চিত না হয়ে টাকা পাঠাবেন না। আইডিটা রিপোর্ট করুন। নারীদের জন্য পুলিশ সাইবার সাপোর্ট ০১৩২০০০০৮৮৮-এ সাহায্য নেওয়া যায়।",
+      "text_en": "Call your friend directly to check. Do not send money until you are sure. Report the account. Women can get help from Police Cyber Support for Women at 01320000888.",
+      "tags": [
+        "social media",
+        "সোশ্যাল মিডিয়া",
+        "hacked",
+        "হ্যাক",
+        "friend asks money",
+        "বন্ধু টাকা চায়",
+        "message",
+        "মেসেজ",
+        "what to do",
+        "কী করব"
+      ],
+      "sources": [
+        "news_reports",
+        "phone_platform_guidance",
+        "pcsw"
+      ]
+    },
+    {
+      "id": "social_account_takeover__prevent",
+      "kind": "playbook",
+      "title_bn": "হ্যাক হওয়া সোশ্যাল মিডিয়া আইডি থেকে টাকা চাওয়া: কীভাবে বাঁচবেন",
+      "title_en": "Hacked social-media account asks for money: how to prevent it",
+      "text_bn": "নিজের আইডিতে দুই ধাপের তালা (টু-স্টেপ ভেরিফিকেশন) চালু রাখুন। মেসেজে আসা লগইন লিংকে চাপ দেবেন না।",
+      "text_en": "Turn on two-step verification on your own accounts. Do not tap login links that come in messages.",
+      "tags": [
+        "social media",
+        "সোশ্যাল মিডিয়া",
+        "hacked",
+        "হ্যাক",
+        "friend asks money",
+        "বন্ধু টাকা চায়",
+        "message",
+        "মেসেজ",
+        "prevent",
+        "সাবধান"
+      ],
+      "sources": [
+        "news_reports",
+        "phone_platform_guidance",
+        "pcsw"
+      ]
+    },
+    {
+      "id": "qr_code_scam__signs",
+      "kind": "playbook",
+      "title_bn": "কিউআর কোডের প্রতারণা: কীভাবে চিনবেন",
+      "title_en": "QR code scam: how it works and the signs",
+      "text_bn": "প্রতারক দোকানের আসল কিউআর কোডের ওপর নিজের স্টিকার লাগিয়ে দেয়। তখন টাকা দোকানে না গিয়ে তার কাছে যায়। কিছু কিউআর কোড নকল লগইন পাতা খোলে।",
+      "text_en": "A scammer sticks their own QR code over a shop's real one. Then the money goes to them, not to the shop. Some QR codes open a fake login page.",
+      "tags": [
+        "qr",
+        "কিউআর",
+        "qr code",
+        "কিউআর কোড",
+        "scan",
+        "স্ক্যান",
+        "sticker",
+        "স্টিকার",
+        "merchant",
+        "দোকান",
+        "signs",
+        "লক্ষণ"
+      ],
+      "sources": [
+        "news_reports"
+      ]
+    },
+    {
+      "id": "qr_code_scam__do_now",
+      "kind": "playbook",
+      "title_bn": "কিউআর কোডের প্রতারণা: এখন কী করবেন",
+      "title_en": "QR code scam: what to do now",
+      "text_bn": "টাকা পাঠানোর আগে অ্যাপে দোকানের নাম মিলিয়ে দেখুন। নাম না মিললে বাতিল করুন। দোকানদারকে আর ফিননেস্ট হেল্পলাইন {{HELPLINE}}-কে জানান।",
+      "text_en": "Before paying, check the shop name in the app. If the name does not match, cancel. Tell the shopkeeper and the FinNest helpline {{HELPLINE}}.",
+      "tags": [
+        "qr",
+        "কিউআর",
+        "qr code",
+        "কিউআর কোড",
+        "scan",
+        "স্ক্যান",
+        "sticker",
+        "স্টিকার",
+        "merchant",
+        "দোকান",
+        "what to do",
+        "কী করব"
+      ],
+      "sources": [
+        "news_reports"
+      ]
+    },
+    {
+      "id": "qr_code_scam__prevent",
+      "kind": "playbook",
+      "title_bn": "কিউআর কোডের প্রতারণা: কীভাবে বাঁচবেন",
+      "title_en": "QR code scam: how to prevent it",
+      "text_bn": "কিউআর কোড শুধু অফিসিয়াল অ্যাপ দিয়ে স্ক্যান করুন। অচেনা বিজ্ঞাপনের কিউআর কোড স্ক্যান করবেন না।",
+      "text_en": "Scan QR codes only with the official app. Do not scan QR codes from unknown ads.",
+      "tags": [
+        "qr",
+        "কিউআর",
+        "qr code",
+        "কিউআর কোড",
+        "scan",
+        "স্ক্যান",
+        "sticker",
+        "স্টিকার",
+        "merchant",
+        "দোকান",
+        "prevent",
+        "সাবধান"
+      ],
+      "sources": [
+        "news_reports"
+      ]
+    },
+    {
+      "id": "pin",
+      "kind": "concept",
+      "title_bn": "পিন কী",
+      "title_en": "What a PIN is",
+      "text_bn": "পিন আপনার গোপন নম্বর। এটা দিয়ে প্রতিটি লেনদেন অনুমোদন হয়। এটা আপনার টাকার চাবির মতো। শুধু আপনিই এটা জানবেন।",
+      "text_en": "Your PIN is your secret number. It approves every payment. It is like the key to your money. Only you should know it.",
+      "tags": [
+        "pin",
+        "পিন",
+        "গোপন নম্বর",
+        "secret number"
+      ],
+      "sources": [
+        "bb_mfs_guideline",
+        "mobile_money_guidance"
+      ]
+    },
+    {
+      "id": "otp",
+      "kind": "concept",
+      "title_bn": "ওটিপি বা ভেরিফিকেশন কোড কী",
+      "title_en": "What an OTP or verification code is",
+      "text_bn": "ওটিপি হলো এসএমএসে আসা এক বারের কোড। এটা একটা কাজের জন্যই আসে। কাউকে বললে সে আপনার নামে সেই কাজটা করতে পারে।",
+      "text_en": "An OTP is a one-time code sent by SMS. It is for one action only. If you tell someone, they can do that action as you.",
+      "tags": [
+        "otp",
+        "ওটিপি",
+        "code",
+        "কোড",
+        "verification code"
+      ],
+      "sources": [
+        "mobile_money_guidance",
+        "news_reports"
+      ]
+    },
+    {
+      "id": "pin_vs_otp",
+      "kind": "concept",
+      "title_bn": "পিন আর ওটিপির পার্থক্য",
+      "title_en": "PIN vs OTP",
+      "text_bn": "পিন আপনি না বদলানো পর্যন্ত একই থাকে। ওটিপি প্রতিবার নতুন আসে। দুটোই গোপন। পরিবারের কাউকেও বলবেন না।",
+      "text_en": "Your PIN stays the same until you change it. An OTP is new every time. Both are secret. Do not tell anyone, not even family.",
+      "tags": [
+        "pin",
+        "otp",
+        "পিন",
+        "ওটিপি",
+        "difference",
+        "পার্থক্য"
+      ],
+      "sources": [
+        "mobile_money_guidance",
+        "phone_platform_guidance"
+      ]
+    },
+    {
+      "id": "no_one_asks_pin",
+      "kind": "concept",
+      "title_bn": "কেউ কখনো পিন চায় না",
+      "title_en": "No real staff ever asks for your PIN",
+      "text_bn": "ব্যাংক, মোবাইল ব্যাংকিং বা ৯৯৯ সাহায্য করতে আপনার পিন লাগে না। ফিননেস্ট সহকারীও কখনো পিন বা কোড চায় না। কেউ চাইলে সে প্রতারক।",
+      "text_en": "Banks, mobile-money providers and 999 never need your PIN to help you. FinNest Assistant never asks for a PIN or code either. Anyone who asks is a scammer.",
+      "tags": [
+        "pin",
+        "পিন",
+        "never ask",
+        "চায় না",
+        "staff",
+        "কর্মী"
+      ],
+      "sources": [
+        "mobile_money_guidance",
+        "news_reports"
+      ]
+    },
+    {
+      "id": "official_helpline",
+      "kind": "concept",
+      "title_bn": "অফিসিয়াল হেল্পলাইন",
+      "title_en": "The official helpline",
+      "text_bn": "আসা কলের ওপর ভরসা না করে নিজে হেল্পলাইনে ফোন করুন। ফিননেস্টের হেল্পলাইন {{HELPLINE}}। প্রতারকরা আসল নম্বরের মতো নকল নম্বর থেকে ফোন করতে পারে।",
+      "text_en": "Do not trust an incoming call. Call the helpline yourself. The FinNest helpline is {{HELPLINE}}. Scammers can call from numbers that look like real ones.",
+      "tags": [
+        "helpline",
+        "হেল্পলাইন",
+        "call back",
+        "নিজে ফোন"
+      ],
+      "sources": [
+        "mobile_money_guidance",
+        "news_reports"
+      ]
+    },
+    {
+      "id": "sim_swap_detect",
+      "kind": "concept",
+      "title_bn": "সিম সোয়াপ চেনার উপায়",
+      "title_en": "How to spot a SIM swap",
+      "text_bn": "সিম সোয়াপ মানে কেউ আপনার নম্বরের নতুন সিম তুলে নিয়েছে। তখন আপনার কোড তার কাছে যায়। হঠাৎ নেটওয়ার্ক চলে গেলে অন্য ফোন থেকে অপারেটরকে ফোন করুন।",
+      "text_en": "A SIM swap means someone got a new SIM for your number. Then your codes go to them. If your signal suddenly disappears, call your operator from another phone.",
+      "tags": [
+        "sim swap",
+        "সিম সোয়াপ",
+        "no network",
+        "নেটওয়ার্ক নেই"
+      ],
+      "sources": [
+        "ftc_sim_swap",
+        "fcc_sim_swap",
+        "news_reports"
+      ]
+    },
+    {
+      "id": "sim_count_check",
+      "kind": "concept",
+      "title_bn": "আপনার নামে কয়টি সিম",
+      "title_en": "Checking the SIMs in your name",
+      "text_bn": "*১৬০০১# ডায়াল করুন। তারপর এনআইডির শেষ চারটি সংখ্যা দিন। দেখবেন আপনার নামে কয়টি সিম আছে। অচেনা সিম থাকলে অপারেটরের কাস্টমার কেয়ারে গিয়ে বন্ধ করুন।",
+      "text_en": "Dial *16001#. Then enter the last four digits of your NID. You will see how many SIMs are in your name. If you see a SIM you do not know, close it at your operator's customer care.",
+      "tags": [
+        "sim",
+        "সিম",
+        "16001",
+        "১৬০০১",
+        "nid",
+        "এনআইডি",
+        "how many sim"
+      ],
+      "sources": [
+        "btrc",
+        "news_reports"
+      ]
+    },
+    {
+      "id": "phone_app_scan",
+      "kind": "concept",
+      "title_bn": "ফোনের নিজস্ব অ্যাপ নিরাপত্তা স্ক্যান",
+      "title_en": "The phone's built-in app safety scan",
+      "text_bn": "বেশিরভাগ স্মার্টফোনে একটা নিজস্ব অ্যাপ নিরাপত্তা স্ক্যান থাকে। এটা অ্যাপ ইনস্টলের সময় আর মাঝে মাঝে ফোন পরীক্ষা করে। ক্ষতিকর অ্যাপ পেলে সতর্ক করে বা বন্ধ করে দিতে পারে। এটা সবসময় চালু রাখুন।",
+      "text_en": "Most smartphones have a built-in app safety scan. It checks apps when you install them and checks the phone from time to time. It can warn about harmful apps or turn them off. Keep it on.",
+      "tags": [
+        "app scanner",
+        "app safety scan",
+        "স্ক্যান",
+        "virus",
+        "ভাইরাস",
+        "harmful app",
+        "ক্ষতিকর অ্যাপ"
+      ],
+      "sources": [
+        "phone_platform_guidance"
+      ]
+    },
+    {
+      "id": "sideloaded_apk",
+      "kind": "concept",
+      "title_bn": "লিংক থেকে নামানো অ্যাপ",
+      "title_en": "Apps installed from a link (APK)",
+      "text_bn": "অফিসিয়াল অ্যাপ স্টোর ছাড়া লিংক, চ্যাট বা ফাইল থেকে নামানো অ্যাপ বেশি ঝুঁকির। বেশিরভাগ প্রতারণার অ্যাপ এভাবেই আসে। কেউ লিংক পাঠিয়ে অ্যাপ নামাতে বললে নামাবেন না।",
+      "text_en": "Apps installed from a link, a chat or a file instead of the official app store are riskier. Most fraud apps arrive this way. If someone sends a link to install an app, do not install it.",
+      "tags": [
+        "apk",
+        "এপিকে",
+        "sideload",
+        "link app",
+        "লিংক থেকে অ্যাপ",
+        "install",
+        "ইনস্টল"
+      ],
+      "sources": [
+        "phone_platform_guidance"
+      ]
+    },
+    {
+      "id": "accessibility_abuse",
+      "kind": "concept",
+      "title_bn": "অ্যাক্সেসিবিলিটি অনুমতির অপব্যবহার",
+      "title_en": "Abuse of the accessibility permission",
+      "text_bn": "অ্যাক্সেসিবিলিটি অনুমতি প্রতিবন্ধী মানুষের সাহায্যের জন্য। খারাপ অ্যাপ এটা দিয়ে আপনার স্ক্রিন পড়ে আর আপনার হয়ে চাপ দেয়। অচেনা কারো বলা অ্যাপকে এই অনুমতি দেবেন না।",
+      "text_en": "The accessibility permission is meant to help people with disabilities. Harmful apps use it to read your screen and tap for you. Do not give it to an app a stranger told you to install.",
+      "tags": [
+        "accessibility",
+        "অ্যাক্সেসিবিলিটি",
+        "permission",
+        "অনুমতি",
+        "malware"
+      ],
+      "sources": [
+        "phone_platform_guidance"
+      ]
+    },
+    {
+      "id": "screen_sharing",
+      "kind": "concept",
+      "title_bn": "স্ক্রিন শেয়ার আর রিমোট অ্যাপ",
+      "title_en": "Screen sharing and remote-control apps",
+      "text_bn": "স্ক্রিন শেয়ার চালু থাকলে অন্যজন আপনার পিন আর কোড দেখতে পায়। রিমোট অ্যাপ দিয়ে সে ফোনও চালাতে পারে। টাকার অ্যাপ খোলার আগে স্ক্রিন শেয়ার বন্ধ করুন।",
+      "text_en": "While you share your screen, the other person can see your PIN and codes. With a remote-control app they can even use your phone. Stop sharing before you open any money app.",
+      "tags": [
+        "screen share",
+        "স্ক্রিন শেয়ার",
+        "remote control app",
+        "রিমোট অ্যাপ"
+      ],
+      "sources": [
+        "phone_platform_guidance"
+      ]
+    },
+    {
+      "id": "caller_id_spoofing",
+      "kind": "concept",
+      "title_bn": "নকল নম্বর থেকে কল",
+      "title_en": "Caller-ID spoofing",
+      "text_bn": "প্রতারক ফোনের স্ক্রিনে ভুয়া নম্বর দেখাতে পারে। নম্বরটা ৯৯৯ বা হেল্পলাইনের মতো দেখাতে পারে। সন্দেহ হলে কল কেটে নিজে অফিসিয়াল নম্বরে ফোন করুন।",
+      "text_en": "Scammers can make your phone show a false number. It can look like 999 or a helpline. If in doubt, hang up and call the official number yourself.",
+      "tags": [
+        "spoofing",
+        "নকল নম্বর",
+        "cloned number",
+        "fake number",
+        "caller id"
+      ],
+      "sources": [
+        "fcc_spoofing",
+        "news_reports"
+      ]
+    },
+    {
+      "id": "phishing_link",
+      "kind": "concept",
+      "title_bn": "প্রতারণার লিংক",
+      "title_en": "Phishing links",
+      "text_bn": "নকল মেসেজে একটা লিংক থাকে। লিংকটা আসলের মতো দেখতে একটা পাতা খোলে। সেখানে পিন বা কোড দিলে প্রতারক পেয়ে যায়। এসএমএসের লিংকে না গিয়ে সরাসরি অ্যাপ খুলুন।",
+      "text_en": "A fake message has a link. The link opens a page that looks real. If you enter your PIN or code there, the scammer gets it. Open the app directly instead of tapping SMS links.",
+      "tags": [
+        "phishing",
+        "ফিশিং",
+        "link",
+        "লিংক",
+        "fake website",
+        "নকল ওয়েবসাইট"
+      ],
+      "sources": [
+        "mobile_money_guidance",
+        "news_reports"
+      ]
+    },
+    {
+      "id": "two_step_verification",
+      "kind": "concept",
+      "title_bn": "দুই ধাপের তালা (টু-স্টেপ ভেরিফিকেশন)",
+      "title_en": "Two-step verification",
+      "text_bn": "দুই ধাপের তালা (টু-স্টেপ ভেরিফিকেশন) আপনার চ্যাট বা সোশ্যাল মিডিয়া অ্যাকাউন্টে দ্বিতীয় একটা তালা। তখন শুধু এসএমএস কোড পেলেই কেউ ঢুকতে পারে না। রেজিস্ট্রেশন কোড কাউকে বলবেন না।",
+      "text_en": "Two-step verification is a second lock on your chat or social-media account. Then a stolen SMS code alone is not enough. Never share your registration code.",
+      "tags": [
+        "two step",
+        "টু-স্টেপ",
+        "2fa",
+        "second lock",
+        "দ্বিতীয় তালা"
+      ],
+      "sources": [
+        "phone_platform_guidance"
+      ]
+    },
+    {
+      "id": "cooling_off_trusted_contact",
+      "kind": "concept",
+      "title_bn": "একটু থামা আর বিশ্বস্ত মানুষ",
+      "title_en": "Pausing and a trusted person",
+      "text_bn": "প্রতারকরা তাড়া দেয়, যাতে আপনি ভাবার সময় না পান। ঝুঁকির কাজের আগে একটু থামলে ফাঁদ ভেঙে যায়। একজন বিশ্বস্ত মানুষ দেখে দিলে আরও নিরাপদ।",
+      "text_en": "Scammers rush you so you have no time to think. A short pause before a risky action breaks the trap. A trusted person checking it makes you even safer.",
+      "tags": [
+        "pause",
+        "থামুন",
+        "trusted person",
+        "বিশ্বস্ত মানুষ",
+        "rush",
+        "তাড়া"
+      ],
+      "sources": [
+        "phone_platform_guidance",
+        "finnest_app"
+      ]
+    },
+    {
+      "id": "check_transaction",
+      "kind": "concept",
+      "title_bn": "লেনদেন নিরাপদে যাচাই",
+      "title_en": "Checking a transaction",
+      "text_bn": "ব্যালেন্স আর লেনদেনের তালিকা অ্যাপের ভেতরে দেখুন। এসএমএস বা কলারের কথা দেখে বিশ্বাস করবেন না। নকল এসএমএসে আপনার ব্যালেন্স বদলায় না।",
+      "text_en": "Check your balance and transaction list inside the app. Do not trust an SMS or a caller. A fake SMS does not change your balance.",
+      "tags": [
+        "balance",
+        "ব্যালেন্স",
+        "transaction",
+        "লেনদেন",
+        "statement",
+        "check"
+      ],
+      "sources": [
+        "mobile_money_guidance",
+        "news_reports"
+      ]
+    },
+    {
+      "id": "reverse_mistaken_send",
+      "kind": "concept",
+      "title_bn": "ভুল নম্বরে টাকা গেলে",
+      "title_en": "Money sent to a wrong number",
+      "text_bn": "এখনই ফিননেস্ট হেল্পলাইন {{HELPLINE}}-এ ফোন করুন। যে নম্বরে টাকা গেছে, তার সাথে নিজে লেনদেন করবেন না। হেল্পলাইন বিষয়টা দেখবে। টাকা ফেরত আসবেই, এমন নিশ্চয়তা দেওয়া যায় না।",
+      "text_en": "Call the FinNest helpline {{HELPLINE}} right away. Do not deal with the other person yourself. The helpline will look into it. No one can promise the money will come back.",
+      "tags": [
+        "wrong number",
+        "ভুল নম্বর",
+        "refund",
+        "টাকা ফেরত",
+        "mistake"
+      ],
+      "sources": [
+        "news_reports"
+      ]
+    },
+    {
+      "id": "lock_account",
+      "kind": "concept",
+      "title_bn": "অ্যাকাউন্ট আটকানো",
+      "title_en": "Blocking your account",
+      "text_bn": "ফোন বা সিম হারালে, বা পিন বলে ফেললে, হেল্পলাইনে ফোন করে অ্যাকাউন্ট আটকাতে বলুন। তারপর পিন বদলান। কয়েকবার ভুল পিন দিলে অ্যাকাউন্ট নিজে থেকেই আটকে যেতে পারে।",
+      "text_en": "If you lose your phone or SIM, or shared your PIN, call the helpline and ask to block your account. Then change your PIN. Several wrong PIN tries can also block the account on its own.",
+      "tags": [
+        "block account",
+        "অ্যাকাউন্ট বন্ধ",
+        "lock",
+        "লক",
+        "lost phone",
+        "ফোন হারানো"
+      ],
+      "sources": [
+        "mobile_money_guidance"
+      ]
+    },
+    {
+      "id": "complaint_escalation",
+      "kind": "concept",
+      "title_bn": "অভিযোগের ধাপ",
+      "title_en": "How a complaint moves up",
+      "text_bn": "প্রথমে ফিননেস্ট হেল্পলাইন {{HELPLINE}}-এ অভিযোগ করুন। সমাধান না হলে ব্যাংকের অভিযোগ সেলে লিখিত অভিযোগ দিন। তাতেও না হলে বাংলাদেশ ব্যাংকের ১৬২৩৬ নম্বরে যোগাযোগ করুন।",
+      "text_en": "First complain to the FinNest helpline {{HELPLINE}}. If it is not solved, send a written complaint to the bank's complaint cell. If it is still not solved, contact Bangladesh Bank on 16236.",
+      "tags": [
+        "complaint",
+        "অভিযোগ",
+        "escalate",
+        "বাংলাদেশ ব্যাংক",
+        "bangladesh bank"
+      ],
+      "sources": [
+        "bb_cipc"
+      ]
+    },
+    {
+      "id": "action_shared_pin",
+      "kind": "action",
+      "title_bn": "ভুল করে পিন বলে ফেলেছি",
+      "title_en": "I shared my PIN by mistake",
+      "text_bn": "চিন্তা করবেন না, এখনই কাজ করুন। অ্যাপে গিয়ে পিন বদলান। তারপর ফিননেস্ট হেল্পলাইন {{HELPLINE}}-এ ফোন করে ঘটনাটা বলুন। অ্যাপে লেনদেনের তালিকা দেখে নিন।",
+      "text_en": "Stay calm and act now. Change your PIN in the app. Then call the FinNest helpline {{HELPLINE}} and tell them what happened. Check your transaction list in the app.",
+      "tags": [
+        "shared pin",
+        "পিন বলে ফেলেছি",
+        "pin leak"
+      ],
+      "sources": [
+        "mobile_money_guidance"
+      ]
+    },
+    {
+      "id": "action_shared_otp",
+      "kind": "action",
+      "title_bn": "কোড বলে ফেলেছি",
+      "title_en": "I shared an OTP or code",
+      "text_bn": "এখনই ফিননেস্ট হেল্পলাইন {{HELPLINE}}-এ ফোন করুন। কোডটা কোন কাজের জন্য এসেছিল, এসএমএস পড়ে বলুন। পিনও বলে থাকলে পিন বদলান। আর কাউকে কোনো কোড বলবেন না।",
+      "text_en": "Call the FinNest helpline {{HELPLINE}} now. Read the SMS and tell them what the code was for. If you also shared your PIN, change it. Do not share any more codes.",
+      "tags": [
+        "shared otp",
+        "কোড বলে ফেলেছি",
+        "otp leak",
+        "ওটিপি",
+        "ওটিপি বলে দিয়েছি",
+        "code shared"
+      ],
+      "sources": [
+        "mobile_money_guidance",
+        "news_reports"
+      ]
+    },
+    {
+      "id": "action_wrong_send",
+      "kind": "action",
+      "title_bn": "ভুল নম্বরে টাকা পাঠিয়েছি",
+      "title_en": "I sent money to a wrong number",
+      "text_bn": "অ্যাপে লেনদেনটা খুঁজে নম্বর আর পরিমাণ লিখে রাখুন। এখনই ফিননেস্ট হেল্পলাইন {{HELPLINE}}-এ জানান। অচেনা কেউ ফোন করে সাহায্যের কথা বললে পিন বা কোড দেবেন না।",
+      "text_en": "Find the payment in the app and note the number and amount. Tell the FinNest helpline {{HELPLINE}} right away. If a stranger calls offering help, do not give your PIN or code.",
+      "tags": [
+        "wrong send",
+        "ভুল নম্বরে টাকা",
+        "mistake"
+      ],
+      "sources": [
+        "news_reports"
+      ]
+    },
+    {
+      "id": "action_lost_phone_sim",
+      "kind": "action",
+      "title_bn": "ফোন বা সিম হারিয়েছে",
+      "title_en": "I lost my phone or SIM",
+      "text_bn": "অন্য ফোন থেকে ফিননেস্ট হেল্পলাইন {{HELPLINE}}-এ ফোন করে অ্যাকাউন্ট আটকাতে বলুন। মোবাইল অপারেটরকে জানিয়ে সিম বন্ধ করুন। নতুন সিম পেলে পিন বদলান।",
+      "text_en": "From another phone, call the FinNest helpline {{HELPLINE}} and ask to block your account. Tell your mobile operator to block the SIM. When you get a new SIM, change your PIN.",
+      "tags": [
+        "lost phone",
+        "ফোন হারানো",
+        "lost sim",
+        "সিম হারানো",
+        "stolen",
+        "চুরি"
+      ],
+      "sources": [
+        "mobile_money_guidance",
+        "fcc_sim_swap"
+      ]
+    },
+    {
+      "id": "action_installed_suspicious_app",
+      "kind": "action",
+      "title_bn": "সন্দেহজনক অ্যাপ নামিয়ে ফেলেছি",
+      "title_en": "I installed a suspicious app",
+      "text_bn": "অ্যাপটা মুছে ফেলুন। হোমে ফোনের নিরাপত্তা পরীক্ষা চালান। ফোনের নিজস্ব অ্যাপ নিরাপত্তা স্ক্যান চালু আছে কিনা দেখুন। তারপর অ্যাপে পিন বদলান।",
+      "text_en": "Delete the app. Run the phone safety check on Home. Make sure the phone's built-in app safety scan is on. Then change your PIN in the app.",
+      "tags": [
+        "suspicious app",
+        "সন্দেহজনক অ্যাপ",
+        "delete app",
+        "অ্যাপ মুছুন",
+        "virus",
+        "ভাইরাস"
+      ],
+      "sources": [
+        "phone_platform_guidance",
+        "finnest_app"
+      ]
+    },
+    {
+      "id": "action_caller_on_line",
+      "kind": "action",
+      "title_bn": "কলার এখনও লাইনে আছে",
+      "title_en": "The caller is still on the line",
+      "text_bn": "আপনার কিছু ব্যাখ্যা দিতে হবে না, শুধু কল কেটে দিন। পিন, কোড বা কোনো অ্যাপ নামানো, কিছুই করবেন না। কল কেটে দেওয়ার পর নিজে হেল্পলাইনে ফোন করুন।",
+      "text_en": "You do not need to explain anything. Just hang up. Do not share a PIN or code, and do not install anything. After you hang up, call the helpline yourself.",
+      "tags": [
+        "caller on line",
+        "এখনও কলে",
+        "hang up",
+        "কল কেটে দিন"
+      ],
+      "sources": [
+        "fcc_spoofing",
+        "mobile_money_guidance"
+      ]
+    },
+    {
+      "id": "action_report_complain",
+      "kind": "action",
+      "title_bn": "কোথায় অভিযোগ করবেন",
+      "title_en": "Where to report or complain",
+      "text_bn": "টাকার বিষয়ে আগে ফিননেস্ট হেল্পলাইন {{HELPLINE}}-এ জানান। সাইবার প্রতারণায় সিআইডির ০১৩২০০১০১৪৮ নম্বরে বা থানায় অভিযোগ করুন। বিপদে থাকলে ৯৯৯-এ ফোন করুন। স্ক্রিনশট আর নম্বর রেখে দিন।",
+      "text_en": "For money problems, tell the FinNest helpline {{HELPLINE}} first. For cyber fraud, complain to the CID on 01320010148 or at a police station. If you are in danger, call 999. Keep screenshots and phone numbers.",
+      "tags": [
+        "report",
+        "রিপোর্ট",
+        "complaint",
+        "অভিযোগ",
+        "police",
+        "পুলিশ",
+        "cid",
+        "সিআইডি"
+      ],
+      "sources": [
+        "cid_cyber",
+        "police_portal",
+        "bb_cipc"
+      ]
+    },
+    {
+      "id": "action_check_transaction",
+      "kind": "action",
+      "title_bn": "লেনদেন নিরাপদে দেখা",
+      "title_en": "How to check a transaction safely",
+      "text_bn": "নিজে অ্যাপ খুলুন, এসএমএসের লিংক দিয়ে নয়। লেনদেনের তালিকায় তারিখ, নম্বর আর পরিমাণ মিলিয়ে দেখুন। অচেনা লেনদেন দেখলে হেল্পলাইন {{HELPLINE}}-এ জানান।",
+      "text_en": "Open the app yourself, not through an SMS link. In the transaction list, check the date, number and amount. If you see a payment you do not know, tell the helpline {{HELPLINE}}.",
+      "tags": [
+        "check transaction",
+        "লেনদেন দেখা",
+        "balance",
+        "ব্যালেন্স",
+        "unknown payment",
+        "অচেনা লেনদেন"
+      ],
+      "sources": [
+        "mobile_money_guidance",
+        "finnest_app"
+      ]
+    },
+    {
+      "id": "app_payment_hold",
+      "kind": "app_feature",
+      "title_bn": "ঝুঁকির পেমেন্ট আটকে রাখা",
+      "title_en": "FinNest holds a risky payment",
+      "text_bn": "কোনো পেমেন্ট ঝুঁকির মনে হলে ফিননেস্ট টাকাটা কিছুক্ষণ আটকে রাখতে পারে। এতে আপনি ভেবে দেখার সময় পান। টাকা আপনার অ্যাকাউন্টেই নিরাপদ থাকে।",
+      "text_en": "If a payment looks risky, FinNest can hold the money for a while. This gives you time to think. The money stays safe in your account.",
+      "tags": [
+        "hold",
+        "আটকে রাখা",
+        "payment held",
+        "টাকা আটকে আছে"
+      ],
+      "sources": [
+        "finnest_app"
+      ]
+    },
+    {
+      "id": "app_trusted_person",
+      "kind": "app_feature",
+      "title_bn": "বিশ্বস্ত মানুষের অনুমোদন",
+      "title_en": "Trusted person approval",
+      "text_bn": "আপনি একজন বিশ্বস্ত মানুষ ঠিক করে রাখতে পারেন। আটকে থাকা পেমেন্ট তিনি দেখে অনুমোদন দিতে পারেন। পরিবারের কেউ পাশে থাকলে প্রতারকের তাড়ায় পড়া কঠিন হয়।",
+      "text_en": "You can choose a trusted person. They can look at a held payment and approve it. With family beside you, a scammer's rush works less well.",
+      "tags": [
+        "trusted person",
+        "বিশ্বস্ত মানুষ",
+        "approve",
+        "অনুমোদন"
+      ],
+      "sources": [
+        "finnest_app"
+      ]
+    },
+    {
+      "id": "app_phone_safety_check",
+      "kind": "app_feature",
+      "title_bn": "ফোনের নিরাপত্তা পরীক্ষা",
+      "title_en": "Phone safety check",
+      "text_bn": "হোম পাতায় ফোনের নিরাপত্তা পরীক্ষা আছে। এটা ঝুঁকির অ্যাপ খুঁজে দেখায়। কোনো অ্যাপ দেখালে সেটা মুছে ফেলার কথা ভাবুন।",
+      "text_en": "The phone safety check is on the Home screen. It finds and shows risky apps. If it shows an app, think about deleting it.",
+      "tags": [
+        "phone safety check",
+        "ফোনের নিরাপত্তা পরীক্ষা",
+        "risky app",
+        "ঝুঁকির অ্যাপ"
+      ],
+      "sources": [
+        "finnest_app"
+      ]
+    },
+    {
+      "id": "app_call_warning",
+      "kind": "app_feature",
+      "title_bn": "সন্দেহজনক কলে সতর্কবার্তা",
+      "title_en": "Warning during a suspicious call",
+      "text_bn": "কল সন্দেহজনক মনে হলে ফিননেস্ট আপনাকে সতর্ক করে। এর মানে কলে প্রতারণার মতো কথা শোনা গেছে। এমন হলে কল কেটে দিন, পিন বা কোড বলবেন না।",
+      "text_en": "FinNest warns you when a call looks suspicious. It means the call had words that sound like a scam. If this happens, hang up and do not share a PIN or code.",
+      "tags": [
+        "call warning",
+        "কলে সতর্কবার্তা",
+        "suspicious call",
+        "সন্দেহজনক কল"
+      ],
+      "sources": [
+        "finnest_app"
+      ]
+    },
+    {
+      "id": "app_assistant_never_asks_code",
+      "kind": "app_feature",
+      "title_bn": "ফিননেস্ট সহকারী কখনো কোড চায় না",
+      "title_en": "FinNest Assistant never asks for codes",
+      "text_bn": "ফিননেস্ট সহকারী কখনো আপনার পিন বা কোড চাইবে না। কেউ ফিননেস্টের নাম করে চাইলে সে প্রতারক। পিন শুধু আপনি নিজে অ্যাপে লিখবেন।",
+      "text_en": "FinNest Assistant will never ask for your PIN or a code. Anyone who asks in FinNest's name is a scammer. Only you type your PIN, inside the app.",
+      "tags": [
+        "assistant",
+        "সহকারী",
+        "never ask",
+        "চায় না",
+        "pin",
+        "code"
+      ],
+      "sources": [
+        "finnest_app"
+      ]
+    },
+    {
+      "id": "app_call_summary",
+      "kind": "app_feature",
+      "title_bn": "সন্দেহজনক কলের সারাংশ",
+      "title_en": "What the suspicious-call summary means",
+      "text_bn": "সারাংশে দেখায় কলে কোন কথাগুলো ঝুঁকির মনে হয়েছে। যেমন পিন চাওয়া, ভয় দেখানো বা তাড়া দেওয়া। এটা একটা সতর্কতা, চূড়ান্ত রায় নয়। সন্দেহ থাকলে হেল্পলাইন {{HELPLINE}}-এ জিজ্ঞেস করুন।",
+      "text_en": "The summary shows which parts of the call looked risky. For example, asking for a PIN, threats, or rushing you. It is a warning, not a final verdict. If unsure, ask the helpline {{HELPLINE}}.",
+      "tags": [
+        "call summary",
+        "কলের সারাংশ",
+        "why warning",
+        "কেন সতর্ক"
+      ],
+      "sources": [
+        "finnest_app"
+      ]
+    },
+    {
+      "id": "helpline_finnest",
+      "kind": "helpline",
+      "title_bn": "ফিননেস্ট হেল্পলাইন",
+      "title_en": "FinNest helpline",
+      "text_bn": "টাকা, পিন বা অ্যাকাউন্টের যেকোনো সমস্যায় ফিননেস্ট হেল্পলাইন {{HELPLINE}}-এ ফোন করুন। সবসময় নিজে ফোন করুন। আসা কলের ওপর ভরসা করবেন না।",
+      "text_en": "For any problem with money, PIN or your account, call the FinNest helpline {{HELPLINE}}. Always call it yourself. Do not trust incoming calls.",
+      "tags": [
+        "helpline",
+        "হেল্পলাইন",
+        "finnest",
+        "ফিননেস্ট",
+        "customer care"
+      ],
+      "sources": [
+        "finnest_app"
+      ]
+    },
+    {
+      "id": "helpline_999",
+      "kind": "helpline",
+      "title_bn": "জাতীয় জরুরি সেবা ৯৯৯",
+      "title_en": "National Emergency Service 999",
+      "text_bn": "বিপদে বা হুমকিতে থাকলে ৯৯৯-এ ফোন করুন। এটা পুলিশ, ফায়ার সার্ভিস আর অ্যাম্বুলেন্সের নম্বর। ৯৯৯ কখনো পিন চায় না।",
+      "text_en": "If you are in danger or being threatened, call 999. It is the number for police, fire service and ambulance. 999 never asks for a PIN.",
+      "tags": [
+        "999",
+        "৯৯৯",
+        "emergency",
+        "জরুরি",
+        "police",
+        "পুলিশ"
+      ],
+      "sources": [
+        "police_portal",
+        "news_reports"
+      ]
+    },
+    {
+      "id": "helpline_cid_cyber",
+      "kind": "helpline",
+      "title_bn": "সিআইডি সাইবার অভিযোগ",
+      "title_en": "CID cyber crime complaint",
+      "text_bn": "সাইবার প্রতারণার অভিযোগ জানাতে সিআইডির নম্বর ০১৩২০০১০১৪৮। স্ক্রিনশট, নম্বর আর লেনদেনের তথ্য রেখে দিন।",
+      "text_en": "To report cyber fraud, the CID number is 01320010148. Keep screenshots, phone numbers and payment details.",
+      "tags": [
+        "cid",
+        "সিআইডি",
+        "cyber crime",
+        "সাইবার অপরাধ",
+        "report"
+      ],
+      "sources": [
+        "cid_cyber"
+      ]
+    },
+    {
+      "id": "helpline_pcsw",
+      "kind": "helpline",
+      "title_bn": "নারীদের জন্য পুলিশ সাইবার সাপোর্ট",
+      "title_en": "Police Cyber Support for Women",
+      "text_bn": "অনলাইনে হয়রানি বা প্রতারণার শিকার নারীরা ০১৩২০০০০৮৮৮ নম্বরে সাহায্য নিতে পারেন। নারী কর্মকর্তারা কথা বলেন। আপনার তথ্য গোপন রাখা হয়।",
+      "text_en": "Women facing online harassment or fraud can get help at 01320000888. Women officers talk with you. Your details are kept private.",
+      "tags": [
+        "women",
+        "নারী",
+        "harassment",
+        "হয়রানি",
+        "pcsw",
+        "cyber support"
+      ],
+      "sources": [
+        "pcsw"
+      ]
+    },
+    {
+      "id": "helpline_bb_cipc",
+      "kind": "helpline",
+      "title_bn": "বাংলাদেশ ব্যাংকের অভিযোগ নম্বর ১৬২৩৬",
+      "title_en": "Bangladesh Bank complaint line 16236",
+      "text_bn": "ব্যাংকে অভিযোগ করে সমাধান না পেলে বাংলাদেশ ব্যাংকের ১৬২৩৬ নম্বরে ফোন করতে পারেন। অফিস সময়ে, কাজের দিনে ফোন ধরা হয়। আগে ব্যাংকের কাছে অভিযোগ করতে হয়।",
+      "text_en": "If your complaint to the bank is not solved, you can call Bangladesh Bank on 16236. Calls are taken in office hours on working days. You need to complain to the bank first.",
+      "tags": [
+        "bangladesh bank",
+        "বাংলাদেশ ব্যাংক",
+        "16236",
+        "১৬২৩৬",
+        "complaint",
+        "অভিযোগ"
+      ],
+      "sources": [
+        "bb_cipc"
+      ]
+    }
+  ]
+}

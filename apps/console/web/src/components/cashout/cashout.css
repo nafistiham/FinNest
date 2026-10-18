@@ -1,0 +1,235 @@
+/*
+ * The cash-out map. Tokens only, from styles.css; nothing here defines a colour.
+ * --bad is a confirmed mule's cash-out, --warn a candidate, a flag ring and a cluster circle, --info
+ * the tills; --violet stays SYNTHETIC provenance and is used by no mark. Layout from the approved
+ * reference: overview, zoomed map and incident in one row, the day's strip under them; narrower, the
+ * incident drops below, then everything stacks. Breakpoints are viewport widths with the 236px
+ * sidebar still on screen (it hides at 900px).
+ */
+
+.co-title { font-size: 20px; margin: 0 0 4px; font-weight: 650; letter-spacing: -0.2px; }
+.co-lede { color: var(--ink-3); font-size: var(--fs-micro); margin: 0 0 12px; line-height: 1.55; max-width: 1100px; }
+.co-sub { color: var(--ink-3); font-size: var(--fs-micro); margin: 4px 0; line-height: 1.5; display: block; }
+.co-h3 { font-size: 12px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: var(--ink-2); margin: 14px 0 6px; }
+.co-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.co-row .co-h3 { margin: 0; }
+
+.co-toolbar { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin-bottom: 10px; }
+.co-day { display: flex; gap: 8px; align-items: center; font-size: var(--fs-micro); color: var(--ink-2); min-width: 0; }
+.co-day select {
+  background: var(--bg-2); color: var(--ink); border: 1px solid var(--line); border-radius: 8px;
+  padding: 6px 8px; max-width: min(560px, 100%); font-family: var(--mono); font-size: 12.5px;
+}
+.co-toolbar .co-sub { margin: 0; }
+
+.co-picks { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-bottom: 12px; }
+.co-picks .co-sub { margin: 0 4px 0 0; }
+.co-pick { display: inline-flex; gap: 6px; align-items: center; font-family: var(--mono); font-size: 12px; }
+.co-pick .badge { font-size: 9.5px; padding: 1px 6px; }
+.co-pick.on { background: color-mix(in srgb, var(--info) 14%, transparent); border-color: var(--info); color: var(--ink); }
+
+/* The incident spans both rows, and the second row is flexible, so a long incident never pushes the
+   strip away from the map it scrubs. */
+.co-grid {
+  display: grid; gap: 0 14px; align-items: start;
+  grid-template-columns: minmax(0, 270px) minmax(0, 1fr) minmax(0, 380px);
+  grid-template-rows: auto 1fr;
+  grid-template-areas: 'ov zm side' 'st st side';
+}
+.co-grid > div, .co-grid > aside { min-width: 0; }
+.co-ov { grid-area: ov; }
+.co-zm { grid-area: zm; }
+.co-st { grid-area: st; }
+.co-side { grid-area: side; }
+@media (max-width: 1360px) {
+  .co-grid { grid-template-columns: minmax(0, 260px) minmax(0, 1fr); grid-template-rows: none; grid-template-areas: 'ov zm' 'st st' 'side side'; }
+}
+@media (max-width: 760px) {
+  .co-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: 'ov' 'zm' 'st' 'side'; }
+}
+/* A failed read keeps the last day on screen, visibly not current. */
+.co-stale { opacity: 0.55; }
+
+/* SVG */
+.co-svg { display: block; width: 100%; height: auto; }
+.co-svg text { fill: var(--ink-2); font: 11px var(--sans); }
+.co-svg .co-caption { fill: var(--ink-3); font-size: 11px; }
+.co-outline { fill: var(--bg-2); stroke: var(--line-2); stroke-width: 1.5; }
+.co-svg .co-district { fill: var(--ink-2); font-size: 11px; }
+
+/* The real districts, under the tills. Quiet enough that a five-pixel till still reads on top of
+   them; the eight the seed world puts tills in are picked out a shade. */
+.co-svg .co-dist {
+  fill: var(--card);
+  stroke: var(--ink-3);
+  stroke-width: 0.5;
+  stroke-opacity: 0.45;
+  stroke-linejoin: round;
+}
+.co-svg .co-dist.co-seeded { fill: var(--bg-2); stroke-opacity: 0.8; }
+.co-svg .co-credit { fill: var(--ink-3); font-size: 9px; }
+
+/* District boundaries inside the zoom: a line, not a fill. At eighteen kilometres the box is
+   usually one district, and a filled shape would just be a tinted background behind the dots that
+   matter. */
+.co-till-s { fill: var(--card-2); stroke: var(--info); stroke-width: 1; }
+.co-ov-flag { fill: none; stroke: var(--warn); stroke-width: 2; }
+.co-ov-flag.co-on { stroke-width: 3; }
+.co-ov-cluster { fill: none; stroke: var(--warn); stroke-width: 1.2; stroke-dasharray: 2 2; cursor: pointer; }
+.co-ov-cluster.co-on { stroke-width: 2; }
+.co-ov-box { fill: none; stroke: var(--ink-2); stroke-width: 1; stroke-dasharray: 3 2; pointer-events: none; }
+.co-clickable { cursor: pointer; }
+
+.co-svg .co-gridline { stroke: var(--line); stroke-width: 0.6; }
+.co-frame { fill: none; stroke: var(--line-2); }
+.co-scale { stroke: var(--ink-2); stroke-width: 2; }
+.co-till { fill: var(--card-2); stroke: var(--info); stroke-width: 1.6; }
+.co-flag-ring { fill: none; stroke: var(--warn); stroke-width: 2; }
+.co-svg .co-till-label {
+  fill: var(--ink-2); font: 11.5px var(--mono);
+  paint-order: stroke; stroke: var(--card); stroke-width: 3px; stroke-linejoin: round;
+}
+.co-svg .co-till-label.co-on { fill: var(--ink); font-weight: 700; }
+
+.co-circle circle { fill: color-mix(in srgb, var(--warn) 4%, transparent); stroke: var(--warn); stroke-width: 1.2; stroke-dasharray: 6 5; opacity: 0.55; }
+.co-circle.co-on circle { fill: color-mix(in srgb, var(--warn) 9%, transparent); stroke-width: 1.8; opacity: 1; }
+.co-svg .co-circle text { fill: var(--warn); font-size: 11.5px; font-weight: 600; paint-order: stroke; stroke: var(--card); stroke-width: 3px; }
+.co-circle:not(.co-on):hover circle { opacity: 0.9; }
+
+.co-dot { stroke-width: 0; }
+.co-dot.co-seed { fill: var(--bad); }
+.co-dot.co-candidate { fill: var(--card); stroke: var(--warn); stroke-width: 2.6; }
+.co-dot.co-inside { fill: var(--ink-3); stroke: var(--ink-2); stroke-width: 1.4; }
+.co-dot.co-ordinary { fill: var(--ink-3); opacity: 0.75; }
+.co-dot.co-earlier { opacity: 0.45; }
+
+/* the strip */
+.co-band { fill: color-mix(in srgb, var(--info) 18%, transparent); }
+.co-axis { stroke: var(--line-2); }
+.co-bar-seed { fill: var(--bad); }
+.co-bar-candidate { fill: var(--warn); }
+.co-bar-other { fill: var(--ink-3); }
+.co-open { stroke: var(--warn); stroke-width: 1.6; stroke-dasharray: 5 4; }
+.co-svg .co-open-label { fill: var(--warn); font-size: 11.5px; font-weight: 600; }
+.co-nowline { stroke: var(--info); stroke-width: 1.4; }
+.co-controls { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin: 8px 0 6px; }
+.co-scrub { flex: 1; min-width: 220px; display: grid; gap: 2px; font-size: var(--fs-micro); color: var(--ink-2); }
+.co-scrub input[type='range'] { width: 100%; accent-color: var(--info); padding: 0; }
+.co-now { font: 700 15px var(--mono); color: var(--ink); margin-left: 6px; }
+
+/* the legend */
+.co-legend { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 5px 12px; font-size: 12.5px; color: var(--ink-2); margin-top: 8px; }
+.co-legend span { display: flex; align-items: center; gap: 7px; min-width: 0; }
+.co-sw { width: 12px; height: 12px; flex: none; border-radius: 50%; display: inline-block; }
+.co-sw-seed { background: var(--bad); }
+.co-sw-candidate { border: 2.5px solid var(--warn); }
+.co-sw-inside { background: var(--ink-3); box-shadow: 0 0 0 1.5px var(--ink-2); }
+.co-sw-ordinary { background: var(--ink-3); opacity: 0.75; }
+.co-sw-till { border-radius: 2px; background: var(--card-2); border: 1.5px solid var(--info); }
+.co-sw-circle { border: 1.5px dashed var(--warn); }
+.co-sw-earlier { background: var(--bad); opacity: 0.45; }
+
+/* the incident */
+.co-status {
+  display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; border-radius: 10px; margin: 6px 0 10px;
+  border: 1px solid color-mix(in srgb, var(--warn) 55%, transparent); background: color-mix(in srgb, var(--warn) 10%, var(--card));
+}
+.co-status strong { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; font-size: 14.5px; }
+.co-dot-status { width: 10px; height: 10px; border-radius: 50%; background: var(--warn); flex: none; margin-top: 6px; box-shadow: 0 0 0 4px color-mix(in srgb, var(--warn) 28%, transparent); }
+.co-tiles { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px; }
+.co-tiles .tile { padding: 9px 11px; min-width: 0; }
+.co-tiles .tile .value { font-size: 22px; }
+.co-tiles .tile .value.small { font-size: 15px; }
+.co-kv { display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; margin: 10px 0 0; }
+.co-kv > div { border-bottom: 1px solid var(--line); padding: 6px 0; min-width: 0; }
+.co-kv .co-full { grid-column: 1 / -1; }
+.co-kv dt { font-size: 11.5px; color: var(--ink-3); }
+.co-kv dd { margin: 2px 0 0; font-size: 12.5px; overflow-wrap: anywhere; }
+.co-accts { display: flex; flex-wrap: wrap; gap: 4px; }
+.co-acct { font: 12px var(--mono); padding: 1px 7px; border-radius: 6px; border: 1px solid color-mix(in srgb, var(--bad) 45%, transparent); color: var(--ink); }
+.co-eval { font-size: var(--fs-micro); color: var(--ink-2); margin: 12px 0 0; line-height: 1.5; }
+.co-late { margin-top: 8px; }
+.co-warn-text { color: var(--warn); font-weight: 600; }
+
+.co-table table { min-width: 0; font-size: 12.5px; }
+.co-table th, .co-table td { padding: 5px 7px; }
+.co-table .chip { font-size: 11px; padding: 1px 7px; white-space: nowrap; }
+.co-table tr.co-detail td { color: var(--ink-3); font-size: 11.5px; padding-top: 0; border-bottom: 1px solid var(--line); }
+.co-table tr.co-row-cand:not(.co-detail) td { border-bottom: none; }
+.co-table tr.co-row-cand td:first-child { box-shadow: inset 3px 0 0 var(--warn); }
+.co-table tr.co-row-seed td:first-child { box-shadow: inset 3px 0 0 var(--bad); }
+.co-table tr.co-row-candidate td:first-child { box-shadow: inset 3px 0 0 var(--warn); }
+.co-table tr.co-row-inside td:first-child { box-shadow: inset 3px 0 0 var(--line-2); }
+.co-cands { margin-top: 12px; }
+.co-cands .segmented button { font-size: 12px; }
+
+.co-actions { margin-top: 6px; }
+.co-action { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin: 6px 0; }
+.co-action button { white-space: normal; text-align: left; }
+.co-action .chip { font-size: 11px; padding: 1px 7px; }
+
+/* The locator inset in the zoomed map: a small Bangladesh saying where this box is. It is a card
+   laid over the map, so it keeps an opaque ground - tills can sit under this corner. */
+.co-svg.co-zoom .co-locator-bg { fill: var(--card); stroke: var(--ink-3); stroke-opacity: 0.45; }
+.co-svg.co-zoom .co-locator-dist {
+  fill: none;
+  stroke: var(--ink-3);
+  stroke-opacity: 0.6;
+  stroke-width: 0.5;
+  vector-effect: non-scaling-stroke;
+}
+.co-svg.co-zoom .co-locator-dist.co-locator-here {
+  fill: var(--ink-2);
+  fill-opacity: 0.45;
+  stroke: var(--ink-1);
+  stroke-opacity: 0.9;
+  stroke-width: 1;
+}
+.co-svg.co-zoom .co-locator-halo { fill: var(--accent); fill-opacity: 0.25; }
+.co-svg.co-zoom .co-locator-dot { fill: var(--accent); stroke: var(--card); stroke-width: 1.2; }
+.co-svg.co-zoom .co-locator-name { fill: var(--ink-2); font-size: 11px; font-weight: 600; }
+
+/* The ground the tills sit on: real OpenStreetMap roads, rivers and place names. It is the page
+   the evidence is written on, so it stays under everything and stays quiet - three road weights so
+   the shape of a neighbourhood reads, water set apart because here it is what divides one from the
+   next. */
+.co-svg.co-zoom .co-road {
+  fill: none;
+  stroke: var(--ink-3);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.co-svg.co-zoom .co-road-local { stroke-opacity: 0.22; stroke-width: 0.6; }
+.co-svg.co-zoom .co-road-minor { stroke-opacity: 0.34; stroke-width: 1.1; }
+.co-svg.co-zoom .co-road-major { stroke-opacity: 0.46; stroke-width: 1.9; }
+.co-svg.co-zoom .co-water {
+  fill: none;
+  stroke: var(--info);
+  stroke-opacity: 0.18;
+  stroke-width: 0.9;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.co-svg.co-zoom .co-place {
+  fill: var(--ink-3);
+  font-size: 10px;
+  letter-spacing: 0.02em;
+  paint-order: stroke;
+  stroke: var(--card);
+  stroke-width: 2.5px;
+  stroke-linejoin: round;
+}
+
+/* Attribution sits on the map, where ODbL wants it, so it gets the same halo the place names
+   have - it has to stay readable over whatever dots land in that corner. */
+.co-svg.co-zoom .co-credit {
+  fill: var(--ink-3);
+  fill-opacity: 0.65;
+  font-size: 9px;
+  text-anchor: end;
+  paint-order: stroke;
+  stroke: var(--card);
+  stroke-width: 2.5px;
+  stroke-linejoin: round;
+}

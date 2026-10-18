@@ -1,0 +1,13 @@
+{
+  "RISK_API_BASE_URL": "https://risk-mw-REPLACE.a.run.app",
+  "CASE_ZERO_URL": "https://case-zero-REPLACE.a.run.app",
+  "CONSOLE_URL": "https://case-zero-REPLACE.a.run.app",
+  "FIREBASE_API_KEY": "REPLACE_WITH_FIREBASE_API_KEY",
+  "FIREBASE_APP_ID": "1:000000000000:android:0000000000000000000000",
+  "FIREBASE_MESSAGING_SENDER_ID": "000000000000",
+  "FIREBASE_PROJECT_ID": "your-gcp-project-id",
+  "FIREBASE_STORAGE_BUCKET": "your-gcp-project-id.firebasestorage.app",
+  "CLOUD_PROJECT_NUMBER": "",
+  "DEMO_PASSWORD": "finnest",
+  "RISK_MW_SESSION_FIELDS": "true"
+}

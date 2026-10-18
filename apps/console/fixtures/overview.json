@@ -1,0 +1,1256 @@
+{
+ "generated_at": "2026-10-18T17:51:17.731269+06:00",
+ "window": {
+  "from": "2026-10-07",
+  "to": "2026-11-11",
+  "tz": "Asia/Dhaka",
+  "days": 36
+ },
+ "source": {
+  "seed_dir": "data/seed",
+  "checksum": "89c8cb339a607524e65bacb59205f0f89654c6078df1eb201877d0331b6bbb5f",
+  "service": "risk-mw",
+  "model_version": "risk-mw-0.2",
+  "mule_model_version": "mule-lgbm-0.1",
+  "thresholds": {
+   "band_medium": 0.3,
+   "band_high": 0.6,
+   "band_critical": 0.85,
+   "mule_hold_threshold": 0.8,
+   "default_p95_amount_bdt": 5000.0
+  },
+  "synthetic": true
+ },
+ "world": {
+  "customers": 2004,
+  "accounts": 2066,
+  "transactions": 12122,
+  "agents": 40,
+  "merchants": 20,
+  "devices": 2004,
+  "sims": 2004,
+  "sim_events": 2008,
+  "device_links": 2023,
+  "labelled_accounts": 218,
+  "rings": 18,
+  "first_day": "2026-10-07",
+  "last_day": "2026-11-11",
+  "days": 36,
+  "badge": "SYNTHETIC"
+ },
+ "replay": {
+  "denominator": 2330,
+  "denominator_label": "send_money transactions",
+  "mix": {
+   "allow": 1976,
+   "step_up": 0,
+   "delay": 209,
+   "hold": 145,
+   "block": 0
+  },
+  "bands": {
+   "low": 1976,
+   "medium": 0,
+   "high": 210,
+   "critical": 144
+  },
+  "codes": {
+   "NEW_PAYEE_ABOVE_P95": 222,
+   "DEST_MULE_RISK": 145
+  },
+  "cooccurrence": {
+   "DEST_MULE_RISK + NEW_PAYEE_ABOVE_P95": 13
+  },
+  "codes_that_cannot_fire": [
+   "CALL_ACTIVE_NON_CONTACT",
+   "SIM_CHANGED_24H",
+   "APP_SAFETY_BLOCK",
+   "APP_SAFETY_CAUTION",
+   "SCREEN_SHARE_ACTIVE",
+   "SCAM_CONVERSATION",
+   "ATO_BEHAVIOUR_MISMATCH",
+   "ATO_BEHAVIOUR_MISMATCH_COLD_START",
+   "COACHING_SUSPECTED",
+   "MODEL_RISK",
+   "MONEY_LOCK_ACTIVE"
+  ],
+  "codes_that_cannot_fire_reason": "the seed world carries no call state, SIM change, screen share, app-safety verdict, scam score or behaviour vector, so only the two ledger-side rules can fire",
+  "codes_that_cannot_fire_reason_bn": "seed জগতে কল স্টেট, সিম বদল, স্ক্রিন শেয়ার, অ্যাপ-সেফটি রায়, স্ক্যাম স্কোর বা বিহেভিয়ার ভেক্টর কিছুই নেই, তাই লেজার-ভিত্তিক দুটো রুলই কেবল জ্বলতে পারে",
+  "confusion": {
+   "catch": 109,
+   "miss": 102,
+   "false_positive": 36,
+   "true_negative": 2083
+  },
+  "rates": {
+   "catch_rate": 0.5166,
+   "catch_rate_denominator": 211,
+   "false_positive_rate": 0.017,
+   "false_positive_rate_denominator": 2119,
+   "stop_precision": 0.7517,
+   "stop_precision_denominator": 145,
+   "stopped": 145
+  },
+  "value": {
+   "protected_bdt": 1947537,
+   "friction_bdt": 82510,
+   "currency": "BDT"
+  },
+  "histogram": [
+   1976,
+   0,
+   0,
+   0,
+   0,
+   0,
+   209,
+   0,
+   4,
+   141
+  ],
+  "histogram_edges": [
+   0.0,
+   0.1,
+   0.2,
+   0.3,
+   0.4,
+   0.5,
+   0.6,
+   0.7,
+   0.8,
+   0.9,
+   1.0
+  ],
+  "daily": [
+   {
+    "day": "2026-10-07",
+    "scored": 53,
+    "stopped": 2
+   },
+   {
+    "day": "2026-10-08",
+    "scored": 63,
+    "stopped": 0
+   },
+   {
+    "day": "2026-10-09",
+    "scored": 54,
+    "stopped": 0
+   },
+   {
+    "day": "2026-10-10",
+    "scored": 69,
+    "stopped": 1
+   },
+   {
+    "day": "2026-10-11",
+    "scored": 53,
+    "stopped": 2
+   },
+   {
+    "day": "2026-10-12",
+    "scored": 60,
+    "stopped": 2
+   },
+   {
+    "day": "2026-10-13",
+    "scored": 61,
+    "stopped": 1
+   },
+   {
+    "day": "2026-10-14",
+    "scored": 60,
+    "stopped": 1
+   },
+   {
+    "day": "2026-10-15",
+    "scored": 72,
+    "stopped": 1
+   },
+   {
+    "day": "2026-10-16",
+    "scored": 68,
+    "stopped": 8
+   },
+   {
+    "day": "2026-10-17",
+    "scored": 53,
+    "stopped": 1
+   },
+   {
+    "day": "2026-10-18",
+    "scored": 59,
+    "stopped": 2
+   },
+   {
+    "day": "2026-10-19",
+    "scored": 62,
+    "stopped": 0
+   },
+   {
+    "day": "2026-10-20",
+    "scored": 89,
+    "stopped": 13
+   },
+   {
+    "day": "2026-10-21",
+    "scored": 88,
+    "stopped": 4
+   },
+   {
+    "day": "2026-10-22",
+    "scored": 83,
+    "stopped": 17
+   },
+   {
+    "day": "2026-10-23",
+    "scored": 79,
+    "stopped": 14
+   },
+   {
+    "day": "2026-10-24",
+    "scored": 62,
+    "stopped": 2
+   },
+   {
+    "day": "2026-10-25",
+    "scored": 55,
+    "stopped": 3
+   },
+   {
+    "day": "2026-10-26",
+    "scored": 74,
+    "stopped": 3
+   },
+   {
+    "day": "2026-10-27",
+    "scored": 76,
+    "stopped": 4
+   },
+   {
+    "day": "2026-10-28",
+    "scored": 56,
+    "stopped": 2
+   },
+   {
+    "day": "2026-10-29",
+    "scored": 95,
+    "stopped": 17
+   },
+   {
+    "day": "2026-10-30",
+    "scored": 68,
+    "stopped": 3
+   },
+   {
+    "day": "2026-10-31",
+    "scored": 64,
+    "stopped": 2
+   },
+   {
+    "day": "2026-11-01",
+    "scored": 82,
+    "stopped": 16
+   },
+   {
+    "day": "2026-11-02",
+    "scored": 75,
+    "stopped": 2
+   },
+   {
+    "day": "2026-11-03",
+    "scored": 77,
+    "stopped": 4
+   },
+   {
+    "day": "2026-11-04",
+    "scored": 61,
+    "stopped": 3
+   },
+   {
+    "day": "2026-11-05",
+    "scored": 67,
+    "stopped": 2
+   },
+   {
+    "day": "2026-11-06",
+    "scored": 63,
+    "stopped": 3
+   },
+   {
+    "day": "2026-11-07",
+    "scored": 57,
+    "stopped": 2
+   },
+   {
+    "day": "2026-11-08",
+    "scored": 50,
+    "stopped": 1
+   },
+   {
+    "day": "2026-11-09",
+    "scored": 60,
+    "stopped": 4
+   },
+   {
+    "day": "2026-11-10",
+    "scored": 62,
+    "stopped": 3
+   }
+  ],
+  "badge": "RULE"
+ },
+ "gates": [
+  {
+   "id": "G0",
+   "title": "The server decides and executes",
+   "title_bn": "সার্ভারই সিদ্ধান্ত নেয় এবং কার্যকর করে",
+   "sees": "server",
+   "owner_ticket": "risk-mw",
+   "status": "planned",
+   "badge": "NONE",
+   "note": "Today a hold is a response body; an attacker who controls the phone can ignore it. Until the server writes the transaction, every gate below is advice.",
+   "note_bn": "আজ একটা হোল্ড মানে শুধু রেসপন্সের একটা ফিল্ড; ফোনের দখল নেওয়া আক্রমণকারী সেটা উপেক্ষা করতে পারে। সার্ভার নিজে লেনদেনটা না লেখা পর্যন্ত নিচের প্রতিটা গেট কেবল পরামর্শ।",
+   "volume": null,
+   "caught": null
+  },
+  {
+   "id": "G1",
+   "title": "Takeover: freeze credential changes after a SIM change or new device",
+   "title_bn": "টেকওভার: সিম বদল বা নতুন ডিভাইসের পর ক্রেডেনশিয়াল বদল আটকে দেওয়া",
+   "sees": "server",
+   "owner_ticket": "risk-mw",
+   "status": "rule on client flags",
+   "badge": "RULE",
+   "note": "CALL_ACTIVE_NON_CONTACT and SIM_CHANGED_24H exist; the server-event path is planned.",
+   "note_bn": "CALL_ACTIVE_NON_CONTACT আর SIM_CHANGED_24H আছে; সার্ভার-ইভেন্টের পথটা এখনো পরিকল্পনায়।",
+   "volume": null,
+   "caught": null
+  },
+  {
+   "id": "G2",
+   "title": "Scam call: call state, screen share, the assistant, the turn classifier, app safety",
+   "title_bn": "স্ক্যাম কল: কল স্টেট, স্ক্রিন শেয়ার, সহকারী, টার্ন ক্লাসিফায়ার, অ্যাপ সেফটি",
+   "sees": "phone, raise-only",
+   "owner_ticket": "mobile / ato / app-safety",
+   "status": "built",
+   "badge": "MODEL",
+   "note": "The behaviour model went live on risk-mw on 2026-10-16: a coached session returns ATO_BEHAVIOUR_MISMATCH and COACHING_SUSPECTED. App safety is still a deterministic stub.",
+   "note_bn": "বিহেভিয়ার মডেল ২০২৬-১০-১৬ থেকে risk-mw-তে চালু: শেখানো সেশনে ATO_BEHAVIOUR_MISMATCH আর COACHING_SUSPECTED ফেরত আসে। অ্যাপ সেফটি এখনো একটা স্টাব।",
+   "volume": null,
+   "caught": null
+  },
+  {
+   "id": "G3",
+   "title": "Sender anomaly: amount against this person, drained balance, a never-paid payee",
+   "title_bn": "প্রেরকের অস্বাভাবিকতা: তার নিজের ইতিহাসের তুলনায় অঙ্ক, ব্যালেন্স খালি, অচেনা প্রাপক",
+   "sees": "server ledger",
+   "owner_ticket": "risk-mw",
+   "status": "fixed threshold",
+   "badge": "RULE",
+   "note": "A fixed p95 stands in for a per-person baseline; geography is not read at all yet.",
+   "note_bn": "প্রতি-ব্যক্তির বেসলাইনের বদলে একটা স্থির p95 বসানো আছে; ভূগোল এখনো পড়াই হয় না।",
+   "volume": 2330,
+   "volume_label": "payments scored",
+   "volume_label_bn": "স্কোর করা পেমেন্ট",
+   "caught": 222,
+   "caught_label": "delayed on amount",
+   "caught_label_bn": "অঙ্কের কারণে দেরি"
+  },
+  {
+   "id": "G4",
+   "title": "Payee: mule score, Case Zero watch-list, till risk",
+   "title_bn": "প্রাপক: মিউল স্কোর, Case Zero ওয়াচ-লিস্ট, এজেন্ট টিলের ঝুঁকি",
+   "sees": "server ledger, nightly",
+   "owner_ticket": "mule model",
+   "status": "built",
+   "badge": "MODEL",
+   "note": "The scorer is live in the payment path. The watch-list exists but is not read at payment time.",
+   "note_bn": "স্কোরারটি পেমেন্টের পথে চালু আছে। ওয়াচ-লিস্ট আছে, কিন্তু পেমেন্টের সময় পড়া হয় না।",
+   "volume": 429,
+   "volume_label": "accounts scored",
+   "volume_label_bn": "স্কোর করা অ্যাকাউন্ট",
+   "caught": 145,
+   "caught_label": "payments held",
+   "caught_label_bn": "আটকানো পেমেন্ট"
+  },
+  {
+   "id": "G5",
+   "title": "Cash-out: a cooling window on inbound funds that carried takeover signals",
+   "title_bn": "ক্যাশ-আউট: টেকওভারের চিহ্ন বহন করা টাকার উপর একটা অপেক্ষার সময়",
+   "sees": "server ledger",
+   "owner_ticket": "risk-mw",
+   "status": "planned",
+   "badge": "NONE",
+   "note": "Needs a cash-out transaction type. This is the gate that keeps stolen money inside the system long enough to return it.",
+   "note_bn": "এর জন্য একটা ক্যাশ-আউট লেনদেনের ধরন দরকার। এই গেটটাই চুরি হওয়া টাকা সিস্টেমের ভেতরে এত সময় ধরে রাখে যে ফেরত দেওয়া যায়।",
+   "volume": null,
+   "caught": null
+  },
+  {
+   "id": "G6",
+   "title": "After the fact: nightly scoring, Case Zero, freeze what is still inside",
+   "title_bn": "ঘটনার পরে: রাতের স্কোরিং, Case Zero, ভেতরে যা আছে তা ফ্রিজ করা",
+   "sees": "server ledger, Gemini",
+   "owner_ticket": "case-zero",
+   "status": "built",
+   "badge": "MODEL",
+   "note": "Case Zero recovers the ring and writes the case. Freeze and claw-back actions are not built.",
+   "note_bn": "Case Zero রিংটা খুঁজে বের করে কেস লেখে। ফ্রিজ আর টাকা ফেরানোর ব্যবস্থা এখনো বানানো হয়নি।",
+   "volume": null,
+   "caught": null
+  },
+  {
+   "id": "G7",
+   "title": "Feedback and sharing: confirmed mules into G4, hashed identifiers across providers",
+   "title_bn": "ফিডব্যাক ও শেয়ারিং: নিশ্চিত মিউল G4-তে ফেরত, প্রোভাইডারদের মধ্যে হ্যাশ করা শনাক্তকারী",
+   "sees": "confirmed cases",
+   "owner_ticket": null,
+   "status": "not built",
+   "badge": "NONE",
+   "note": "No national sharing exists in Bangladesh yet. A ring that moves provider escapes.",
+   "note_bn": "বাংলাদেশে এখনো জাতীয় পর্যায়ে কোনো শেয়ারিং নেই। প্রোভাইডার বদলে ফেললে রিং পালিয়ে যায়।",
+   "volume": null,
+   "caught": null
+  }
+ ],
+ "targets": [
+  {
+   "id": "false_delays",
+   "label": "False delays per 1,000 customers per month",
+   "label_bn": "প্রতি ১,০০০ গ্রাহকে মাসে ভুল দেরি",
+   "target": "< 1",
+   "target_bn": "< ১",
+   "value": null,
+   "unit": null,
+   "badge": "NO DATA",
+   "why": "needs a release path and a month of operation; today we can only count false holds in the replay, which is a different denominator",
+   "why_bn": "এর জন্য ছেড়ে দেওয়ার একটা পথ আর এক মাসের চলা দরকার; আজ কেবল রিপ্লেতে ভুল হোল্ড গোনা যায়, যার হর আলাদা"
+  },
+  {
+   "id": "minutes_to_release",
+   "label": "Median minutes to release",
+   "label_bn": "ছেড়ে দিতে মধ্যমা কত মিনিট",
+   "target": "< 5",
+   "target_bn": "< ৫",
+   "value": null,
+   "unit": "minutes",
+   "badge": "NO DATA",
+   "why": "no release path exists; trusted-contact approve/decline is the nearest thing",
+   "why_bn": "ছেড়ে দেওয়ার কোনো পথই নেই; বিশ্বস্ত মানুষের approve/decline-ই সবচেয়ে কাছের জিনিস"
+  },
+  {
+   "id": "self_release",
+   "label": "Delays ended by the customer or a relative, not staff",
+   "label_bn": "যত দেরি গ্রাহক বা তার আপনজন নিজে শেষ করেছেন, কর্মী নয়",
+   "target": "> 90%",
+   "target_bn": "> ৯০%",
+   "value": null,
+   "unit": "%",
+   "badge": "NO DATA",
+   "why": "same: nothing to end yet",
+   "why_bn": "একই কথা: শেষ করার মতো কিছুই এখনো নেই"
+  },
+  {
+   "id": "money_inside",
+   "label": "Stolen money still inside the system when the alarm sounds",
+   "label_bn": "অ্যালার্ম বাজার সময় চুরি হওয়া টাকার কতটা এখনো সিস্টেমের ভেতরে",
+   "target": "> 50%",
+   "target_bn": "> ৫০%",
+   "value": null,
+   "unit": "%",
+   "badge": "NO DATA",
+   "why": "needs G5, the cash-out cooling window",
+   "why_bn": "এর জন্য G5 দরকার, ক্যাশ-আউটের অপেক্ষার সময়"
+  },
+  {
+   "id": "friction_cost",
+   "label": "Friction imposed on genuine payments",
+   "label_bn": "নির্দোষ পেমেন্টের উপর চাপানো ঘর্ষণ",
+   "target": "as low as the catch allows",
+   "target_bn": "ধরার হার যতটা অনুমতি দেয়, তত কম",
+   "value": 82510,
+   "unit": "BDT",
+   "badge": "RULE",
+   "why": "36 genuine payments held out of 2119",
+   "why_bn": "2119টির মধ্যে 36টি নির্দোষ পেমেন্ট আটকানো হয়েছে"
+  }
+ ],
+ "mule_board": [
+  {
+   "acct": "acct_00177",
+   "probability": 1.0,
+   "role": "mule_L1",
+   "typology": "agent_round_tripping",
+   "ring": "ring_roundtrip_1",
+   "shap": [
+    {
+     "feature": "median_forward_minutes_7d",
+     "value": 8.0,
+     "contribution": 4.902,
+     "direction": "up"
+    },
+    {
+     "feature": "min_forward_minutes_30d",
+     "value": 8.0,
+     "contribution": 4.26,
+     "direction": "up"
+    },
+    {
+     "feature": "non_salary_pass_through_30d",
+     "value": 1.004,
+     "contribution": 3.985,
+     "direction": "up"
+    }
+   ]
+  },
+  {
+   "acct": "acct_00489",
+   "probability": 1.0,
+   "role": "mule_L1",
+   "typology": "dormant_then_active",
+   "ring": "ring_dormant_1",
+   "shap": [
+    {
+     "feature": "min_forward_minutes_30d",
+     "value": 45.0,
+     "contribution": 4.657,
+     "direction": "up"
+    },
+    {
+     "feature": "non_salary_pass_through_30d",
+     "value": 1.0,
+     "contribution": 4.394,
+     "direction": "up"
+    },
+    {
+     "feature": "pass_through_ratio_30d",
+     "value": 1.0,
+     "contribution": 4.1,
+     "direction": "up"
+    }
+   ]
+  },
+  {
+   "acct": "acct_00518",
+   "probability": 1.0,
+   "role": "mule_L1",
+   "typology": "dormant_then_active",
+   "ring": "ring_dormant_0",
+   "shap": [
+    {
+     "feature": "min_forward_minutes_30d",
+     "value": 45.0,
+     "contribution": 4.784,
+     "direction": "up"
+    },
+    {
+     "feature": "non_salary_pass_through_30d",
+     "value": 1.0,
+     "contribution": 4.548,
+     "direction": "up"
+    },
+    {
+     "feature": "pass_through_ratio_30d",
+     "value": 1.0,
+     "contribution": 4.184,
+     "direction": "up"
+    }
+   ]
+  },
+  {
+   "acct": "acct_00525",
+   "probability": 1.0,
+   "role": "mule_L1",
+   "typology": "agent_round_tripping",
+   "ring": "ring_roundtrip_2",
+   "shap": [
+    {
+     "feature": "non_salary_pass_through_30d",
+     "value": 0.982,
+     "contribution": 4.616,
+     "direction": "up"
+    },
+    {
+     "feature": "min_forward_minutes_30d",
+     "value": 6.0,
+     "contribution": 4.087,
+     "direction": "up"
+    },
+    {
+     "feature": "median_forward_minutes_7d",
+     "value": 8.0,
+     "contribution": 3.92,
+     "direction": "up"
+    }
+   ]
+  },
+  {
+   "acct": "acct_00642",
+   "probability": 1.0,
+   "role": "mule_L1",
+   "typology": "agent_round_tripping",
+   "ring": "ring_roundtrip_2",
+   "shap": [
+    {
+     "feature": "non_salary_pass_through_30d",
+     "value": 0.938,
+     "contribution": 4.635,
+     "direction": "up"
+    },
+    {
+     "feature": "median_forward_minutes_7d",
+     "value": 6.0,
+     "contribution": 4.473,
+     "direction": "up"
+    },
+    {
+     "feature": "min_forward_minutes_30d",
+     "value": 6.0,
+     "contribution": 4.181,
+     "direction": "up"
+    }
+   ]
+  },
+  {
+   "acct": "acct_00890",
+   "probability": 1.0,
+   "role": "mule_L1",
+   "typology": "agent_round_tripping",
+   "ring": "ring_roundtrip_0",
+   "shap": [
+    {
+     "feature": "non_salary_pass_through_30d",
+     "value": 0.982,
+     "contribution": 4.776,
+     "direction": "up"
+    },
+    {
+     "feature": "median_forward_minutes_7d",
+     "value": 6.0,
+     "contribution": 4.104,
+     "direction": "up"
+    },
+    {
+     "feature": "min_forward_minutes_30d",
+     "value": 6.0,
+     "contribution": 4.049,
+     "direction": "up"
+    }
+   ]
+  },
+  {
+   "acct": "acct_00910",
+   "probability": 1.0,
+   "role": "mule_L1",
+   "typology": "agent_round_tripping",
+   "ring": "ring_roundtrip_1",
+   "shap": [
+    {
+     "feature": "median_forward_minutes_7d",
+     "value": 7.0,
+     "contribution": 4.536,
+     "direction": "up"
+    },
+    {
+     "feature": "non_salary_pass_through_30d",
+     "value": 1.003,
+     "contribution": 4.08,
+     "direction": "up"
+    },
+    {
+     "feature": "min_forward_minutes_30d",
+     "value": 6.0,
+     "contribution": 3.796,
+     "direction": "up"
+    }
+   ]
+  },
+  {
+   "acct": "acct_01009",
+   "probability": 1.0,
+   "role": "mule_L1",
+   "typology": "dormant_then_active",
+   "ring": "ring_dormant_0",
+   "shap": [
+    {
+     "feature": "min_forward_minutes_30d",
+     "value": 45.0,
+     "contribution": 4.794,
+     "direction": "up"
+    },
+    {
+     "feature": "non_salary_pass_through_30d",
+     "value": 1.0,
+     "contribution": 4.407,
+     "direction": "up"
+    },
+    {
+     "feature": "pass_through_ratio_30d",
+     "value": 1.0,
+     "contribution": 4.114,
+     "direction": "up"
+    }
+   ]
+  },
+  {
+   "acct": "acct_01013",
+   "probability": 1.0,
+   "role": "mule_L1",
+   "typology": "dormant_then_active",
+   "ring": "ring_dormant_1",
+   "shap": [
+    {
+     "feature": "min_forward_minutes_30d",
+     "value": 45.0,
+     "contribution": 4.799,
+     "direction": "up"
+    },
+    {
+     "feature": "non_salary_pass_through_30d",
+     "value": 1.0,
+     "contribution": 4.226,
+     "direction": "up"
+    },
+    {
+     "feature": "pass_through_ratio_30d",
+     "value": 1.0,
+     "contribution": 4.016,
+     "direction": "up"
+    }
+   ]
+  },
+  {
+   "acct": "acct_01500",
+   "probability": 1.0,
+   "role": "mule_L1",
+   "typology": "dormant_then_active",
+   "ring": "ring_dormant_2",
+   "shap": [
+    {
+     "feature": "min_forward_minutes_30d",
+     "value": 45.0,
+     "contribution": 4.909,
+     "direction": "up"
+    },
+    {
+     "feature": "non_salary_pass_through_30d",
+     "value": 1.0,
+     "contribution": 4.356,
+     "direction": "up"
+    },
+    {
+     "feature": "pass_through_ratio_30d",
+     "value": 1.0,
+     "contribution": 4.09,
+     "direction": "up"
+    }
+   ]
+  },
+  {
+   "acct": "acct_01558",
+   "probability": 1.0,
+   "role": "mule_L1",
+   "typology": "dormant_then_active",
+   "ring": "ring_dormant_2",
+   "shap": [
+    {
+     "feature": "min_forward_minutes_30d",
+     "value": 45.0,
+     "contribution": 4.846,
+     "direction": "up"
+    },
+    {
+     "feature": "non_salary_pass_through_30d",
+     "value": 0.841,
+     "contribution": 4.678,
+     "direction": "up"
+    },
+    {
+     "feature": "p2p_in_count_30d",
+     "value": 4.0,
+     "contribution": 4.16,
+     "direction": "up"
+    }
+   ]
+  },
+  {
+   "acct": "acct_01572",
+   "probability": 1.0,
+   "role": "mule_L1",
+   "typology": "agent_round_tripping",
+   "ring": "ring_roundtrip_1",
+   "shap": [
+    {
+     "feature": "median_forward_minutes_7d",
+     "value": 6.0,
+     "contribution": 4.748,
+     "direction": "up"
+    },
+    {
+     "feature": "non_salary_pass_through_30d",
+     "value": 0.987,
+     "contribution": 4.316,
+     "direction": "up"
+    },
+    {
+     "feature": "min_forward_minutes_30d",
+     "value": 6.0,
+     "contribution": 3.893,
+     "direction": "up"
+    }
+   ]
+  },
+  {
+   "acct": "acct_01963",
+   "probability": 1.0,
+   "role": "mule_L1",
+   "typology": "dormant_then_active",
+   "ring": "ring_dormant_0",
+   "shap": [
+    {
+     "feature": "min_forward_minutes_30d",
+     "value": 45.0,
+     "contribution": 4.572,
+     "direction": "up"
+    },
+    {
+     "feature": "non_salary_pass_through_30d",
+     "value": 1.0,
+     "contribution": 4.451,
+     "direction": "up"
+    },
+    {
+     "feature": "pass_through_ratio_30d",
+     "value": 1.0,
+     "contribution": 4.123,
+     "direction": "up"
+    }
+   ]
+  },
+  {
+   "acct": "acct_01326",
+   "probability": 0.9999,
+   "role": "mule_L1",
+   "typology": "dormant_then_active",
+   "ring": "ring_dormant_0",
+   "shap": [
+    {
+     "feature": "min_forward_minutes_30d",
+     "value": 45.0,
+     "contribution": 4.709,
+     "direction": "up"
+    },
+    {
+     "feature": "non_salary_pass_through_30d",
+     "value": 0.948,
+     "contribution": 4.121,
+     "direction": "up"
+    },
+    {
+     "feature": "pass_through_ratio_30d",
+     "value": 0.948,
+     "contribution": 3.672,
+     "direction": "up"
+    }
+   ]
+  },
+  {
+   "acct": "acct_till_AG-0026",
+   "probability": 0.9999,
+   "role": "cashout_agent",
+   "typology": "agent_round_tripping",
+   "ring": "ring_roundtrip_1",
+   "shap": [
+    {
+     "feature": "non_salary_pass_through_30d",
+     "value": 0.919,
+     "contribution": 4.513,
+     "direction": "up"
+    },
+    {
+     "feature": "min_forward_minutes_30d",
+     "value": 0.1,
+     "contribution": 4.039,
+     "direction": "up"
+    },
+    {
+     "feature": "pass_through_ratio_30d",
+     "value": 0.919,
+     "contribution": 3.573,
+     "direction": "up"
+    }
+   ]
+  },
+  {
+   "acct": "acct_00362",
+   "probability": 0.9998,
+   "role": "mule_L1",
+   "typology": "agent_round_tripping",
+   "ring": "ring_roundtrip_2",
+   "shap": [
+    {
+     "feature": "median_forward_minutes_7d",
+     "value": 8.0,
+     "contribution": 4.6,
+     "direction": "up"
+    },
+    {
+     "feature": "min_forward_minutes_30d",
+     "value": 8.0,
+     "contribution": 4.005,
+     "direction": "up"
+    },
+    {
+     "feature": "non_salary_pass_through_30d",
+     "value": 1.097,
+     "contribution": 3.211,
+     "direction": "up"
+    }
+   ]
+  },
+  {
+   "acct": "acct_00492",
+   "probability": 0.9998,
+   "role": "mule_L1",
+   "typology": "dormant_then_active",
+   "ring": "ring_dormant_2",
+   "shap": [
+    {
+     "feature": "min_forward_minutes_30d",
+     "value": 45.0,
+     "contribution": 4.581,
+     "direction": "up"
+    },
+    {
+     "feature": "p2p_in_count_30d",
+     "value": 5.0,
+     "contribution": 3.743,
+     "direction": "up"
+    },
+    {
+     "feature": "non_salary_pass_through_30d",
+     "value": 0.741,
+     "contribution": 3.661,
+     "direction": "up"
+    }
+   ]
+  },
+  {
+   "acct": "acct_01102",
+   "probability": 0.9996,
+   "role": "mule_L1",
+   "typology": "agent_round_tripping",
+   "ring": "ring_roundtrip_0",
+   "shap": [
+    {
+     "feature": "median_forward_minutes_7d",
+     "value": 7.0,
+     "contribution": 4.482,
+     "direction": "up"
+    },
+    {
+     "feature": "min_forward_minutes_30d",
+     "value": 6.0,
+     "contribution": 3.978,
+     "direction": "up"
+    },
+    {
+     "feature": "non_salary_pass_through_30d",
+     "value": 1.008,
+     "contribution": 3.279,
+     "direction": "up"
+    }
+   ]
+  },
+  {
+   "acct": "acct_till_AG-0192",
+   "probability": 0.9995,
+   "role": "cashout_agent",
+   "typology": "agent_round_tripping",
+   "ring": "ring_roundtrip_0",
+   "shap": [
+    {
+     "feature": "non_salary_pass_through_30d",
+     "value": 0.946,
+     "contribution": 4.307,
+     "direction": "up"
+    },
+    {
+     "feature": "min_forward_minutes_30d",
+     "value": 2.0,
+     "contribution": 4.013,
+     "direction": "up"
+    },
+    {
+     "feature": "pass_through_ratio_30d",
+     "value": 0.946,
+     "contribution": 3.58,
+     "direction": "up"
+    }
+   ]
+  },
+  {
+   "acct": "acct_01213",
+   "probability": 0.9991,
+   "role": "controller",
+   "typology": "fan_in_fan_out",
+   "ring": "ring_fan_2",
+   "shap": [
+    {
+     "feature": "non_salary_pass_through_30d",
+     "value": 0.975,
+     "contribution": 4.014,
+     "direction": "up"
+    },
+    {
+     "feature": "p2p_in_count_30d",
+     "value": 16.0,
+     "contribution": 3.842,
+     "direction": "up"
+    },
+    {
+     "feature": "min_forward_minutes_30d",
+     "value": 72.0,
+     "contribution": 3.771,
+     "direction": "up"
+    }
+   ]
+  },
+  {
+   "acct": "acct_00332",
+   "probability": 0.9988,
+   "role": "mule_L1",
+   "typology": "dormant_then_active",
+   "ring": "ring_dormant_1",
+   "shap": [
+    {
+     "feature": "min_forward_minutes_30d",
+     "value": 45.0,
+     "contribution": 4.641,
+     "direction": "up"
+    },
+    {
+     "feature": "non_salary_pass_through_30d",
+     "value": 0.735,
+     "contribution": 3.57,
+     "direction": "up"
+    },
+    {
+     "feature": "p2p_in_count_30d",
+     "value": 5.0,
+     "contribution": 3.337,
+     "direction": "up"
+    }
+   ]
+  },
+  {
+   "acct": "acct_01169",
+   "probability": 0.9988,
+   "role": "mule_L1",
+   "typology": "ledger_leak_targeting",
+   "ring": "ring_leak_2",
+   "shap": [
+    {
+     "feature": "min_forward_minutes_30d",
+     "value": 10.0,
+     "contribution": 4.177,
+     "direction": "up"
+    },
+    {
+     "feature": "non_salary_pass_through_30d",
+     "value": 1.0,
+     "contribution": 3.862,
+     "direction": "up"
+    },
+    {
+     "feature": "median_forward_minutes_7d",
+     "value": 94.0,
+     "contribution": 3.645,
+     "direction": "up"
+    }
+   ]
+  },
+  {
+   "acct": "acct_01901",
+   "probability": 0.9988,
+   "role": "controller",
+   "typology": "fan_in_fan_out",
+   "ring": "ring_fan_1",
+   "shap": [
+    {
+     "feature": "non_salary_pass_through_30d",
+     "value": 0.931,
+     "contribution": 3.961,
+     "direction": "up"
+    },
+    {
+     "feature": "p2p_in_count_30d",
+     "value": 15.0,
+     "contribution": 3.885,
+     "direction": "up"
+    },
+    {
+     "feature": "min_forward_minutes_30d",
+     "value": 72.0,
+     "contribution": 3.792,
+     "direction": "up"
+    }
+   ]
+  },
+  {
+   "acct": "acct_00970",
+   "probability": 0.9987,
+   "role": "mule_L1",
+   "typology": "agent_round_tripping",
+   "ring": "ring_roundtrip_0",
+   "shap": [
+    {
+     "feature": "min_forward_minutes_30d",
+     "value": 8.0,
+     "contribution": 3.974,
+     "direction": "up"
+    },
+    {
+     "feature": "non_salary_pass_through_30d",
+     "value": 0.991,
+     "contribution": 3.925,
+     "direction": "up"
+    },
+    {
+     "feature": "pass_through_ratio_30d",
+     "value": 0.991,
+     "contribution": 3.102,
+     "direction": "up"
+    }
+   ]
+  },
+  {
+   "acct": "acct_01776",
+   "probability": 0.9945,
+   "role": "mule_L1",
+   "typology": "dormant_then_active",
+   "ring": "ring_dormant_2",
+   "shap": [
+    {
+     "feature": "min_forward_minutes_30d",
+     "value": 45.0,
+     "contribution": 4.775,
+     "direction": "up"
+    },
+    {
+     "feature": "pass_through_ratio_30d",
+     "value": 1.0,
+     "contribution": 3.606,
+     "direction": "up"
+    },
+    {
+     "feature": "non_salary_pass_through_30d",
+     "value": 1.0,
+     "contribution": 3.327,
+     "direction": "up"
+    }
+   ]
+  }
+ ],
+ "mule_board_meta": {
+  "scored": 429,
+  "at_or_above_hold_threshold": 28,
+  "hold_threshold": 0.8,
+  "sample_seed": 7,
+  "model_version": "mule-lgbm-0.1",
+  "badge": "MODEL"
+ },
+ "models": [
+  {
+   "id": "mule-lgbm",
+   "version": "mule-lgbm-0.1",
+   "badge": "MODEL",
+   "headline": "AUC-PR 0.841, precision@50 0.9",
+   "gates_passed": null,
+   "per_segment": {
+    "agent_round_tripping": 1.0,
+    "dormant_then_active": 1.0,
+    "fan_in_fan_out": 0.31,
+    "ledger_leak_targeting": 0.417,
+    "otp_takeover_cashout": 0.2,
+    "purchased_mule_cluster": 0.611
+   },
+   "per_segment_label": "ring-level recall @50 by typology",
+   "eval": "eval/results/mule.json",
+   "generated_at": "2026-10-18T11:46:58+00:00"
+  },
+  {
+   "id": "app-safety",
+   "version": null,
+   "badge": "STUB",
+   "headline": "deterministic severity ladder",
+   "gates_passed": null,
+   "per_segment": null,
+   "eval": null,
+   "note": "the app classifier has not landed; every verdict is a rule"
+  },
+  {
+   "id": "fna-intervention",
+   "version": null,
+   "badge": "STUB",
+   "headline": "three scripted triggers, always intervenes",
+   "gates_passed": null,
+   "per_segment": null,
+   "eval": null
+  }
+ ],
+ "policy": [
+  {
+   "id": "no_model_block",
+   "statement": "No payment-scoring model may reach block.",
+   "statement_bn": "পেমেন্ট স্কোর করা কোনো মডেল block পর্যন্ত যেতে পারবে না।",
+   "ok": true,
+   "evidence": "block = 0 over 2330 scored payments. The engine has exactly one path to block and it is not a payment score: APP_SAFETY_BLOCK, on a device verdict (rules.py:69).",
+   "evidence_bn": "2330টি স্কোর করা পেমেন্টে block = 0। ইঞ্জিনে block-এ যাওয়ার পথ একটাই, আর সেটা পেমেন্ট স্কোর নয় — APP_SAFETY_BLOCK, ডিভাইসের রায়ে (rules.py:69)।",
+   "source": "defence-in-depth plan, section 5"
+  },
+  {
+   "id": "decline_needs_an_analyst",
+   "statement": "A decline exists only for a payee an analyst has confirmed as a mule.",
+   "statement_bn": "অ্যানালিস্ট যে প্রাপককে মিউল বলে নিশ্চিত করেছেন, কেবল তার জন্যই decline আছে।",
+   "ok": false,
+   "evidence": "False by construction. APP_SAFETY_BLOCK (rules.py:69) declines on a device verdict: no analyst, no payee, no mule confirmation. That verdict is not model-free either - two LAMDA CLASSIFIER_HIGH hits on sideloaded apps combine above the 0.80 threshold (app-safety-check pipeline.py:131); only Gemini is capped at CAUTION. The audit log shows it has already happened in live traffic.",
+   "evidence_bn": "গঠনগতভাবেই ভুল। APP_SAFETY_BLOCK (rules.py:69) ডিভাইসের রায়ে decline করে: কোনো অ্যানালিস্ট নেই, কোনো প্রাপক নেই, মিউল নিশ্চিতকরণ নেই। সেই রায়ও মডেল-মুক্ত নয় — সাইডলোড করা অ্যাপে দুটো LAMDA CLASSIFIER_HIGH মিলে 0.80 থ্রেশহোল্ড ছাড়িয়ে যায় (app-safety-check pipeline.py:131); কেবল Gemini-কেই CAUTION-এ আটকানো আছে। অডিট লগ বলছে লাইভ ট্রাফিকে এটা ইতিমধ্যেই ঘটেছে।",
+   "source": "defence-in-depth plan, section 5"
+  },
+  {
+   "id": "holds_are_delays",
+   "statement": "Holds are delays with a customer-controlled release, never a model's block.",
+   "statement_bn": "হোল্ড মানে দেরি, যা গ্রাহক নিজেই শেষ করতে পারেন — কখনোই মডেলের ব্লক নয়।",
+   "ok": false,
+   "evidence": "No release path exists. A hold today ends when the trusted contact approves, when it expires, or not at all - the customer cannot end it themselves.",
+   "evidence_bn": "ছেড়ে দেওয়ার কোনো পথ নেই। আজ একটা হোল্ড শেষ হয় বিশ্বস্ত মানুষ অনুমোদন দিলে, মেয়াদ ফুরালে, নয়তো কখনোই না — গ্রাহক নিজে সেটা শেষ করতে পারেন না।",
+   "source": "defence-in-depth plan, section 6"
+  },
+  {
+   "id": "client_signals_raise_only",
+   "statement": "Client signals only raise risk; the ledger decides.",
+   "statement_bn": "ক্লায়েন্টের সিগন্যাল কেবল ঝুঁকি বাড়াতে পারে; সিদ্ধান্ত নেয় লেজার।",
+   "ok": true,
+   "evidence": "Every demo_flag enters through a rule that can only add a hit; no flag can lower a score or clear another rule.",
+   "evidence_bn": "প্রতিটা demo_flag এমন একটা রুলের ভেতর দিয়ে ঢোকে যা কেবল হিট যোগ করতে পারে; কোনো ফ্ল্যাগ স্কোর কমাতে বা অন্য রুল বাতিল করতে পারে না।",
+   "source": "app/rules.py"
+  }
+ ],
+ "weakest_link": {
+  "typology": "otp_takeover_cashout",
+  "ring_recall": 0.2,
+  "stubs": [
+   "app-safety",
+   "fna-intervention"
+  ],
+  "gates_not_built": [
+   "G0",
+   "G5",
+   "G7"
+  ],
+  "sentence": "Weakest detector: otp_takeover_cashout at ring recall 0.2. Gates not built: G0, G5, G7. Stubs still answering: app-safety, fna-intervention.",
+  "sentence_bn": "সবচেয়ে দুর্বল ডিটেক্টর: otp_takeover_cashout, ring recall 0.2। যে গেটগুলো বানানো হয়নি: G0, G5, G7। যেগুলো এখনো স্টাব: app-safety, fna-intervention।"
+ }
+}

@@ -1,0 +1,19 @@
+{
+  "seed": 42,
+  "start_date": "2026-10-07",
+  "days": 35,
+  "customers": 2000,
+  "agents": 40,
+  "merchants": 20,
+  "rings_per_typology": 3,
+  "daily_txn_rate": 0.12,
+  "campaign": {
+    "campaigns": 3,
+    "days": [
+      12,
+      22,
+      30
+    ]
+  },
+  "checksum": "9e22cfd90c0968d576a612b2bc890adda9a404e084f0fefd8cd4a9f7452df086"
+}

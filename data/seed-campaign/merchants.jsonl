@@ -1,0 +1,20 @@
+{"merchant_id": "MR-0001", "acct_id": "acct_merchant_MR-0001", "name": "ফার্মেসি ১", "category": "pharmacy", "district": "Chattogram", "since": "2026-06-15T11:00:00"}
+{"merchant_id": "MR-0002", "acct_id": "acct_merchant_MR-0002", "name": "পোশাকের দোকান ২", "category": "clothing", "district": "Bhola", "since": "2024-10-14T05:00:00"}
+{"merchant_id": "MR-0003", "acct_id": "acct_merchant_MR-0003", "name": "ইউটিলিটি সেবা ৩", "category": "utility", "district": "Khulna", "since": "2025-05-08T09:00:00"}
+{"merchant_id": "MR-0004", "acct_id": "acct_merchant_MR-0004", "name": "ফার্মেসি ৪", "category": "pharmacy", "district": "Chattogram", "since": "2023-01-12T18:00:00"}
+{"merchant_id": "MR-0005", "acct_id": "acct_merchant_MR-0005", "name": "ইউটিলিটি সেবা ৫", "category": "utility", "district": "Dhaka", "since": "2022-11-29T12:00:00"}
+{"merchant_id": "MR-0006", "acct_id": "acct_merchant_MR-0006", "name": "মুদি দোকান ৬", "category": "grocery", "district": "Gazipur", "since": "2022-10-12T01:00:00"}
+{"merchant_id": "MR-0007", "acct_id": "acct_merchant_MR-0007", "name": "মুদি দোকান ৭", "category": "grocery", "district": "Sylhet", "since": "2023-01-31T04:00:00"}
+{"merchant_id": "MR-0008", "acct_id": "acct_merchant_MR-0008", "name": "ইউটিলিটি সেবা ৮", "category": "utility", "district": "Narayanganj", "since": "2026-02-21T12:00:00"}
+{"merchant_id": "MR-0009", "acct_id": "acct_merchant_MR-0009", "name": "পোশাকের দোকান ৯", "category": "clothing", "district": "Sylhet", "since": "2025-05-10T16:00:00"}
+{"merchant_id": "MR-0010", "acct_id": "acct_merchant_MR-0010", "name": "ইলেকট্রনিক্সের দোকান ১০", "category": "electronics", "district": "Gazipur", "since": "2023-02-08T22:00:00"}
+{"merchant_id": "MR-0011", "acct_id": "acct_merchant_MR-0011", "name": "রেস্তোরাঁ ১১", "category": "restaurant", "district": "Dhaka", "since": "2023-08-29T00:00:00"}
+{"merchant_id": "MR-0012", "acct_id": "acct_merchant_MR-0012", "name": "ইউটিলিটি সেবা ১২", "category": "utility", "district": "Dhaka", "since": "2026-06-23T22:00:00"}
+{"merchant_id": "MR-0013", "acct_id": "acct_merchant_MR-0013", "name": "মুদি দোকান ১৩", "category": "grocery", "district": "Dhaka", "since": "2023-04-29T07:00:00"}
+{"merchant_id": "MR-0014", "acct_id": "acct_merchant_MR-0014", "name": "ফার্মেসি ১৪", "category": "pharmacy", "district": "Chattogram", "since": "2023-10-06T04:00:00"}
+{"merchant_id": "MR-0015", "acct_id": "acct_merchant_MR-0015", "name": "মুদি দোকান ১৫", "category": "grocery", "district": "Gazipur", "since": "2025-10-29T01:00:00"}
+{"merchant_id": "MR-0016", "acct_id": "acct_merchant_MR-0016", "name": "রেস্তোরাঁ ১৬", "category": "restaurant", "district": "Khulna", "since": "2024-08-18T12:00:00"}
+{"merchant_id": "MR-0017", "acct_id": "acct_merchant_MR-0017", "name": "পোশাকের দোকান ১৭", "category": "clothing", "district": "Dhaka", "since": "2026-01-12T20:00:00"}
+{"merchant_id": "MR-0018", "acct_id": "acct_merchant_MR-0018", "name": "ফার্মেসি ১৮", "category": "pharmacy", "district": "Dhaka", "since": "2026-07-13T08:00:00"}
+{"merchant_id": "MR-0019", "acct_id": "acct_merchant_MR-0019", "name": "ইউটিলিটি সেবা ১৯", "category": "utility", "district": "Chattogram", "since": "2026-02-13T02:00:00"}
+{"merchant_id": "MR-0020", "acct_id": "acct_merchant_MR-0020", "name": "রেস্তোরাঁ ২০", "category": "restaurant", "district": "Chattogram", "since": "2024-12-15T20:00:00"}

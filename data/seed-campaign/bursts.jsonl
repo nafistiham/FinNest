@@ -1,0 +1,4 @@
+{"burst_id": "payday_1", "kind": "payday", "start": "2026-10-10T00:00:00", "end": "2026-10-12T00:00:00", "acct_ids": [], "types": ["salary", "cash_out", "send_money"]}
+{"burst_id": "payday_2", "kind": "payday", "start": "2026-11-10T00:00:00", "end": "2026-11-12T00:00:00", "acct_ids": [], "types": ["salary", "cash_out", "send_money"]}
+{"burst_id": "wedding", "kind": "wedding", "start": "2026-10-27T00:00:00", "end": "2026-10-28T00:00:00", "acct_ids": ["acct_01621"], "types": ["cash_out"]}
+{"burst_id": "hospital", "kind": "hospital", "start": "2026-10-16T21:00:00", "end": "2026-10-17T09:00:00", "acct_ids": ["acct_00760"], "types": ["send_money", "cash_out"]}

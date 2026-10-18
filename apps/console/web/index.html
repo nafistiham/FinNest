@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="bn" class="fn" data-theme="system" data-preset="teal" data-lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FinNest Admin · ফিননেস্ট অ্যাডমিন</title>
+    <meta name="description" content="FinNest Admin: the FinNest operator console. Synthetic data." />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#FBFAF6" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#121615" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="./favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="./favicon-48.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <!-- Roboto is the design system's Latin face (400/500 for text, 700 for the wordmark).
+         SolaimanLipi and Baloo Da 2 ship with finnest.css. Material Symbols Outlined, cut down to
+         the glyphs the console uses (the list must stay alphabetical). -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..24,400,0..1,0&icon_names=check,check_circle,close,contrast,dark_mode,dashboard,description,download,error,filter_center_focus,folder_open,info,keyboard_command_key,light_mode,local_atm,logout,monitoring,palette,pause_circle,person_search,radar,refresh,restart_alt,science,sensors,settings,shield,swap_horiz,translate,warning&display=block" rel="stylesheet" />
+    <script>
+      /* Theme, colour preset, density and language before first paint, so nobody sees a flash of the
+         wrong mode or the wrong colour. Only known values are applied: a stale or hand-edited value
+         falls back to the default instead of leaving <html> in a state no rule matches. The same
+         lists live in src/lib/ui.ts (THEMES, PRESETS, DENSITIES). */
+      try {
+        var d = document.documentElement
+        var get = function (k, ok) { var v = localStorage.getItem(k); return ok.indexOf(v) >= 0 ? v : null }
+        var theme = get('bhorosha-admin-theme', ['system', 'light', 'dark']) || 'system'
+        var preset = get('bhorosha-admin-preset', ['teal', 'padma', 'jamdani', 'shapla', 'slate']) || 'teal'
+        var density = get('bhorosha-admin-density', ['comfortable', 'compact'])
+        var lang = get('bhorosha-admin-lang', ['en', 'bn'])
+        d.dataset.theme = theme
+        d.dataset.preset = preset
+        if (density) d.dataset.density = density
+        if (lang) { d.lang = lang; d.dataset.lang = lang }
+        /* The browser chrome (address bar on a phone) follows the chosen mode, not only the OS. */
+        var dark = theme === 'dark' || (theme === 'system' && matchMedia('(prefers-color-scheme: dark)').matches)
+        var metas = document.querySelectorAll('meta[name="theme-color"]')
+        for (var i = 0; i < metas.length; i++) { metas[i].removeAttribute('media'); metas[i].content = dark ? '#121615' : '#FBFAF6' }
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

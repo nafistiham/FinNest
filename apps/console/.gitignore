@@ -1,0 +1,19 @@
+# dependencies and build output; both are reproducible
+node_modules/
+web/dist/
+*.tsbuildinfo
+
+# python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+
+# local configuration and secrets
+.env
+.env.*
+!.env.example
+
+# assembled by scripts/deploy.sh
+.deploy/
+vendor/

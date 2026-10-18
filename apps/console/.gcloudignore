@@ -1,0 +1,8 @@
+# `gcloud run deploy --source .deploy` uploads the context scripts/deploy.sh assembles;
+# deploy.sh copies this file into it. It keeps caches and local secrets out of the upload.
+.gcloudignore
+**/node_modules/
+**/__pycache__/
+**/.pytest_cache/
+**/.env
+**/.env.*

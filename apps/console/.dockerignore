@@ -1,0 +1,6 @@
+# scripts/deploy.sh copies this file into the context it assembles (.deploy/).
+**/node_modules/
+**/__pycache__/
+**/.pytest_cache/
+**/.env
+**/.env.*

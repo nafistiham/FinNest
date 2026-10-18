@@ -1,0 +1,105 @@
+/*
+ * The Incidents view. Tokens only, from styles.css; nothing here defines a colour.
+ * --violet stays SYNTHETIC provenance: the opening line is --info, shared-entity links --warn,
+ * evidence edges --info. Layout from the incident-view design: a 300px rail and the panels beside it, the
+ * map and timeline sharing a row; narrower, the panels stack, and then the rail does too.
+ */
+
+.cv-layout { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 16px; align-items: start; }
+.cv-rail { min-width: 0; }
+.cv-panels { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); gap: 0 16px; min-width: 0; }
+.cv-panels > .cv-wide { grid-column: 1 / -1; }
+.cv-panels > div { min-width: 0; }
+/* A failed read keeps the last rows on screen, visibly not current. */
+.cv-panels.cv-stale > div:not(.note) { opacity: 0.55; }
+/* Breakpoints are viewport widths with the 236px sidebar still on screen (it hides at 900px). */
+@media (max-width: 1240px) { .cv-panels { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 1020px) { .cv-layout { grid-template-columns: minmax(0, 1fr); } }
+
+.cv-lede { color: var(--ink-3); font-size: var(--fs-micro); margin: 0 0 12px; line-height: 1.55; }
+.cv-table table { min-width: 760px; }
+.cv-table tr.cv-on td { background: color-mix(in srgb, var(--info) 9%, transparent); }
+.cv-table td.cv-note { color: var(--ink-2); font-size: var(--fs-micro); padding-top: 0; }
+.cv-table .cv-nowrap { white-space: nowrap; }
+
+/* The incident rail: buttons, not a table, so it reads at 300px. */
+.cv-rank { display: grid; gap: 6px; margin: 6px 0 10px; }
+.cv-rank select {
+  background: var(--bg-2); color: var(--ink); border: 1px solid var(--line); border-radius: 8px;
+  padding: 6px 8px; width: 100%;
+}
+.cv-list { display: grid; gap: 6px; max-height: 460px; overflow: auto; padding-right: 2px; }
+.cv-item {
+  display: grid; gap: 3px; text-align: left; white-space: normal; padding: 8px 10px;
+  background: var(--card-2); border: 1px solid var(--line); border-radius: 9px; color: var(--ink);
+}
+.cv-item.cv-on { border-color: var(--info); box-shadow: 0 0 0 1px var(--info) inset; }
+.cv-item .cv-cell { font: 600 var(--fs-micro) var(--mono); overflow-wrap: anywhere; }
+.cv-item .cv-meta { color: var(--ink-3); font-size: 12px; }
+.cv-chips { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; }
+.cv-chips .chip { font-size: 11px; padding: 1.5px 7px; }
+
+.cv-kv { display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; margin: 8px 0; }
+.cv-kv > div { border-bottom: 1px solid var(--line); padding: 6px 0; overflow-wrap: anywhere; min-width: 0; }
+.cv-kv .cv-full { grid-column: 1 / -1; }
+.cv-kv dt { font-size: 11.5px; color: var(--ink-3); }
+.cv-kv dd { margin: 2px 0 0; font-size: var(--fs-small); }
+.cv-stack { display: grid; gap: 10px; margin-top: 10px; }
+.cv-sub { color: var(--ink-3); font-size: var(--fs-micro); margin: 4px 0; line-height: 1.5; }
+.cv-mini table { min-width: 0; font-size: 12.5px; }
+.cv-mini th, .cv-mini td { padding: 5px 7px; }
+details.cv-details { margin-top: 10px; }
+details.cv-details summary { cursor: pointer; color: var(--ink-2); font-size: var(--fs-small); }
+.cv-mono { font-family: var(--mono); font-size: 12px; overflow-wrap: anywhere; }
+.cv-scroll { max-height: 170px; overflow: auto; }
+
+/* SVG panels */
+.cv-svg { display: block; width: 100%; height: auto; }
+.cv-svg text { fill: var(--ink-2); font: 11px var(--sans); }
+.cv-svg .cv-outline { fill: var(--bg-2); stroke: var(--line-2); stroke-width: 1.5; }
+
+/* The real districts. Every one is drawn, so the country is the country; the ones in the incident
+   take a fill whose strength is their share of the busiest, and a district holding a payee is
+   outlined. The hairline between districts is what makes it read as a map rather than a blob. */
+.cv-svg .cv-dist {
+  /* The country has to read as a country before anything is shaded on it, so the districts
+     nobody sent from still carry a fill and a visible border. */
+  fill: var(--card);
+  stroke: var(--ink-3);
+  stroke-width: 0.5;
+  stroke-opacity: 0.5;
+  stroke-linejoin: round;
+}
+.cv-svg .cv-dist.on { fill: var(--info); stroke: var(--info); stroke-opacity: 1; stroke-width: 0.8; }
+.cv-svg .cv-dist.payee { stroke: var(--warn); stroke-width: 1.6; }
+.cv-svg .cv-distlabel {
+  fill: var(--ink); font: 10px var(--sans);
+  paint-order: stroke fill; stroke: var(--bg-2); stroke-width: 2.5px; stroke-linejoin: round;
+}
+.cv-svg .cv-credit { fill: var(--ink-3); font: 9px var(--sans); }
+.cv-svg .cv-grid { stroke: var(--line); stroke-width: 1; }
+.cv-svg .cv-leader { stroke: var(--line-2); stroke-width: 1; }
+.cv-svg .cv-edge { stroke: var(--line-2); stroke-width: 1.1; fill: none; }
+.cv-svg .cv-edge.cv-lit { stroke: var(--info); stroke-width: 2; }
+.cv-svg .cv-evidence { stroke: var(--info); stroke-width: 1.7; fill: none; }
+.cv-svg .cv-shared { stroke: var(--warn); stroke-width: 1.5; stroke-dasharray: 5 4; fill: none; }
+.cv-svg .cv-hop { stroke: var(--ink-3); stroke-width: 1.2; stroke-dasharray: 1 3; fill: none; }
+.cv-svg .cv-node { fill: var(--card-2); stroke: var(--info); stroke-width: 1.5; }
+.cv-svg .cv-node.cv-context { stroke: var(--warn); stroke-dasharray: 3 2; }
+.cv-svg .cv-node.cv-picked { fill: color-mix(in srgb, var(--info) 30%, var(--card-2)); }
+.cv-svg .cv-sender { fill: var(--ink-3); }
+.cv-svg .cv-hopnode { fill: var(--card-2); stroke: var(--ink-3); stroke-width: 1.2; }
+.cv-svg .cv-label { fill: var(--ink); font: 600 11px var(--mono); }
+.cv-svg .cv-caption { fill: var(--ink-3); font-size: 10px; }
+.cv-svg [tabindex]:focus-visible { outline: 2px solid var(--info); outline-offset: 2px; }
+.cv-svg .cv-clickable { cursor: pointer; }
+
+.cv-legend { display: flex; gap: 12px; flex-wrap: wrap; font-size: var(--fs-micro); color: var(--ink-2); margin-top: 6px; }
+.cv-legend b { color: var(--ink); }
+.cv-named { font-weight: 700; color: var(--ink); }
+
+/* Actions: every control disabled, each with its reason beside it. */
+.cv-actions { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; }
+.cv-action { border: 1px solid var(--line); border-radius: 9px; padding: 10px; display: grid; gap: 7px; align-content: start; }
+.cv-action button { white-space: normal; width: 100%; }
+.cv-action .chip { justify-self: start; white-space: normal; }

@@ -1,0 +1,56 @@
+# Single source of truth for Gemini model IDs and prices.
+# IDs are PINNED here and nowhere else. Re-check against the models page on
+# build day (https://ai.google.dev/gemini-api/docs/models) before the deploy.
+# Prices: USD per 1M tokens, Standard tier, as published on 2026-10-16.
+# Backend: Developer API with GOOGLE_API_KEY when set (prepaid Gemini credit), otherwise
+# Vertex AI (Cloud welcome credit). See app/genai_client.py select_backend().
+
+roles:
+  workhorse:
+    id: gemini-3.8-flash
+    input_usd_per_m: 0.75
+    output_usd_per_m: 3.75
+    use: "Case Zero investigator (hand-rolled tool-calling loop on google-genai, not ADK), caller transcription (/v1/scam/transcribe), the scam detector's escalation read (variant v4 only; the service runs v3), the console's reading of a stored score (apps/console/api/insight.py)"
+  volume:
+    id: gemini-3.5-flash-lite
+    input_usd_per_m: 0.30
+    output_usd_per_m: 2.50
+    use: "per-turn scam classification, App Safety triage, Apa warning composer"
+  live:
+    id: gemini-3.8-live
+    input_usd_per_m: 0.75
+    output_usd_per_m: 4.50
+    use: "live caller transcription (/v1/scam/live); the app's Apa voice pins the same id client side (Firebase AI Logic)"
+  reasoning:
+    id: gemini-3.1-pro-preview
+    input_usd_per_m: 2.00
+    output_usd_per_m: 12.00
+    use: "default judge of risk-mw's eval/apa_judge.py (eval/results/apa_judge.json records the judge) and of Case Zero's eval harness (its recorded runs used judge); no service calls it"
+  judge:
+    id: gemini-3.8-flash
+    input_usd_per_m: 0.75
+    output_usd_per_m: 3.75
+    use: "eval harness judge (Case Zero's recorded runs)"
+  # TTS engines: app/tts.py tries `tts`, then `tts_fallback`, both in voice Sulafat with the urgent
+  # style, and moves to the other one for the rest of the process when a model answers "not found". Output prices are per
+  # audio token (25 per second). Provisional until scripts/tts_engine_smoke.py and a native ear decide:
+  # - gemini-2.5-flash-tts works today but may retire in October 2026 with the other 2.5 models (Vertex retires
+  #   gemini-2.5-flash on 2026-10-20; Firebase says 2.5 models shut down for all projects in October 2026);
+  # - gemini-3.8-flash-lite-tts is Preview (released 2026-09-28), served from the `global` endpoint only, and reads its
+  #   text as a verbatim transcript, so the style goes in speech_metadata.style (tts_style: metadata), not before the text.
+  # To swap them, swap the whole role blocks (id, prices, location, tts_style) and PINNED in tests/test_tts_engines.py.
+  # app/tts.py decides the style mode from the model id (only Gemini 2.x TTS takes it before the text), so a swap can
+  # never make a verbatim engine read the English direction aloud.
+  tts:
+    id: gemini-3.8-flash-lite-tts
+    input_usd_per_m: 0.50
+    output_usd_per_m: 6.00     # through 2026-12-31; $12.00 from 2027-01-01
+    location: global
+    tts_style: metadata
+    use: Apa's spoken warnings and the live "why" (primary engine, Preview)
+  tts_fallback:
+    id: gemini-2.5-flash-tts
+    input_usd_per_m: 0.50
+    output_usd_per_m: 10.00
+    tts_style: prompt
+    use: Apa's spoken warnings when the primary is not served (the engine the pre-rendered clips were made with)

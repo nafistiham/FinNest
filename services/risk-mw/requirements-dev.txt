@@ -1,0 +1,2 @@
+# For scripts only (scripts/render_apa_audio.py --ogg, libsndfile for OGG); not installed in the service image.
+soundfile>=0.12

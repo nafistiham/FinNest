@@ -1,0 +1,15 @@
+.eval_spend.json
+eval/.gen_cache/
+eval/results/
+eval/speech_smoke/*
+!eval/speech_smoke/utterances.jsonl
+eval/tts_engine_smoke/
+# build-time copies made by scripts/deploy.sh
+vendor/
+artifacts/
+__pycache__/
+.pytest_cache/
+.venv/
+.env
+.env.*
+!.env.example

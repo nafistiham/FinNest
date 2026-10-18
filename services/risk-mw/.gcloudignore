@@ -1,0 +1,14 @@
+# What `gcloud run deploy --source` uploads to Cloud Build. Without this file gcloud would use .gitignore,
+# which excludes vendor/ and artifacts/: scripts/deploy.sh creates both, and the image needs them.
+.git
+.gitignore
+**/__pycache__
+**/*.pyc
+**/.pytest_cache
+.venv
+.env
+.env.*
+.eval_spend.json
+tests/
+eval/
+README.md

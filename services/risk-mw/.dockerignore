@@ -1,0 +1,19 @@
+# Not needed at runtime. The image keeps app/, main.py, config/ (models.yaml, personas.json), app/data/**,
+# seed/scam_scripts.jsonl, models/ (session_risk.joblib and .json), vendor/ and artifacts/.
+.git
+.gitignore
+.gcloudignore
+.dockerignore
+**/__pycache__
+**/*.pyc
+**/.pytest_cache
+.venv
+.env
+.env.*
+.eval_spend.json
+tests/
+eval/
+scripts/
+README.md
+Procfile
+requirements-dev.txt

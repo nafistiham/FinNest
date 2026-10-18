@@ -1,0 +1,7 @@
+# bhorosha_app_safety_check: serving needs lightgbm + numpy + pydantic; training adds pandas, pyarrow, scikit-learn
+lightgbm>=4.3
+numpy>=1.26
+pydantic>=2.7
+pandas>=2.2
+pyarrow>=15
+scikit-learn>=1.4

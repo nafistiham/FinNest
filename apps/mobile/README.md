@@ -98,6 +98,7 @@ The `Makefile` passes `config/dart_defines.json` automatically when it exists.
 | `FIREBASE_STORAGE_BUCKET` | empty | Optional storage bucket. |
 | `CLOUD_PROJECT_NUMBER` | empty | Project number for Play Integrity. Empty disables Play Integrity tokens. |
 | `APP_CHECK_DEBUG` | `false` | Use the App Check debug provider in a profile or release build. Debug builds always use it. |
+| `APP_CHECK_DEBUG_TOKEN` | empty | A fixed App Check debug token for a sideloaded demo APK. Used only with the debug provider. Set it only through `tool/build_judges_apk.sh`. |
 | `DEMO_PANEL` | on in debug, off otherwise | The hidden demo panel and the Fraud desk. |
 | `DEMO_PASSWORD` | `finnest` | Demo password for the password login path. A demo value, not a credential. |
 | `PASSKEYS_ENABLED` | `false` | Passkey login. Off: the passkey routes are not deployed. |
@@ -144,6 +145,19 @@ Debug builds use the App Check debug provider. To register the device:
    with `firebase appcheck:debugtokens:create <token> --project "$PROJECT_ID" --app "$FIREBASE_APP_ID"`.
 
 A release build uses Play Integrity unless it is built with `APP_CHECK_DEBUG=true`.
+
+### Demo APK for sideloaded installs
+
+Play Integrity fails for an APK that is not installed from Google Play, and each install with the
+debug provider makes its own random token. For a demo APK that many people install, use one fixed
+token:
+
+1. Make a UUID v4 (`uuidgen`) and register it as a debug token in the Firebase console.
+2. Build: `FINNEST_APPCHECK_TOKEN=<token> tool/build_judges_apk.sh`. The APK has the demo panel on
+   and behaviour scoring off.
+3. Revoke the token in the Firebase console after the event. The APK's AI features then stop.
+
+Anyone who has the APK can extract the token, so share the APK only with the intended people.
 
 ## Run locally
 

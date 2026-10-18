@@ -1,0 +1,4 @@
+# Tests and the dev-world generator (bhorosha_synth.generate uses Faker). Not installed in the image.
+-r requirements.txt
+pytest>=8.0
+faker>=30

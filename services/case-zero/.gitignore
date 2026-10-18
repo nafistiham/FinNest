@@ -1,0 +1,6 @@
+.spend.json
+.dev_world/
+__pycache__/
+.pytest_cache/
+.env
+eval/results/

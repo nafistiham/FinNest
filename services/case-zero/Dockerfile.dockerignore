@@ -1,0 +1,12 @@
+# Applies to the staged build context (deploy.sh) and to a manual build from the repository root.
+**/__pycache__
+**/*.pyc
+**/.pytest_cache
+**/.venv
+**/.env
+**/.env.*
+**/.spend.json
+**/.dev_world
+**/tests
+**/eval
+.git

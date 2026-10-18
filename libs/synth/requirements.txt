@@ -1,0 +1,10 @@
+# bhorosha_synth (the world generator) and bhorosha_graph (graph tools + LightGBM scorer).
+# LightGBM needs OpenMP: `brew install libomp` on macOS, libgomp1 in slim Linux images.
+numpy>=1.26
+pandas>=2.2
+pyarrow>=15
+networkx>=3.2
+lightgbm>=4.3
+shap>=0.46
+scikit-learn>=1.4
+faker>=25

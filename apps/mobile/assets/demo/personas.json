@@ -1,0 +1,62 @@
+{
+  "_comment": "Bundled demo data for the two personas, copied from data/seed. Shape: personas.<uid> = { profile: the users/{uid} Firestore doc (uid, name_bn, name_en, phone_masked, persona, trusted_contact_uid, p95_send_bdt, acct_id, district), pin_sha256: lowercase hex SHA-256 of the demo PIN (bundled demo credential, compared in constant time, never the digits), balance_bdt: starting balance (the seed has none), transactions: newest first in the transactions/{txnId} shape plus counterparty_name_bn, saved_payees: [{acct_id, name_bn, name_en, phone_masked}] }. contacts.<uid> = the trusted contact's public card.",
+  "personas": {
+    "rina": {
+      "profile": {
+        "uid": "rina",
+        "name_bn": "রিনা আক্তার",
+        "name_en": "Rina Akter",
+        "phone_masked": "017XXXXX412",
+        "persona": "rina",
+        "trusted_contact_uid": "rafiq",
+        "p95_send_bdt": 5000,
+        "acct_id": "acct_rina",
+        "district": "Gazipur"
+      },
+      "pin_sha256": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+      "balance_bdt": 9841,
+      "transactions": [
+        {"txn_id": "txn_011989", "ts": "2026-11-11T18:06:35+06:00", "type": "cash_out", "amount_bdt": 3209, "from_acct": "acct_rina", "to_acct": "AG-0027", "channel": "agent", "status": "ok", "counterparty_name_bn": "এজেন্ট ক্যাশ আউট"},
+        {"txn_id": "txn_011665", "ts": "2026-11-10T22:18:07+06:00", "type": "cash_in", "amount_bdt": 1450, "from_acct": "AG-0030", "to_acct": "acct_rina", "channel": "agent", "status": "ok", "counterparty_name_bn": "এজেন্ট ক্যাশ ইন"},
+        {"txn_id": "txn_011308", "ts": "2026-11-10T14:13:00+06:00", "type": "send_money", "amount_bdt": 7900, "from_acct": "acct_rina", "to_acct": "acct_01070", "channel": "app", "status": "ok", "counterparty_name_bn": "নতুন নম্বর"},
+        {"txn_id": "txn_011245", "ts": "2026-11-10T12:30:27+06:00", "type": "send_money", "amount_bdt": 5000, "from_acct": "acct_rina", "to_acct": "acct_rafiq", "channel": "app", "status": "ok", "counterparty_name_bn": "রফিক ইসলাম"},
+        {"txn_id": "txn_011093", "ts": "2026-11-10T10:44:25+06:00", "type": "salary", "amount_bdt": 13500, "from_acct": "acct_payroll_garments", "to_acct": "acct_rina", "channel": "payroll", "status": "ok", "counterparty_name_bn": "গার্মেন্টস বেতন"},
+        {"txn_id": "txn_010187", "ts": "2026-11-10T07:22:21+06:00", "type": "cash_out", "amount_bdt": 880, "from_acct": "acct_rina", "to_acct": "AG-0011", "channel": "agent", "status": "ok", "counterparty_name_bn": "এজেন্ট ক্যাশ আউট"}
+      ],
+      "saved_payees": [
+        {"acct_id": "acct_rahima", "name_bn": "মা", "name_en": "Ma (Rahima Begum)", "phone_masked": "019XXXXX881"},
+        {"acct_id": "acct_rafiq", "name_bn": "রফিক ইসলাম", "name_en": "Rafiq Islam", "phone_masked": "018XXXXX207"}
+      ]
+    },
+    "rahima": {
+      "profile": {
+        "uid": "rahima",
+        "name_bn": "রহিমা বেগম",
+        "name_en": "Rahima Begum",
+        "phone_masked": "019XXXXX881",
+        "persona": "rahima",
+        "trusted_contact_uid": "rafiq",
+        "p95_send_bdt": 2000,
+        "acct_id": "acct_rahima",
+        "district": "Bhola"
+      },
+      "pin_sha256": "a1fb4e703a9ef1fa4936801721ff285a97ac85330856674412e054892afe6972",
+      "balance_bdt": 3260,
+      "transactions": [
+        {"txn_id": "txn_011240", "ts": "2026-11-10T12:26:29+06:00", "type": "send_money", "amount_bdt": 710, "from_acct": "acct_rahima", "to_acct": "acct_01278", "channel": "ussd", "status": "ok", "counterparty_name_bn": "নতুন নম্বর"},
+        {"txn_id": "txn_007698", "ts": "2026-10-31T10:53:42+06:00", "type": "cash_out", "amount_bdt": 1500, "from_acct": "acct_rahima", "to_acct": "AG-0020", "channel": "agent", "status": "ok", "counterparty_name_bn": "এজেন্ট ক্যাশ আউট"},
+        {"txn_id": "txn_007544", "ts": "2026-10-30T16:29:16+06:00", "type": "send_money", "amount_bdt": 1800, "from_acct": "acct_rafiq", "to_acct": "acct_rahima", "channel": "app", "status": "ok", "counterparty_name_bn": "রফিক ইসলাম"},
+        {"txn_id": "txn_006233", "ts": "2026-10-25T16:02:53+06:00", "type": "send_money", "amount_bdt": 4750, "from_acct": "acct_rahima", "to_acct": "acct_01166", "channel": "app", "status": "ok", "counterparty_name_bn": "নতুন নম্বর"},
+        {"txn_id": "txn_005912", "ts": "2026-10-24T10:35:41+06:00", "type": "cash_out", "amount_bdt": 1500, "from_acct": "acct_rahima", "to_acct": "AG-0020", "channel": "agent", "status": "ok", "counterparty_name_bn": "এজেন্ট ক্যাশ আউট"},
+        {"txn_id": "txn_005768", "ts": "2026-10-23T16:44:29+06:00", "type": "send_money", "amount_bdt": 1800, "from_acct": "acct_rafiq", "to_acct": "acct_rahima", "channel": "app", "status": "ok", "counterparty_name_bn": "রফিক ইসলাম"}
+      ],
+      "saved_payees": [
+        {"acct_id": "acct_rafiq", "name_bn": "রফিক ইসলাম", "name_en": "Rafiq Islam", "phone_masked": "018XXXXX207"},
+        {"acct_id": "acct_rina", "name_bn": "রিনা", "name_en": "Rina Akter", "phone_masked": "017XXXXX412"}
+      ]
+    }
+  },
+  "contacts": {
+    "rafiq": {"uid": "rafiq", "name_bn": "রফিক ইসলাম", "name_en": "Rafiq Islam", "phone_masked": "018XXXXX207", "acct_id": "acct_rafiq"}
+  }
+}

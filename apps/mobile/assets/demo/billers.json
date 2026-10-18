@@ -1,0 +1,41 @@
+{
+  "_comment": "Demo billers for Pay bill. Front-end only: nothing calls a real biller. Names are plain text (Q1). account_digits is the length of the customer number; amount_bdt, month (YYYY-MM) and due (YYYY-MM-DD) are the seeded bill every account sees. Adding a biller (e.g. Palli Bidyut for Rahima) is one more entry.",
+  "billers": [
+    {
+      "id": "desco",
+      "name_bn": "ডেসকো (বিদ্যুৎ)",
+      "name_en": "DESCO (electricity)",
+      "bill_name_bn": "ডেসকো বিদ্যুৎ বিল",
+      "bill_name_en": "DESCO electricity bill",
+      "icon": "electricity",
+      "account_digits": 8,
+      "amount_bdt": 1240,
+      "month": "2026-09",
+      "due": "2026-10-25"
+    },
+    {
+      "id": "wasa",
+      "name_bn": "ঢাকা ওয়াসা (পানি)",
+      "name_en": "Dhaka WASA (water)",
+      "bill_name_bn": "ঢাকা ওয়াসা পানির বিল",
+      "bill_name_en": "Dhaka WASA water bill",
+      "icon": "water",
+      "account_digits": 10,
+      "amount_bdt": 615,
+      "month": "2026-09",
+      "due": "2026-10-25"
+    },
+    {
+      "id": "titas",
+      "name_bn": "তিতাস গ্যাস",
+      "name_en": "Titas Gas",
+      "bill_name_bn": "তিতাস গ্যাস বিল",
+      "bill_name_en": "Titas Gas bill",
+      "icon": "gas",
+      "account_digits": 9,
+      "amount_bdt": 1080,
+      "month": "2026-09",
+      "due": "2026-10-25"
+    }
+  ]
+}

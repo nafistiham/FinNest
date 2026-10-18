@@ -1,0 +1,6 @@
+{
+  "_comment": "Demo only. Typed demo phone numbers mapped to the mule ring's account ids (the ring served by GET /v1/mule/demo-ring: L1 acct_01070, L2 acct_01288 and acct_00036). Never ship real numbers here; every other typed number falls back to acct_<digits>.",
+  "01700001070": "acct_01070",
+  "01700001288": "acct_01288",
+  "01700000036": "acct_00036"
+}

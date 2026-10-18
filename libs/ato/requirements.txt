@@ -1,0 +1,6 @@
+# Extras for the behaviour models, on top of services/risk-mw/requirements.txt.
+# scikit-learn, shap, numpy, pandas and pyarrow already come in via that file (the mule
+# scorer), so only what is genuinely additional is listed here.
+joblib>=1.4
+pytest>=8.0       # not in the risk-mw requirements, but its own suite needs it
+httpx>=0.27       # same: starlette's TestClient needs it

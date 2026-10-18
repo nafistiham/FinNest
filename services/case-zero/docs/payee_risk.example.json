@@ -1,0 +1,31 @@
+{
+  "version": "payee-risk/1",
+  "generated_at": "2026-10-16T06:49:40+00:00",
+  "payees": [
+    {
+      "acct_id": "acct_01070",
+      "status": "confirmed",
+      "case_id": "CZ-0001",
+      "role": "mule_L1",
+      "model_score": 0.8697,
+      "as_of": "2026-11-10T14:35:00",
+      "analyst_approved": true,
+      "facts": [
+        "acct_01070 fanned Tk 7,900 out within minutes"
+      ]
+    },
+    {
+      "acct_id": "acct_01870",
+      "status": "suspected",
+      "case_id": "CZ-0001",
+      "role": "mule_L2",
+      "model_score": 0.0001,
+      "as_of": "2026-11-10T14:35:00",
+      "analyst_approved": true,
+      "facts": [
+        "acct_01070 fanned Tk 7,900 out within minutes"
+      ]
+    }
+  ],
+  "_note": "SHAPE EXAMPLE from a scripted test run, not a real investigation. Real file: GET /api/payee-risk on the deployed case-zero service. Statuses: suspected -> Eleven seconds R3 hold; confirmed (an analyst-approved done case and own score >= 0.85, the critical band) -> R4 decline; members of a degraded case stay suspected."
+}

@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case Zero · FinNest investigator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Noto+Sans+Bengali:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.34.3/cytoscape.min.js"></script>
+<style>
+:root { --bg:#f7f7f5; --panel:#fff; --ink:#1d1d1b; --quiet:#6b6b66; --line:#dcdcd6; --accent:#1f6feb; --bad:#c62828; --good:#2e7d32; --warn:#b26a00; --chip:#eef3fd; }
+* { box-sizing:border-box; }
+body { margin:0; font-family:Inter, "Noto Sans Bengali", system-ui, sans-serif; background:var(--bg); color:var(--ink); font-size:14px; }
+header { display:flex; align-items:center; gap:12px; padding:10px 16px; background:var(--panel); border-bottom:1px solid var(--line); flex-wrap:wrap; }
+h1 { font-size:16px; margin:0; } h1 span { color:var(--quiet); font-weight:400; }
+.badge { font-size:11px; padding:2px 8px; border:1px solid var(--line); border-radius:10px; color:var(--quiet); }
+.pill { font-size:11px; font-weight:600; padding:2px 8px; border-radius:10px; background:#e8eef9; color:var(--accent); }
+.pill.replay { background:#fff3e0; color:var(--warn); }
+select, button { font:inherit; padding:6px 10px; border:1px solid var(--line); border-radius:6px; background:var(--panel); }
+button.primary { background:var(--accent); color:#fff; border-color:var(--accent); font-weight:600; }
+button:disabled { opacity:.5; }
+.stat { color:var(--quiet); font-variant-numeric:tabular-nums; }
+main { display:grid; grid-template-columns:60% 40%; height:calc(100vh - 58px); }
+#cy { background:var(--panel); border-right:1px solid var(--line); }
+aside { overflow:auto; padding:12px; }
+.card { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:10px 12px; margin-bottom:8px; }
+.card.active { border-color:var(--accent); box-shadow:0 0 0 2px #1f6feb33; }
+.card h3 { margin:0 0 4px; font-size:13px; } .card .sub { color:var(--quiet); font-size:12px; }
+.card.fail { border-color:var(--bad); } .card.pass { border-color:var(--good); }
+.chip { display:inline-block; font-size:11px; padding:1px 6px; margin:2px 2px 0 0; border-radius:8px; background:var(--chip); color:var(--accent); cursor:pointer; font-family:ui-monospace, monospace; }
+.action { font-size:20px; font-weight:600; } .action.freeze { color:var(--bad); }
+table { width:100%; border-collapse:collapse; font-size:12px; } td, th { text-align:left; padding:3px 4px; border-bottom:1px solid var(--line); vertical-align:top; }
+.tabs button { padding:4px 10px; } .tabs button.on { background:var(--ink); color:#fff; }
+.bn { font-family:"Noto Sans Bengali", sans-serif; line-height:1.7; }
+.mono { font-family:ui-monospace, monospace; font-size:12px; }
+details summary { cursor:pointer; color:var(--quiet); }
+@media (max-width: 900px) { main { grid-template-columns:1fr; height:auto; } #cy { height:60vh; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Case Zero <span>· FinNest fraud investigator</span></h1>
+  <span class="badge">Fictional bank · synthetic data</span>
+  <span id="mode" class="pill">LIVE</span>
+  <select id="seed" aria-label="Seed account"></select>
+  <label class="stat"><input type="checkbox" id="fault"> fault-inject (labelled)</label>
+  <button id="go" class="primary">Investigate</button>
+  <button id="replay">Replay</button>
+  <span class="stat" id="clock">0.0 s</span>
+  <span class="stat" id="calls">0 tool calls</span>
+  <span class="stat" id="model"></span>
+</header>
+<main>
+  <div id="cy" role="img" aria-label="Money-flow graph built from the investigator's tool calls"></div>
+  <aside>
+    <div class="tabs"><button id="tTrace" class="on">Trace</button><button id="tCase">Case</button></div>
+    <div id="trace"></div>
+    <div id="case" hidden></div>
+  </aside>
+</main>
+<script>
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let cy, started = 0, timer = null, callNodes = {}, order = 0, ring = 0, lastReport = null, lang = "en";
+
+function newGraph() {
+  cy = cytoscape({ container: $("cy"), wheelSensitivity: 0.2, style: [
+    { selector: "node", style: { "label": "data(label)", "font-size": 9, "text-valign": "bottom", "text-margin-y": 4, "background-color": "#cfd8e3", "width": 22, "height": 22, "border-width": 1, "border-color": "#8a96a3" } },
+    { selector: "node[kind = 'agent_till'], node[kind = 'agent']", style: { "shape": "round-rectangle", "background-color": "#f3d9b1" } },
+    { selector: "node[kind = 'merchant']", style: { "shape": "triangle" } },
+    { selector: "node[kind = 'device']", style: { "shape": "diamond", "background-color": "#e1d5f5" } },
+    { selector: "node[kind = 'sim'], node[kind = 'nid'], node[kind = 'phone'], node[kind = 'onboarding_agent']", style: { "shape": "hexagon", "background-color": "#e1d5f5" } },
+    { selector: "node.seed", style: { "border-width": 3, "border-color": "#1f6feb", "width": 30, "height": 30 } },
+    { selector: "node.member", style: { "background-color": "#f4b4b4", "border-color": "#c62828", "border-width": 2 } },
+    { selector: "node.victim", style: { "background-color": "#b8e0c2", "border-color": "#2e7d32", "border-width": 2 } },
+    { selector: "node.excluded", style: { "opacity": 0.45 } },
+    { selector: "node.visited", style: { "underlay-color": "#f9a825", "underlay-opacity": 0.3, "underlay-padding": 6, "underlay-shape": "ellipse" } },
+    { selector: "node.active", style: { "underlay-color": "#f9a825", "underlay-opacity": 0.7, "underlay-padding": 11, "underlay-shape": "ellipse" } },
+    { selector: "node.hl", style: { "underlay-color": "#1f6feb", "underlay-opacity": 0.25, "underlay-padding": 8 } },
+    { selector: "edge", style: { "width": 1.2, "line-color": "#9aa5b1", "target-arrow-color": "#9aa5b1", "target-arrow-shape": "triangle", "curve-style": "bezier", "label": "data(label)", "font-size": 8, "color": "#555" } },
+    { selector: "edge[kind = 'link']", style: { "line-style": "dashed", "target-arrow-shape": "none" } },
+    { selector: "edge[kind = 'proximity']", style: { "line-style": "dotted", "line-color": "#c62828" } },
+    { selector: "edge[kind = 'pattern']", style: { "line-style": "dashed", "line-color": "#6a1b9a" } },
+  ]});
+}
+
+function relayout() {
+  cy.layout({ name: "concentric", concentric: (n) => 100 - (n.data("ring") || 0), levelWidth: () => 1, minNodeSpacing: 22, padding: 24, animate: true, animationDuration: 300 }).run();
+}
+
+function addDelta(callId, delta) {
+  if (!delta) return;
+  const ids = []; ring += 1;
+  for (const n of delta.nodes || []) {
+    ids.push(n.id);
+    if (cy.getElementById(n.id).empty()) cy.add({ data: { id: n.id, label: n.id.replace("acct_", ""), kind: n.kind, order: order++, ring } });
+  }
+  for (const e of delta.edges || []) {
+    for (const end of [e.source, e.target]) if (cy.getElementById(end).empty()) cy.add({ data: { id: end, label: end.replace("acct_", ""), kind: end.includes(":") ? end.split(":")[0] : "customer", order: order++, ring } });
+    const id = `${e.kind}:${e.source}>${e.target}:${e.txn_id || ""}`;
+    if (cy.getElementById(id).empty()) cy.add({ data: { id, source: e.source, target: e.target, kind: e.kind, label: e.amount_bdt ? `Tk ${Number(e.amount_bdt).toLocaleString("en-IN")}` : "" } });
+  }
+  callNodes[callId] = (callNodes[callId] || []).concat(ids);
+  glow(ids.concat((delta.edges || []).flatMap((e) => [e.source, e.target])));
+  relayout();
+}
+
+function glow(ids) {  // the nodes this call touched glow brightly; every node visited so far keeps a soft glow
+  cy.nodes(".active").removeClass("active");
+  for (const id of new Set(ids)) { const n = cy.getElementById(id); if (!n.empty()) n.addClass("visited active"); }
+}
+
+function highlight(callIds) {
+  cy.nodes().removeClass("hl");
+  document.querySelectorAll(".card").forEach((c) => c.classList.remove("active"));
+  for (const id of callIds) {
+    (callNodes[id] || []).forEach((n) => cy.getElementById(n).addClass("hl"));
+    const card = document.querySelector(`[data-call="${id}"]`); if (card) card.classList.add("active");
+  }
+}
+const chips = (ids) => (ids || []).map((c) => `<span class="chip" data-chips="${esc(c)}">${esc(c)}</span>`).join("");
+document.addEventListener("click", (ev) => { const c = ev.target.closest("[data-chips]"); if (c) highlight([c.dataset.chips]); });
+
+function summary(name, data) {
+  if (!data) return "";
+  if (name === "path_between") return data.found ? `${data.hops} hops: ${data.path.join(" → ")}` : "no path";
+  if (name === "neighbours") return `${data.neighbours.length} counterparties${data.truncated ? " (truncated)" : ""}`;
+  if (name === "velocity_stats") return `in ${data.in_count} (Tk ${data.in_total_bdt}) · out ${data.out_count} (Tk ${data.out_total_bdt}) · pass-through ${data.pass_through_ratio ?? "–"}`;
+  if (name === "agent_till_stats") return `cash-out ${data.cash_out_count} · Tk ${data.cash_out_total_bdt} · ${data.distinct_counterparties} counterparties`;
+  if (name === "score") return `p = ${data.probability} · ${data.reasons.slice(0, 2).map((r) => r.feature).join(", ")}`;
+  if (name === "known_fraud_proximity") return `${data.hits.length} confirmed-fraud hits (3-day lag)`;
+  if (name === "shared_entities") return `${data.shared.length} shared entities`;
+  if (name === "dormant_cohort") return data.seed_wake ? `woke after ${data.seed_wake.quiet_days} quiet days · ${data.cohort.length} woke with it` : "no dormant wake-up";
+  if (name === "common_point_of_compromise") return `${data.common_points.length} common points · ${data.linked_accounts.length} linked accounts`;
+  if (name === "kyc_dupe_check") return Object.entries(data).filter(([k]) => k !== "acct_id").map(([k, v]) => `${k.replace("_shared_with", "")}: ${v.length}`).join(" · ");
+  if (name === "get_account") return data.found === false ? "not found" : `${data.kind} · ${data.district} · opened ${String(data.opened_at).slice(0, 10)}`;
+  return "";
+}
+
+function card(html, cls = "", call = "") { $("trace").insertAdjacentHTML("beforeend", `<div class="card ${cls}" ${call ? `data-call="${call}" data-chips="${call}"` : ""}>${html}</div>`); $("trace").lastElementChild.scrollIntoView({ block: "nearest" }); }
+
+function onEvent(e) {
+  switch (e.type) {
+    case "run_started": maxCalls = e.max_tool_calls; $("model").textContent = e.model; card(`<h3>Case ${esc(e.case_id)}</h3><div class="sub">seed ${esc(e.seed)} · as of ${esc(e.as_of)}</div>`); cy.add({ data: { id: e.seed, label: e.seed.replace("acct_", ""), kind: "customer", order: order++, ring: 0 } }); cy.getElementById(e.seed).addClass("seed"); relayout(); break;
+    case "score": addDelta(e.call_id, e.graph_delta); card(`<h3>${e.call_id} · model score (code)</h3><div class="sub">${esc(summary("score", e.data))}</div>`, "", e.call_id); break;
+    case "tool_result": addDelta(e.call_id, e.graph_delta); $("calls").textContent = `${parseInt(e.call_id?.slice(3) || 0)}/${maxCalls} tool calls`;
+      card(`<h3>${esc(e.call_id || "—")} · ${esc(e.name)}</h3><div class="mono">${esc(JSON.stringify(e.args ?? lastArgs))}</div><div class="sub">${e.ok ? esc(summary(e.name, e.data)) : "⚠ " + esc(e.error)}</div>`, e.ok ? "" : "fail", e.call_id || ""); break;
+    case "tool_call": lastArgs = e.args; break;
+    case "usage": break;
+    case "validator": card(`<h3>Validator · ${e.attempt === "post_gate" ? "after the code check" : `attempt ${e.attempt}`}${e.fault_injected ? " · fault injected (labelled)" : ""}</h3>${e.pass ? `<div class="sub">✔ every account id, txn id, Taka amount and time in the case matches a tool output</div>` : `<div class="sub">✘ rejected:</div><ul>${e.violations.map((v) => `<li class="mono">${esc(v.code)} · ${esc(v.field)} · ${esc(v.detail)}</li>`).join("")}</ul>`}`, e.pass ? "pass" : "fail"); break;
+    case "gate": { const dropped = Object.keys(e.dropped || {}); card(`<h3>Membership check (code)</h3><div class="sub">${Object.keys(e.kept || {}).length} linked to the ring${dropped.length ? ` · moved to excluded: ${chips(dropped)}` : " · nothing dropped"}</div>`, dropped.length ? "fail" : "pass"); break; }
+    case "report": lastReport = e.report; cy.nodes(".active").removeClass("active"); renderCase(); break;
+    case "error": card(`<h3>Error</h3><div class="sub">${esc(e.message)}</div>`, "fail"); break;
+    case "done": stop(); break;
+  }
+}
+let lastArgs = {}, maxCalls = 15;
+
+function renderCase() {
+  const r = lastReport, d = r.draft;
+  d.members.forEach((m) => cy.getElementById(m.acct_id).addClass(m.role === "victim" ? "victim" : "member"));
+  d.excluded.forEach((x) => cy.getElementById(x.acct_id).addClass("excluded"));
+  $("case").innerHTML = `
+    <div class="card"><div class="sub">Recommended action (code)</div><div class="action ${r.action}">${esc(r.action)}</div>
+      <div class="sub">score floor ${esc(r.floor_action)} · band ${esc(r.band || "")} · model score ${r.model_score} (tc_00)${r.escalated ? " · escalated one level on cited red flags" : ""} · status ${esc(r.exported_status || r.status)}</div></div>
+    ${r.review_note ? `<div class="card fail"><h3>For human review</h3><div class="sub">${esc(r.review_note)}</div></div>` : ""}
+    <div class="card"><h3>${esc(d.typology)}</h3>
+      <div class="tabs"><button id="lEn" class="${lang === "en" ? "on" : ""}">English</button><button id="lBn" class="${lang === "bn" ? "on" : ""}">বাংলা</button></div>
+      <p class="${lang === "bn" ? "bn" : ""}">${esc(lang === "bn" ? d.narrative_bn : d.narrative_en)}</p></div>
+    <div class="card"><h3>Ring members</h3><table>${d.members.map((m) => `<tr><td class="mono">${esc(m.acct_id)}</td><td>${esc(m.role)}</td><td>${chips(m.evidence)}</td></tr>`).join("")}</table></div>
+    <div class="card"><h3>Red flags</h3><table>${d.red_flags.map((f) => `<tr><td class="mono">${esc(f.code)}</td><td>${esc(f.text)}</td><td>${chips(f.evidence)}</td></tr>`).join("") || "<tr><td>none</td></tr>"}</table></div>
+    <div class="card"><h3>Excluded look-alikes</h3><table>${d.excluded.map((x) => `<tr><td class="mono">${esc(x.acct_id)}</td><td>${esc(x.reason)}</td><td>${chips(x.evidence)}</td></tr>`).join("") || "<tr><td>none</td></tr>"}</table></div>
+    <div class="card"><h3>Timeline</h3><table>${d.timeline.map((t) => `<tr><td class="mono">${esc(t.ts)}</td><td>${esc(t.text)}</td><td>${chips(t.evidence)}</td></tr>`).join("")}</table></div>
+    ${d.limitations ? `<div class="card"><h3>Limitations</h3><div class="sub">${esc(d.limitations)}</div></div>` : ""}
+    <details class="card"><summary>Under the hood</summary><div class="mono">model ${esc(r.cost.model)} · ${r.cost.turns} turns · ${r.cost.tokens_in} in / ${r.cost.tokens_out} out tokens · $${r.cost.cost_usd} · ${r.tool_calls} tool calls · ${esc(r.model_version)}</div></details>`;
+  $("lEn").onclick = () => { lang = "en"; renderCase(); }; $("lBn").onclick = () => { lang = "bn"; renderCase(); };
+  show("case");
+}
+
+function show(which) { $("trace").hidden = which !== "trace"; $("case").hidden = which !== "case"; $("tTrace").classList.toggle("on", which === "trace"); $("tCase").classList.toggle("on", which === "case"); }
+$("tTrace").onclick = () => show("trace"); $("tCase").onclick = () => lastReport && show("case");
+
+function reset(mode) {
+  newGraph(); callNodes = {}; order = 0; ring = 0; lastReport = null; $("trace").innerHTML = ""; $("case").innerHTML = ""; show("trace");
+  $("mode").textContent = mode; $("mode").classList.toggle("replay", mode !== "LIVE"); $("calls").textContent = "0 tool calls";
+  started = performance.now(); clearInterval(timer); timer = setInterval(() => $("clock").textContent = `${((performance.now() - started) / 1000).toFixed(1)} s`, 100);
+  $("go").disabled = $("replay").disabled = true;
+}
+function stop() { clearInterval(timer); $("go").disabled = $("replay").disabled = false; }
+
+const EVENT_TYPES = ["run_started", "score", "tool_call", "tool_result", "usage", "draft", "validator", "gate", "report", "error", "done"];
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+async function investigate() {
+  const [seed, as_of] = $("seed").value.split("|");
+  reset("LIVE");
+  let start;
+  try {
+    const resp = await fetch("/api/investigations", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ seed, as_of, fault_inject: $("fault").checked }) });
+    if (!resp.ok) { const msg = (await resp.json()).detail; card(`<h3>Live run unavailable</h3><div class="sub">${esc(msg)} — playing the labelled replay instead.</div>`, "fail"); return playReplay(); }
+    start = await resp.json();
+  } catch (err) { card(`<h3>Connection lost</h3><div class="sub">${esc(err)}</div>`, "fail"); return stop(); }
+  if (new URLSearchParams(location.search).has("poll") || !("EventSource" in window)) return poll(start.status_url, 0);
+  let seen = 0, finished = false;
+  const es = new EventSource(start.stream_url);  // GET; a reconnect resumes after Last-Event-ID
+  const handle = (m) => { seen = Number(m.lastEventId) + 1; const e = JSON.parse(m.data); onEvent(e); if (e.type === "done") { finished = true; es.close(); } };
+  EVENT_TYPES.forEach((type) => es.addEventListener(type, handle));
+  es.onerror = () => {
+    if (finished) return;
+    es.close();
+    card(`<h3>Live stream blocked</h3><div class="sub">Polling the case every second instead.</div>`, "fail");
+    poll(start.status_url, seen);
+  };
+}
+
+async function poll(statusUrl, since) {  // the fallback when SSE cannot get through: GET the status every 1000 ms
+  $("mode").textContent = "LIVE · POLLING";
+  for (;;) {
+    let s;
+    try { s = await (await fetch(`${statusUrl}?since=${since}`)).json(); } catch (err) { await sleep(1000); continue; }
+    for (const e of s.events) onEvent(e);
+    since = s.next;
+    if (["done", "degraded", "failed"].includes(s.status)) {
+      if (s.report && !lastReport) { lastReport = s.report; renderCase(); }
+      if (s.status === "failed" && !s.report) card(`<h3>Case failed</h3><div class="sub">status failed; see the error above.</div>`, "fail");
+      return stop();
+    }
+    await sleep(1000);
+  }
+}
+
+async function playReplay() {
+  reset("REPLAY");
+  const resp = await fetch("/api/replay"); if (!resp.ok) { card(`<h3>No replay recorded yet</h3>`, "fail"); return stop(); }
+  const lines = (await resp.text()).trim().split("\n").map((l) => JSON.parse(l));
+  for (const e of lines) { onEvent(e); await new Promise((r) => setTimeout(r, e.type === "tool_result" ? 700 : 150)); }
+  stop();
+}
+
+$("go").onclick = investigate; $("replay").onclick = playReplay;
+fetch("/api/seeds").then((r) => r.json()).then((seeds) => { $("seed").innerHTML = seeds.map((s) => `<option value="${esc(s.seed)}|${esc(s.as_of)}">${esc(s.label)} · ${esc(s.seed)}</option>`).join(""); });
+fetch("/health").then((r) => r.json()).then((h) => { $("model").textContent = h.llm_ready ? h.model : "Gemini not configured"; });
+newGraph();
+</script>
+</body>
+</html>

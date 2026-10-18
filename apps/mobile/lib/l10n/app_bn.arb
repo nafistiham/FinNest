@@ -1,0 +1,1723 @@
+{
+  "@@locale": "bn",
+  "appName": "ফিননেস্ট",
+  "@appName": {
+    "description": "App name shown on the login screen and app bar"
+  },
+  "tagline": "আপনার টাকার নিরাপদ ঘর",
+  "login": "লগইন",
+  "demoLogin": "ডেমো লগইন",
+  "demoLoginHint": "এটি ডেমো লগইন। আপনি একজন নমুনা গ্রাহক হিসেবে ঢুকবেন।",
+  "home": "হোম",
+  "sendMoney": "টাকা পাঠান",
+  "apa": "এফএনএ",
+  "askApa": "এফএনএ-কে জিজ্ঞাসা করুন",
+  "fraudDesk": "ফ্রড ডেস্ক",
+  "demoMode": "ডেমো মোড",
+  "recordingMode": "রেকর্ডিং",
+  "retry": "আবার চেষ্টা করুন",
+  "cancel": "বাতিল করুন",
+  "ok": "ঠিক আছে",
+  "next": "পরের ধাপ",
+  "balance": "ব্যালেন্স",
+  "recentTransactions": "সাম্প্রতিক লেনদেন",
+  "safety": "ফোনের নিরাপত্তা",
+  "demoPanel": "ডেমো প্যানেল",
+  "placeholderScreen": "{name} স্ক্রিন শিগগিরই আসছে",
+  "@placeholderScreen": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "safetyChecking": "যাচাই হচ্ছে…",
+  "safetyCheckFailed": "যাচাই করা যায়নি। আবার চেষ্টা করতে চাপুন।",
+  "safetySimulatedTag": "সিমুলেটেড",
+  "safetyUninstall": "আনইনস্টল",
+  "safetyNoFindings": "কোনো ঝুঁকিপূর্ণ অ্যাপ পাওয়া যায়নি",
+  "safetyBlockedTitle": "লেনদেন বাতিল করা হয়েছে",
+  "safetyFindingsTitle": "যা পাওয়া গেছে",
+  "safetyVerdictSafe": "নিরাপদ",
+  "safetyVerdictCaution": "সাবধান",
+  "safetyVerdictBlock": "ঝুঁকিপূর্ণ",
+  "safetySeverityLow": "কম",
+  "safetySeverityMedium": "মাঝারি",
+  "safetySeverityHigh": "বেশি",
+  "safetySeverityCritical": "গুরুতর",
+  "safetyOpenDetails": "ফোনের নিরাপত্তা দেখুন",
+  "approveTitle": "অনুমোদনের অনুরোধ",
+  "approveButton": "অনুমোদন করুন",
+  "declineButton": "প্রত্যাখ্যান করুন",
+  "approvedLine": "অনুমোদিত। টাকা পাঠানো হয়েছে।",
+  "declinedLine": "প্রত্যাখ্যাত। লেনদেন আটকে থাকবে।",
+  "expiredLine": "সময় শেষ",
+  "timeLeft": "সময় বাকি {time}",
+  "@timeLeft": {
+    "description": "Countdown on the approve screen; time is mm:ss in Bangla digits",
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "approveRetry": "আবার চেষ্টা করুন",
+  "approveFailed": "এখন পাঠানো যাচ্ছে না",
+  "approveSending": "পাঠানো হচ্ছে…",
+  "approveLoading": "অনুরোধ খোঁজা হচ্ছে…",
+  "incomingRequestTitle": "নতুন অনুমোদনের অনুরোধ",
+  "openRequest": "অনুরোধ দেখুন",
+  "interventionDismiss": "পরে দেখব",
+  "@interventionDismiss": {
+    "description": "Top-left chrome button that closes the intervention overlay; never clears the hold"
+  },
+  "interventionEnglish": "English",
+  "@interventionEnglish": {
+    "description": "Toggle that reveals the English version of Apa's line; the Bangla label stays in English so an English reader finds it"
+  },
+  "interventionWaiting": "এফএনএ বলছে…",
+  "@interventionWaiting": {
+    "description": "Shown while /v1/intervene has not answered yet"
+  },
+  "interventionHeldTitle": "লেনদেন আটকে রাখা হয়েছে",
+  "@interventionHeldTitle": {
+    "description": "Overlay title keyed by decision=hold"
+  },
+  "interventionDelayTitle": "লেনদেন দেরি হবে",
+  "@interventionDelayTitle": {
+    "description": "Banner/overlay title keyed by decision=delay"
+  },
+  "interventionBlockedTitle": "লেনদেন বাতিল করা হয়েছে",
+  "@interventionBlockedTitle": {
+    "description": "Overlay title keyed by decision=block"
+  },
+  "interventionStepUpTitle": "আবার যাচাই দরকার",
+  "@interventionStepUpTitle": {
+    "description": "Banner/overlay title keyed by decision=step_up"
+  },
+  "apaInitial": "FNA",
+  "@apaInitial": {
+    "description": "Monogram on the FinNest Assistant avatar tile (Latin in both languages, like the logo)"
+  },
+  "actionHoldTransaction": "{minutes} মিনিট আটকে রাখুন",
+  "@actionHoldTransaction": {
+    "description": "Button label for actions[].type=hold_transaction",
+    "placeholders": {
+      "minutes": {
+        "type": "String"
+      }
+    }
+  },
+  "actionFreezePinReset": "পিন বদল {minutes} মিনিট বন্ধ রাখুন",
+  "@actionFreezePinReset": {
+    "description": "Button label for actions[].type=freeze_pin_reset",
+    "placeholders": {
+      "minutes": {
+        "type": "String"
+      }
+    }
+  },
+  "actionDelayNewPayee": "{minutes} মিনিট পরে পাঠান",
+  "@actionDelayNewPayee": {
+    "description": "Button label for actions[].type=delay_new_payee",
+    "placeholders": {
+      "minutes": {
+        "type": "String"
+      }
+    }
+  },
+  "actionTrustedContact": "আপনজনের মত নিন ({expiresInMinutes} মিনিট)",
+  "@actionTrustedContact": {
+    "description": "Button label for actions[].type=trusted_contact_check",
+    "placeholders": {
+      "expiresInMinutes": {
+        "type": "String"
+      }
+    }
+  },
+  "actionStepUp": "আবার যাচাই করুন",
+  "@actionStepUp": {
+    "description": "Button label for actions[].type=step_up_verification"
+  },
+  "actionBlock": "লেনদেন বাতিল করুন",
+  "@actionBlock": {
+    "description": "Button label for actions[].type=block_transaction"
+  },
+  "actionUnknown": "অন্য পদক্ষেপ",
+  "@actionUnknown": {
+    "description": "Generic label for an actions[].type the client has never seen; the raw type stays in the log, never on screen"
+  },
+  "apaSheetTitle": "ফিননেস্ট সহকারী",
+  "apaHoldToTalk": "চেপে ধরে বলুন",
+  "apaListening": "শুনছি…",
+  "apaPathLive": "লাইভ",
+  "apaTypeHint": "এখানে লিখুন…",
+  "apaSend": "পাঠান",
+  "apaLiveUnavailable": "লাইভ কথা এখন চালু নেই। লিখে জিজ্ঞাসা করুন।",
+  "apaMicDenied": "মাইক্রোফোনের অনুমতি নেই। লিখে জিজ্ঞাসা করুন।",
+  "apaTextFailed": "ফিননেস্ট সহকারীর সাথে এখন যোগাযোগ করা যাচ্ছে না। আবার চেষ্টা করুন।",
+  "apaLiveFailed": "লাইভ কথা বন্ধ হয়ে গেছে। লিখে জিজ্ঞাসা করুন।",
+  "apaEnglishToggle": "English",
+  "apaThinking": "এফএনএ ভাবছে…",
+  "apaEmptyTranscript": "ফিননেস্ট সহকারীকে যা খুশি জিজ্ঞাসা করুন",
+  "apaYou": "আপনি",
+  "demoVideoPreset": "ভিডিওর জন্য সাজান",
+  "demoReplayScam": "প্রতারণার কলটি চালান",
+  "demoResetCooldown": "অপেক্ষার সময় মুছে দিন",
+  "demoResetAll": "সব শুরুর মতো করুন",
+  "demoPreviewAudio": "এফএনএ-র অডিও শুনুন",
+  "demoForcedVerdict": "নিরাপত্তার ফল ঠিক করে দিন",
+  "demoPersona": "গ্রাহক",
+  "demoFlagSimSwap": "সিম বদল",
+  "demoFlagCallActive": "কল চলছে",
+  "demoFlagScreenShare": "স্ক্রিন শেয়ার",
+  "demoFlagCallerInContacts": "কলার কন্ট্যাক্টে আছে",
+  "demoHealth": "সার্ভার চালু আছে কি না দেখুন",
+  "loginChoosePersona": "কে লগইন করবেন?",
+  "passkeyUnavailable": "পাসকি লগইন এখন চালু নেই",
+  "passkeyPendingLine": "পাসকি কাজ করেছে। এই ডেমোতে ডেমো লগইন ব্যবহার করুন।",
+  "logout": "লগ আউট",
+  "savedPayees": "সেভ করা প্রাপক",
+  "newNumber": "নতুন নম্বর",
+  "amount": "পরিমাণ",
+  "quickAmounts": "দ্রুত পরিমাণ",
+  "backspace": "মুছুন",
+  "pinTitle": "পিন দিন",
+  "pinVerifying": "যাচাই হচ্ছে…",
+  "pinWrong": "পিন ভুল হয়েছে। আবার দিন।",
+  "pinLocked": "{seconds} সেকেন্ড পরে আবার চেষ্টা করুন",
+  "@pinLocked": {
+    "description": "30 s pause after three wrong PINs; seconds in Bangla digits",
+    "placeholders": {
+      "seconds": {
+        "type": "String"
+      }
+    }
+  },
+  "pinObscured": "অন্য একটি অ্যাপ স্ক্রিন ঢেকে রেখেছে। এক মুহূর্ত অপেক্ষা করুন।",
+  "pinDigitsEntered": "{count} সংখ্যা দেওয়া হয়েছে",
+  "@pinDigitsEntered": {
+    "description": "TalkBack label of the PIN dots",
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "stepUpTitle": "স্ক্রিন শেয়ার বন্ধ করুন",
+  "stepUpBody": "স্ক্রিন শেয়ার চলা অবস্থায় টাকা পাঠানো নিরাপদ নয়। শেয়ার বন্ধ করে আবার পিন দিন।",
+  "stepUpRetry": "আবার চেষ্টা করুন",
+  "resultDone": "টাকা পাঠানো হয়েছে",
+  "resultHeld": "আপনার টাকা নিরাপদে আটকে আছে",
+  "resultBlocked": "লেনদেন বাতিল করা হয়েছে",
+  "resultUnavailable": "এখন যাচাই করা যাচ্ছে না",
+  "resultUnavailableBody": "আপনার টাকা কোথাও যায়নি, অ্যাকাউন্টেই আছে। একটু পরে আবার চেষ্টা করুন।",
+  "goHome": "হোমে ফিরুন",
+  "fraudDeskBody": "ফ্রড ডেস্ক হলো ব্যাংকের তদন্ত দলের কনসোল। আটকে রাখা লেনদেন, কারণ ও সময়রেখা এখানে দেখা যায়। এটি ব্রাউজারে খুলবে।",
+  "openConsole": "কনসোল খুলুন",
+  "openConsoleFailed": "কনসোল খোলা যায়নি",
+  "txnTypeSendMoney": "টাকা পাঠানো",
+  "txnTypeCashIn": "ক্যাশ ইন",
+  "txnTypeCashOut": "ক্যাশ আউট",
+  "txnTypeSalary": "বেতন",
+  "txnTypeRecharge": "রিচার্জ",
+  "txnTypeOther": "লেনদেন",
+  "statusHeld": "আটকে আছে",
+  "statusBlocked": "ঝুঁকিতে বাতিল",
+  "statusDone": "সম্পন্ন",
+  "trustedRequestSent": "আপনজনকে অনুরোধ পাঠানো হয়েছে। উত্তর এলে জানাব।",
+  "@trustedRequestSent": {},
+  "trustedRequestFailed": "অনুরোধ পাঠানো যায়নি",
+  "noRecentTransactions": "এখনো কোনো লেনদেন নেই",
+  "safetyFromLastCheck": "নতুন যাচাই করা যায়নি। আগের ফলাফল দেখানো হচ্ছে।",
+  "safetyDeviceSection": "আপনার ফোন",
+  "safetyUninstallLine": "ঝুঁকিপূর্ণ অ্যাপ সরিয়ে আবার যাচাই করুন",
+  "safetyFixPhoneLine": "ফোনের সেটিংস ঠিক করে আবার যাচাই করুন",
+  "safetyReinstallLine": "প্লে স্টোর থেকে ফিননেস্ট আবার ইনস্টল করুন",
+  "safetyOpenPlay": "প্লে স্টোরে যান",
+  "safetyCallBankLine": "ফিননেস্টের হেল্পলাইনে কথা বলুন",
+  "safetyCallBank": "ফিননেস্টে কল করুন",
+  "safetyRecheck": "আবার যাচাই করুন",
+  "demoIntegrity": "ফোন যাচাইয়ের ফল · ডেমো",
+  "demoIntegrityClean": "স্বাভাবিক",
+  "demoIntegrityScreenControlled": "স্ক্রিন অন্যের হাতে",
+  "demoIntegrityModded": "বদলানো অ্যাপ",
+  "demoIntegrityEmulator": "নকল ফোন (এমুলেটর)",
+  "demoIntegrityUnbound": "যাচাই মেলেনি",
+  "demoRerunSafety": "নিরাপত্তা যাচাই আবার চালান",
+  "financeSavingsTitle": "সঞ্চয়",
+  "@financeSavingsTitle": {
+    "description": "Savings screen app bar"
+  },
+  "financeLoansTitle": "ঋণ",
+  "@financeLoansTitle": {
+    "description": "Loans screen app bar"
+  },
+  "financeTileLoans": "ঋণ",
+  "@financeTileLoans": {
+    "description": "Home tile that opens /loans"
+  },
+  "financeTileSavings": "সঞ্চয়",
+  "@financeTileSavings": {
+    "description": "Home tile that opens /savings"
+  },
+  "financeEmpty": "এখনো কোনো ডিপিএস নেই",
+  "@financeEmpty": {
+    "description": "Savings empty state"
+  },
+  "financeLoadFailed": "তথ্য আনা যায়নি",
+  "@financeLoadFailed": {
+    "description": "Finance stream error line"
+  },
+  "financeActionFailed": "হয়নি। আবার চেষ্টা করুন।",
+  "@financeActionFailed": {
+    "description": "Snackbar when opening a DPS or applying for a loan fails"
+  },
+  "dpsOpenNew": "নতুন ডিপিএস খুলুন",
+  "@dpsOpenNew": {
+    "description": "Savings primary button and sheet title"
+  },
+  "dpsMonthly": "মাসিক জমা",
+  "dpsPaidSoFar": "এ পর্যন্ত জমা",
+  "dpsMaturity": "মেয়াদ শেষে পাবেন",
+  "dpsDemoRate": "ডেমো হার {rate}%",
+  "@dpsDemoRate": {
+    "description": "Tag on every DPS card; rate is in Bangla digits",
+    "placeholders": {
+      "rate": {
+        "type": "String"
+      }
+    }
+  },
+  "dpsTenureYears": "{years} বছর",
+  "@dpsTenureYears": {
+    "placeholders": {
+      "years": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "dpsInstalments": "{paid}/{total} কিস্তি",
+  "@dpsInstalments": {
+    "description": "Progress caption under the bar; Bangla digits",
+    "placeholders": {
+      "paid": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "dpsChooseAmount": "মাসে কত জমাবেন?",
+  "dpsChooseTenure": "কত বছরের জন্য?",
+  "dpsFirstInstalment": "আজই প্রথম কিস্তি {amount} কেটে নেওয়া হবে",
+  "@dpsFirstInstalment": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "dpsConfirm": "ডিপিএস খুলুন",
+  "@dpsConfirm": {
+    "description": "Confirm button in the open-DPS sheet"
+  },
+  "dpsOpened": "ডিপিএস খোলা হয়েছে",
+  "@dpsOpened": {
+    "description": "Snackbar after a plan is opened"
+  },
+  "loanIncomeLine": "মাসিক আয় {amount} অনুসারে",
+  "@loanIncomeLine": {
+    "description": "Shown under the limit when the seeded income is above zero",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "loanProducts": "ঋণের ধরন",
+  "loanApply": "আবেদন করুন",
+  "loanOverLimit": "আপনার সীমার বেশি",
+  "@loanOverLimit": {
+    "description": "Reason line under a disabled apply button"
+  },
+  "loanNeverAsksOtp": "ফিননেস্ট কখনো ঋণের জন্য ওটিপি (এসএমএসে আসা গোপন কোড) বা পিন চায় না",
+  "@loanNeverAsksOtp": {
+    "description": "Fixed product line on the loans screen (product copy, not intervention copy)"
+  },
+  "loanStatusPending": "অনুমোদনের অপেক্ষায়",
+  "loanStatusApproved": "অনুমোদিত",
+  "loanStatusRejected": "প্রত্যাখ্যাত",
+  "loanTotalRepayable": "মোট ফেরত",
+  "loanTenureMonths": "{months} মাস",
+  "@loanTenureMonths": {
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "loanDemoFee": "ডেমো ফি {pct}%",
+  "@loanDemoFee": {
+    "description": "Flat fee tag on a product card; pct in Bangla digits",
+    "placeholders": {
+      "pct": {
+        "type": "String"
+      }
+    }
+  },
+  "loanApplied": "আবেদন জমা হয়েছে",
+  "@loanApplied": {
+    "description": "Snackbar after applying"
+  },
+  "loanApplications": "আপনার আবেদন",
+  "trustedRequestSentLine": "আপনজনকে অনুরোধ পাঠানো হয়েছে",
+  "loginFailed": "লগইন হয়নি। আবার চেষ্টা করুন।",
+  "pinCheckUnavailable": "পিন এখন যাচাই করা যায়নি। আবার পিন দিন।",
+  "recentLoadFailed": "লেনদেন আনা যায়নি",
+  "resultHeldBody": "টাকা আপনার অ্যাকাউন্টেই আছে, কোথাও যায়নি। কী করবেন জানতে ফিননেস্ট সহকারীকে জিজ্ঞাসা করুন।",
+  "demoDataOnline": "অনলাইন ডেটা",
+  "demoDataOffline": "অফলাইন ডেটা",
+  "languageBangla": "বাংলা",
+  "@languageBangla": {
+    "description": "Endonym on the language toggle; the same in every locale so a reader finds their own language"
+  },
+  "languageEnglish": "English",
+  "@languageEnglish": {
+    "description": "Endonym on the language toggle; the same in every locale so a reader finds their own language"
+  },
+  "languageToggleLabel": "ভাষা বেছে নিন",
+  "@languageToggleLabel": {
+    "description": "TalkBack label of the two-segment language toggle"
+  },
+  "loginPersonaRina": "রিনা আক্তার",
+  "@loginPersonaRina": {
+    "description": "Demo persona name on the login picker"
+  },
+  "loginPersonaRahima": "রহিমা বেগম",
+  "@loginPersonaRahima": {
+    "description": "Demo persona name on the login picker"
+  },
+  "demoPersonaRina": "রিনা",
+  "demoPersonaRahima": "রহিমা",
+  "approveHeaderAmount": "অনুরোধ · {amount}",
+  "@approveHeaderAmount": {
+    "description": "Approve screen header when the payee has no name",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "approveHeaderUnknown": "আপনজনের অনুরোধ",
+  "@approveHeaderUnknown": {
+    "description": "Approve screen header when the request was made on another phone"
+  },
+  "safetyUnknownApp": "নাম না জানা অ্যাপ",
+  "@safetyUnknownApp": {
+    "description": "Finding or uninstall label when the app has no readable name"
+  },
+  "safetySeverityOther": "ঝুঁকি",
+  "@safetySeverityOther": {
+    "description": "Severity tag for a severity value the app does not know"
+  },
+  "loanGeneric": "ঋণ",
+  "@loanGeneric": {
+    "description": "Loan application row title when the product is unknown"
+  },
+  "demoVerdictAuto": "স্বয়ংক্রিয়",
+  "@demoVerdictAuto": {
+    "description": "Demo panel: no forced safety verdict; the server decides"
+  },
+  "demoCloudStatus": "ক্লাউড: {status}",
+  "@demoCloudStatus": {
+    "placeholders": {
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "demoCloudConfigured": "সংযুক্ত",
+  "demoCloudAbsent": "চালু করা নেই",
+  "demoCloudFailed": "চালু হয়নি",
+  "demoScamScore": "প্রতারণার স্কোর {score}",
+  "@demoScamScore": {
+    "placeholders": {
+      "score": {
+        "type": "String"
+      }
+    }
+  },
+  "demoReplayTurn": "{n}. স্কোর {score} · তাড়া: {urgency}",
+  "@demoReplayTurn": {
+    "description": "One line of the scam replay log; the scam type follows as a muted wire suffix",
+    "placeholders": {
+      "n": {
+        "type": "String"
+      },
+      "score": {
+        "type": "String"
+      },
+      "urgency": {
+        "type": "String"
+      }
+    }
+  },
+  "demoUrgencyNone": "নেই",
+  "demoActionFailed": "হয়নি। আবার চেষ্টা করুন।",
+  "@apaEnglishToggle": {
+    "description": "Toggle that shows the English line under each Apa answer; the Bangla label stays in English so an English reader finds it"
+  },
+  "interventionShowBangla": "বাংলা দেখুন",
+  "@interventionShowBangla": {
+    "description": "Overlay toggle shown when the app is in English: reveals the server's Bangla line (script_bn) under the English one"
+  },
+  "apaPathGemini": "এআই",
+  "apaPathGuide": "অফলাইন গাইড",
+  "apaQuickPhoneSafe": "আমার ফোন কি নিরাপদ?",
+  "apaQuickWhyHeld": "টাকা কেন আটকাল?",
+  "apaQuickCodeAsked": "কেউ ফোনে কোড চাইছে",
+  "apaQuickRules": "নিরাপদ থাকার ৫ নিয়ম",
+  "apaInsightBlockTitle": "আপনার ফোনে ঝুঁকিপূর্ণ অ্যাপ আছে",
+  "apaInsightUninstallApps": "এগুলো আনইনস্টল করুন: {apps}",
+  "@apaInsightUninstallApps": {
+    "placeholders": {
+      "apps": {
+        "type": "String"
+      }
+    }
+  },
+  "apaInsightCautionTitle": "ফোনে সাবধান হওয়ার মতো কিছু আছে",
+  "apaInsightScamTitle": "কলে প্রতারণার লক্ষণ",
+  "apaInsightCallTransferTitle": "কলে থাকা অবস্থায় টাকা পাঠাবেন না",
+  "apaInsightCallTransferBody": "আপনি এখন কলে আছেন আর একটি লেনদেন অপেক্ষায় আছে। আগে কল কেটে দিন।",
+  "apaInsightHeldTitle": "আপনার একটি লেনদেন আটকে আছে",
+  "apaInsightHeldNoReasons": "বিস্তারিত জানতে এফএনএ-কে জিজ্ঞাসা করুন।",
+  "apaInsightSimSwapTitle": "আপনার সিম সম্প্রতি বদলেছে",
+  "apaInsightSimSwapBody": "২৪ ঘণ্টা টাকা পাঠানো আটকে থাকতে পারে। আপনি না বদলালে এখনই {helpline} নম্বরে কল করুন।",
+  "apaInsightScreenShareTitle": "আপনার স্ক্রিন শেয়ার হচ্ছে",
+  "apaInsightScreenShareBody": "শেয়ার বন্ধ না করে টাকা পাঠাবেন না বা পিন দেবেন না।",
+  "apaInsightAllClearTitle": "ফোন ও লেনদেন নিরাপদ দেখাচ্ছে",
+  "apaInsightAllClearBody": "কেউ কোড চাইলে এফএনএ-কে জানান।",
+  "apaInsightUncheckedTitle": "ফোন এখনো যাচাই হয়নি",
+  "apaInsightUncheckedBody": "একবার ফোনের নিরাপত্তা দেখে নিন।",
+  "apaInsightLoading": "এফএনএ দেখছে…",
+  "apaSeverityDanger": "বিপদ",
+  "apaSeverityCaution": "সাবধান",
+  "apaSeverityOk": "নিরাপদ",
+  "apaSeverityInfo": "জেনে রাখুন",
+  "apaActionOpenSafety": "ফোনের নিরাপত্তা দেখুন",
+  "apaActionScamCheck": "কলারের কথা যাচাই করুন",
+  "apaActionHeld": "আটকে থাকা টাকা দেখুন",
+  "apaActionRules": "নিরাপদ থাকার নিয়ম",
+  "apaActionAskApa": "এফএনএ-কে জিজ্ঞাসা করুন",
+  "apaActionCallHelpline": "{helpline} নম্বরে কল করুন",
+  "apaAnswerPhoneUnchecked": "ফোন এখনো যাচাই হয়নি। নিচের বোতাম চেপে যাচাই করুন।",
+  "apaAnswerVerdictLine": "ফোনের অবস্থা: {verdict}",
+  "@apaAnswerVerdictLine": {
+    "placeholders": {
+      "verdict": {
+        "type": "String"
+      }
+    }
+  },
+  "apaAnswerFindingsIntro": "যা পাওয়া গেছে:",
+  "apaAnswerNothingHeld": "এখন আপনার কোনো টাকা আটকে নেই।",
+  "apaAnswerHoldsIntro": "এসব কারণে টাকা আটকাতে পারে:",
+  "apaAnswerHeldNext": "টাকা পাঠানো হয়নি। আপনজনের অনুমোদন চাইতে পারেন, অথবা কারণটা মিটলে আবার চেষ্টা করুন।",
+  "apaScamPrompt": "কলার কী বলেছে, যতটা পারেন হুবহু লিখুন। আপনার কোড বা পিন এখানে লিখবেন না।",
+  "apaScamInputHint": "কলার যা বলেছে…",
+  "apaScamCancel": "বাতিল",
+  "apaScamTypeFakeCare": "ভুয়া কাস্টমার কেয়ার কল",
+  "apaScamTypePressure": "চাপ দিয়ে তাড়াহুড়ো করানো",
+  "apaScamTypeLottery": "লটারি বা পুরস্কারের ফাঁদ",
+  "apaScamTypeOther": "সন্দেহজনক কল",
+  "apaScamTypeBenign": "প্রতারণার স্পষ্ট লক্ষণ পাওয়া যায়নি",
+  "apaScamLineType": "ধরন: {type}",
+  "@apaScamLineType": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "apaScamLineQuote": "কলার বলেছে: “{quote}”",
+  "@apaScamLineQuote": {
+    "placeholders": {
+      "quote": {
+        "type": "String"
+      }
+    }
+  },
+  "apaScamLineSecret": "চাওয়া হয়েছে: {secret}",
+  "@apaScamLineSecret": {
+    "placeholders": {
+      "secret": {
+        "type": "String"
+      }
+    }
+  },
+  "apaScamLineUrgency": "চাপ: {level}",
+  "@apaScamLineUrgency": {
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "apaSecretOtp": "ওটিপি বা কোড",
+  "apaSecretPin": "পিন",
+  "apaSecretPassword": "পাসওয়ার্ড",
+  "apaSecretOther": "গোপন তথ্য",
+  "apaUrgencyHigh": "অনেক বেশি",
+  "apaUrgencyMedium": "মাঝারি",
+  "apaScamDoHangUp": "কী করবেন: কল কেটে দিন, টাকা পাঠাবেন না, কোনো কোড বলবেন না।",
+  "apaScamDoCareful": "কী করবেন: সাবধান থাকুন, তাড়াহুড়ো করবেন না।",
+  "apaScamDoNothing": "কী করবেন: এখন বিশেষ কিছু করার নেই। তবে কেউ কোড চাইলে কল কেটে দিন।",
+  "apaScamHotline": "কল কেটে দিন, তারপর নিজে {helpline} নম্বরে কল করুন।",
+  "apaScamSaved": "এই কথাটা আপনার পরের লেনদেনের নিরাপত্তা যাচাইয়ে যোগ হবে।",
+  "apaScamFailed": "এখন যাচাই করা গেল না। মনে রাখবেন: কেউ কোড বা পিন চাইলে সে প্রতারক।",
+  "apaSecretRedacted": "আপনার লেখায় একটি কোডের মতো নম্বর ছিল, সেটা লুকিয়ে রাখা হয়েছে। কোড বা পিন কাউকে বলবেন না, এফএনএ-কেও না।",
+  "apaCoachCode": "কেউ কোড, ওটিপি বা পিন চাইলে সে প্রতারক। ফিননেস্ট কখনো এগুলো চায় না। কল কেটে দিন, তারপর {helpline} নম্বরে কল করুন।",
+  "apaCoachApp": "কারো কথায় বা অচেনা লিংক থেকে অ্যাপ নামাবেন না। এমন অ্যাপ আপনার স্ক্রিন দেখতে বা ফোন চালাতে পারে।",
+  "apaCoachLoan": "ঋণ দেবে বলে আগে টাকা, কোড বা অ্যাপ নামাতে বললে সেটা প্রতারণা। ফিননেস্টের ঋণ শুধু এই অ্যাপের ‘ঋণ’ পাতায়।",
+  "apaCoachTrusted": "আপনজন হলেন আপনার বিশ্বস্ত একজন মানুষ। সন্দেহজনক লেনদেন আটকালে তাঁর অনুমোদন চাওয়া যায়। তিনি রাজি হলেই টাকা যায়।",
+  "apaCoachLottery": "লটারি বা পুরস্কার জিতেছেন বলে আগে টাকা বা কোড চাইলে সেটা প্রতারণা।",
+  "apaCoachGeneric": "আমি ফিননেস্ট সহকারী বলছি। সংক্ষেপে আমাকে এফএনএ বলতে পারেন। নিচের চারটি বোতামের যেকোনোটা চাপুন: ফোন নিরাপদ কি না, টাকা কেন আটকাল, কেউ কোড চাইলে কী করবেন, আর নিরাপদ থাকার নিয়ম।",
+  "apaQuickActionsLabel": "এফএনএ-কে দ্রুত জিজ্ঞাসা",
+  "apaSourceServer": "ফিননেস্টের যাচাই",
+  "apaSourcePhone": "ফোনের নিরাপত্তা যাচাই",
+  "apaSourceSignal": "আপনার ফোনের সংকেত",
+  "apaSourceScam": "কল যাচাই",
+  "apaSourceRules": "এফএনএ-র নিয়ম",
+  "apaSourceAi": "এফএনএ-র উত্তর · এআই",
+  "apaInsightMore": "আরও {count}টি বিষয়",
+  "@apaInsightMore": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "homeWhatToDo": "কী করতে চান",
+  "homeSeeAll": "সব দেখুন",
+  "greetingShort": "স্বাগতম, {name}",
+  "@greetingShort": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "balanceTotal": "মোট ব্যালেন্স",
+  "balanceShow": "দেখুন",
+  "balanceHide": "লুকান",
+  "balanceHidden": "ব্যালেন্স লুকানো",
+  "featureSend": "টাকা পাঠান",
+  "featureCashOut": "ক্যাশ আউট",
+  "featureCashIn": "ক্যাশ ইন",
+  "featureRecharge": "মোবাইল রিচার্জ",
+  "featureBill": "বিল দিন",
+  "featureHistory": "লেনদেন",
+  "settings": "সেটিংস",
+  "sendWho": "কাকে পাঠাবেন",
+  "sendNewNumber": "নতুন নম্বরে পাঠান",
+  "sendSaved": "সেভ করা",
+  "sendHelper": "চেনা মানুষকে পাঠান। কেউ ফোনে তাড়া দিলে আগে ফিননেস্ট সহকারীকে জিজ্ঞাসা করুন।",
+  "numberDigitsLeft": "{n}/১১ সংখ্যা",
+  "@numberDigitsLeft": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "numberNeed11": "১১ সংখ্যা লিখুন",
+  "numberInvalid": "নম্বরটি ঠিক নয়",
+  "numberIsSaved": "এটি {name}-এর নম্বর",
+  "@numberIsSaved": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "numberConfirm": "এই নম্বরে পাঠান",
+  "paste": "পেস্ট",
+  "change": "বদলান",
+  "amountHowMuch": "কত টাকা পাঠাবেন",
+  "amountEnter": "পরিমাণ লিখুন",
+  "amountBalanceLine": "ব্যালেন্স {amount}",
+  "@amountBalanceLine": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "amountOverBalance": "ব্যালেন্সের চেয়ে বেশি · ব্যালেন্স {amount}",
+  "@amountOverBalance": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "amountMin": "কমপক্ষে {amount}",
+  "@amountMin": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "amountRange": "{min} থেকে {max}",
+  "@amountRange": {
+    "placeholders": {
+      "min": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "stepOf": "ধাপ {n}, মোট {total}",
+  "@stepOf": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "cashOutAgent": "এজেন্ট নম্বর",
+  "cashOutNewAgent": "নতুন এজেন্ট নম্বর",
+  "cashOutHelper": "এজেন্টের দোকানে গিয়ে এজেন্টের নম্বর লিখুন। টাকা হাতে নিয়ে তারপর পিন দিন।",
+  "agentNeverPin": "এজেন্ট কখনো আপনার পিন জানতে চাইবে না",
+  "cashInMakeCode": "কোড তৈরি করুন",
+  "cashInShowAgent": "এজেন্টকে এই কোড আর টাকা দিন। এজেন্ট জমা দিলে ব্যালেন্সে যোগ হবে।",
+  "cashInDemoCode": "ডেমো কোড — আসল QR নয়",
+  "cashInExpires": "{time} পর্যন্ত চালু",
+  "@cashInExpires": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "rechargeWhich": "কোন নম্বরে?",
+  "rechargeMine": "আমার নম্বর",
+  "rechargeOther": "অন্য নম্বর",
+  "rechargePrepaid": "প্রিপেইড",
+  "rechargePostpaid": "পোস্টপেইড",
+  "opA": "অপারেটর ক",
+  "opB": "অপারেটর খ",
+  "opC": "অপারেটর গ",
+  "opD": "অপারেটর ঘ",
+  "opE": "অপারেটর ঙ",
+  "billAccount": "গ্রাহক নম্বর",
+  "billSee": "বিল দেখুন",
+  "billDue": "শেষ তারিখ {date}",
+  "@billDue": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "billPay": "বিল দিন",
+  "demoNoteFeature": "ডেমো: আসল টাকা বা আসল অপারেটরে কিছু যায় না",
+  "pinSendingTo": "{name}-কে পাঠাচ্ছেন",
+  "@pinSendingTo": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "resultRechargeDone": "রিচার্জ হয়েছে",
+  "resultBillDone": "বিল দেওয়া হয়েছে",
+  "resultNewBalance": "নতুন ব্যালেন্স",
+  "resultReference": "রেফারেন্স",
+  "overlayHeldLabel": "আটকে রাখা হয়েছে",
+  "statusRequested": "অপেক্ষায়",
+  "historyTitle": "লেনদেন",
+  "historyFilterAll": "সব",
+  "historyFilterSent": "পাঠানো",
+  "historyFilterCashOut": "ক্যাশ আউট",
+  "historyFilterCashIn": "ক্যাশ ইন",
+  "historyFilterRecharge": "রিচার্জ",
+  "historyFilterBill": "বিল",
+  "historyFilterReceived": "এসেছে",
+  "historyEmptyFilter": "এই ধরনের কোনো লেনদেন নেই",
+  "today": "আজ",
+  "yesterday": "গতকাল",
+  "settingsAppearance": "চেহারা",
+  "settingsColour": "রঙ",
+  "presetTeal": "ফিননেস্ট টিল",
+  "presetPadma": "পদ্মা সবুজ",
+  "presetJamdani": "জামদানি নীল",
+  "presetShapla": "শাপলা বেগুনি",
+  "presetSlate": "বর্ষা স্লেট",
+  "settingsMode": "আলো / অন্ধকার",
+  "modeLight": "আলো",
+  "modeDark": "অন্ধকার",
+  "modeSystem": "ফোনের মতো",
+  "settingsTextSize": "লেখার আকার",
+  "textNormal": "সাধারণ",
+  "textLarge": "বড়",
+  "settingsSample": "মা-কে ৳ ৫,০০০ পাঠান",
+  "settingsAccount": "অ্যাকাউন্ট",
+  "neverAsksPinOtp": "ফিননেস্ট কখনো আপনার পিন বা ওটিপি (এসএমএসে আসা গোপন কোড) চায় না",
+  "apaSays": "এফএনএ বলছে",
+  "apaAsk": "এফএনএ-কে জিজ্ঞাসা করুন",
+  "apaRole": "ফিননেস্ট সহকারী · নিরাপত্তা গাইড",
+  "callHelpline": "হেল্পলাইনে কল করুন",
+  "demoConfirmCashIn": "এজেন্ট ক্যাশ ইন নিশ্চিত করলেন",
+  "loginSubmit": "লগইন করুন",
+  "loginDistrictRina": "গাজীপুর",
+  "loginDistrictRahima": "ভোলা",
+  "settingsAbout": "ফিননেস্ট · ডেমো সংস্করণ {version}",
+  "@settingsAbout": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "balanceUnavailable": "ব্যালেন্স দেখা যাচ্ছে না",
+  "balanceSemantics": "মোট ব্যালেন্স {amount}",
+  "@balanceSemantics": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "amountSemantics": "পরিমাণ {amount}",
+  "@amountSemantics": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "numpadClearAll": "সব মুছুন",
+  "numpadDoubleZero": "দুই শূন্য",
+  "numpadPaste": "পেস্ট করুন",
+  "close": "বন্ধ",
+  "txnSent": "পাঠানো হয়েছে",
+  "txnReceived": "এসেছে",
+  "statusCancelled": "বাতিল হয়েছে",
+  "statusReleased": "ছাড়া হয়েছে",
+  "apaNewAlert": "নতুন সতর্কতা আছে",
+  "agentLabel": "এজেন্ট",
+  "txnTypeBill": "বিল / পেমেন্ট",
+  "txnSemDebit": "{amount} টাকা পাঠানো হয়েছে",
+  "@txnSemDebit": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "txnSemCredit": "{amount} টাকা এসেছে",
+  "@txnSemCredit": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "historyEmptyBody": "টাকা পাঠালে বা এলে এখানে দেখা যাবে। শুরু করতে হোমে ফিরুন।",
+  "historyEmptyFilterBody": "উপরে ‘সব’ চাপুন, সব লেনদেন দেখা যাবে।",
+  "historyDetailType": "ধরন",
+  "historyDetailStatus": "অবস্থা",
+  "historyDetailTime": "সময়",
+  "historyFiltersLabel": "লেনদেনের ধরন বেছে নিন",
+  "pendingTrustedTitle": "আপনজনের উত্তরের অপেক্ষায়",
+  "safetyNotCheckedShort": "যাচাই হয়নি",
+  "safetyCheckFailedShort": "যাচাই করা যায়নি",
+  "safetyErrorBody": "ইন্টারনেট চালু আছে কি না দেখে আবার চেষ্টা করুন।",
+  "safetyDetails": "বিস্তারিত",
+  "safetyUninstallApp": "আনইনস্টল করুন",
+  "tapToOpen": "খুলতে চাপুন",
+  "amountHowMuchCashOut": "কত টাকা তুলবেন",
+  "amountHowMuchCashIn": "কত টাকা জমা দেবেন",
+  "amountHowMuchRecharge": "কত টাকা রিচার্জ করবেন",
+  "amountFeeLine": "চার্জ {fee} · মোট {total}",
+  "@amountFeeLine": {
+    "placeholders": {
+      "fee": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "nextWithTotal": "পরের ধাপ · মোট {total}",
+  "@nextWithTotal": {
+    "placeholders": {
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "pinCashOutTo": "এজেন্ট {number}-কে ক্যাশ আউট",
+  "@pinCashOutTo": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "pinRechargeLine": "{number} · {operator} রিচার্জ",
+  "@pinRechargeLine": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      },
+      "operator": {
+        "type": "String"
+      }
+    }
+  },
+  "pinTotalWithFee": "চার্জ সহ মোট {total}",
+  "@pinTotalWithFee": {
+    "placeholders": {
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "numberUseThis": "এই নম্বর নিন",
+  "cashInCodeTitle": "ক্যাশ ইন কোড",
+  "cashInCodeExpired": "কোডের সময় শেষ। নতুন কোড তৈরি করুন।",
+  "cashInConfirmed": "এজেন্ট জমা দিয়েছেন · ব্যালেন্সে যোগ হয়েছে",
+  "billDemo": "ডেমো বিল",
+  "billWhich": "কোন বিল দেবেন",
+  "billAccountNeed": "{n} সংখ্যার গ্রাহক নম্বর লিখুন",
+  "@billAccountNeed": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "rechargeOperator": "অপারেটর",
+  "rechargeOperatorGuess": "{operator} নম্বর মনে হচ্ছে",
+  "@rechargeOperatorGuess": {
+    "placeholders": {
+      "operator": {
+        "type": "String"
+      }
+    }
+  },
+  "rechargeChooseNumber": "নম্বর বেছে নিন",
+  "rechargeChooseOperator": "অপারেটর বেছে নিন",
+  "resultCashOutTitle": "ক্যাশ আউট হয়েছে",
+  "resultCashOutBody": "এজেন্টের কাছ থেকে টাকা নিন",
+  "resultSeeSafety": "ফোনের নিরাপত্তা দেখুন",
+  "recipientLast": "শেষ {date}",
+  "@recipientLast": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "sendNoSaved": "এখনো কাউকে সেভ করেননি",
+  "overlayHeldTo": "{name}-কে · {number}",
+  "@overlayHeldTo": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "overlayMoreActions": "আরও উপায়",
+  "numberCount": "{n}/{total} সংখ্যা",
+  "@numberCount": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "wordmarkFin": "Fin",
+  "@wordmarkFin": {
+    "description": "First half of the two-tone FinNest wordmark (leaf green); the logo is not translated"
+  },
+  "wordmarkNest": "Nest",
+  "@wordmarkNest": {
+    "description": "Second half of the two-tone FinNest wordmark (navy); the logo is not translated"
+  },
+  "@apa": {
+    "description": "Short name of the guide, FinNest Assistant, for buttons, chips and the bottom-bar square button"
+  },
+  "loadingList": "লোড হচ্ছে…",
+  "fraudDeskStaffNote": "এটি ব্যাংকের কর্মীদের জন্য",
+  "approveAsks": "{name} আপনার মত চাইছেন",
+  "@approveAsks": {
+    "description": "Approve screen header: who asks the trusted contact",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "approveAsksSomeone": "আপনার মত চাওয়া হচ্ছে",
+  "@approveAsksSomeone": {
+    "description": "Approve screen header when the requester is not known"
+  },
+  "approveHeldLabel": "আটকে রাখা টাকা",
+  "@approveHeldLabel": {
+    "description": "Caption above the held amount on the approve screen"
+  },
+  "approveToPayee": "{name}-কে পাঠানো হচ্ছিল",
+  "@approveToPayee": {
+    "description": "Kind line under the approve header; name is the payee",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "approveWhyHeld": "কেন আটকানো হয়েছে",
+  "@approveWhyHeld": {
+    "description": "Section header above the server reasons on the approve screen"
+  },
+  "approveTimeLeftTag": "{time} বাকি",
+  "@approveTimeLeftTag": {
+    "description": "Countdown tag; time is m:ss in the active digits",
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "approveUnknownBody": "এই অনুরোধের বিস্তারিত অন্য ফোনে আছে। আপনি তবুও অনুমোদন বা প্রত্যাখ্যান করতে পারেন।",
+  "@approveUnknownBody": {
+    "description": "Empty-state body for a request created on another phone"
+  },
+  "approveRefSuffix": "রেফারেন্স {ref}",
+  "@approveRefSuffix": {
+    "description": "Muted short reference under the unknown-request body: the last six letters and digits of the id, uppercased ASCII (a code, not localised)",
+    "placeholders": {
+      "ref": {
+        "type": "String"
+      }
+    }
+  },
+  "loanYouCanGet": "আপনি পেতে পারেন",
+  "@loanYouCanGet": {
+    "description": "Caption above the loan limit hero amount"
+  },
+  "loanRowSubtitle": "{months} · মাসিক কিস্তি {monthly}",
+  "@loanRowSubtitle": {
+    "description": "Loan product row subtitle; months like '৩ মাস', monthly is formatted taka",
+    "placeholders": {
+      "months": {
+        "type": "String"
+      },
+      "monthly": {
+        "type": "String"
+      }
+    }
+  },
+  "dpsPlanTitle": "মাসে {amount} জমা",
+  "@dpsPlanTitle": {
+    "description": "Spoken title of a savings plan card",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "dpsProjectionLabel": "মেয়াদ শেষে প্রায় পাবেন",
+  "@dpsProjectionLabel": {
+    "description": "Kind line above the projected maturity amount in the open-DPS sheet"
+  },
+  "demoGroupScene": "দৃশ্য",
+  "@demoGroupScene": {
+    "description": "Demo panel group: video preset, persona, forced verdict, phone check"
+  },
+  "demoGroupSignals": "সংকেত",
+  "@demoGroupSignals": {
+    "description": "Demo panel group: the four simulated phone signals"
+  },
+  "demoGroupActions": "কাজ",
+  "@demoGroupActions": {
+    "description": "Demo panel group: re-run, replay, audio, cash in, resets"
+  },
+  "demoServerMsShort": "সার্ভার {ms} মি.সে.",
+  "@demoServerMsShort": {
+    "description": "Demo panel status line: last server time; ms in the active digits",
+    "placeholders": {
+      "ms": {
+        "type": "String"
+      }
+    }
+  },
+  "demoCashInDone": "ক্যাশ ইন নিশ্চিত হয়েছে, ব্যালেন্স বেড়েছে",
+  "@demoCashInDone": {
+    "description": "Snackbar after the demo panel confirms a waiting cash in"
+  },
+  "demoCashInNone": "এজেন্টের অপেক্ষায় কোনো ক্যাশ ইন নেই",
+  "@demoCashInNone": {
+    "description": "Snackbar when the demo panel finds no cash in to confirm"
+  },
+  "@apaInsightSimSwapBody": {
+    "placeholders": {
+      "helpline": {
+        "type": "String"
+      }
+    }
+  },
+  "@apaActionCallHelpline": {
+    "placeholders": {
+      "helpline": {
+        "type": "String"
+      }
+    }
+  },
+  "@apaScamHotline": {
+    "placeholders": {
+      "helpline": {
+        "type": "String"
+      }
+    }
+  },
+  "@apaCoachCode": {
+    "placeholders": {
+      "helpline": {
+        "type": "String"
+      }
+    }
+  },
+  "txnTypeDps": "ডিপিএস জমা",
+  "dpsEmptyBody": "নিচের ‘নতুন ডিপিএস খুলুন’ চাপুন।",
+  "cashInWriteFailed": "কোড তৈরি করা যায়নি। আবার চেষ্টা করুন।",
+  "approveNotYoursTitle": "এই অনুরোধ আপনার আপনজনের জন্য",
+  "approveNotYoursBody": "অনুমোদন বা প্রত্যাখ্যান শুধু তিনিই করতে পারেন, তাঁর নিজের ফোন থেকে। কেউ আপনাকে এখানে অনুমোদন চাপতে বললে সে প্রতারক হতে পারে।",
+  "apaRoleCaption": "নিরাপত্তা গাইড",
+  "demoVideoPresetDetail": "কল চলছে + প্রতারণার কল",
+  "dpsPlanLine": "মাসে {amount} · {tenure}",
+  "@dpsPlanLine": {
+    "description": "The DPS plan under the result title and on the PIN pad: monthly instalment and tenure",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      },
+      "tenure": {
+        "type": "String"
+      }
+    }
+  },
+  "apaHeaderSeverity": "এফএনএ: {severity}",
+  "@apaHeaderSeverity": {
+    "description": "Home security card header in a danger or caution state: the assistant's short name and the severity word.",
+    "placeholders": {
+      "severity": {
+        "type": "String"
+      }
+    }
+  },
+  "safetyCaptionPrefix": "ফোনের নিরাপত্তা:",
+  "@safetyCaptionPrefix": {
+    "description": "Lead-in of the one-line phone-safety caption under a danger or caution card; the verdict word follows."
+  },
+  "loginBiometric": "আঙুলের ছাপ বা মুখ দিয়ে লগইন করুন",
+  "biometricReason": "ফিননেস্টে লগইন করতে আপনার পরিচয় যাচাই করুন",
+  "loginBiometricFailed": "যাচাই হয়নি, আবার চেষ্টা করুন।",
+  "loginWithPassword": "পাসওয়ার্ড দিয়ে লগইন করুন",
+  "loginFallbackNotEnrolled": "এই ফোনে আঙুলের ছাপ বা মুখ সেট করা নেই, তাই পাসওয়ার্ড দিয়ে লগইন করুন।",
+  "loginFallbackWeak": "এই ফোনের বায়োমেট্রিক যথেষ্ট নিরাপদ নয়, তাই পাসওয়ার্ড দিয়ে লগইন করুন।",
+  "loginFallbackUnsupported": "এই ফোনে বায়োমেট্রিক নেই, তাই পাসওয়ার্ড দিয়ে লগইন করুন।",
+  "loginPasswordLabel": "পাসওয়ার্ড",
+  "loginPasswordShow": "পাসওয়ার্ড দেখান",
+  "loginPasswordHide": "পাসওয়ার্ড লুকান",
+  "loginPasswordWrong": "পাসওয়ার্ড মেলেনি। আবার চেষ্টা করুন।",
+  "loginDemoPasswordHint": "এটি ডেমো লগইন। ডেমো পাসওয়ার্ড: {password}",
+  "@loginDemoPasswordHint": {
+    "description": "Demo note on the password login path",
+    "placeholders": {
+      "password": {
+        "type": "String"
+      }
+    }
+  },
+  "loginNoOtp": "আমরা ওটিপি চাই না: ওটিপি শেয়ার করা যায়, আপনার আঙুলের ছাপ বা মুখ যায় না।",
+  "safetySearchHint": "অ্যাপ বা সমস্যা খুঁজুন",
+  "safetySearchClear": "খোঁজা মুছুন",
+  "safetyNothingFound": "কিছু পাওয়া যায়নি",
+  "safetyNothingFoundBody": "অন্য শব্দে খুঁজুন বা ফিল্টার সরান।",
+  "safetyClearFilters": "ফিল্টার সরান",
+  "safetyFiltersLabel": "ফিল্টার",
+  "safetyFilterAll": "সব",
+  "safetyFilterDanger": "বিপজ্জনক",
+  "safetyFilterCaution": "সতর্কতা",
+  "safetyFilterInfo": "তথ্য",
+  "safetyCategoryPermissions": "অনুমতি",
+  "safetyCategoryAccessibility": "অ্যাক্সেসিবিলিটি",
+  "safetyCategoryScreen": "স্ক্রিন শেয়ার ও ওভারলে",
+  "safetyCategoryUnknownApps": "অচেনা অ্যাপ",
+  "safetyCategoryPhone": "ফোনের সেটিংস",
+  "safetyCategoryOther": "অন্যান্য",
+  "safetySortLabel": "সাজানো",
+  "safetySortSeverity": "বিপদ আগে",
+  "safetySortName": "নাম (অ-হ)",
+  "safetyCtaRevokePermission": "অনুমতি বন্ধ করুন",
+  "safetyCtaDisableService": "সার্ভিস বন্ধ করুন",
+  "safetyCtaStopNow": "এখনই বন্ধ করুন",
+  "safetyCtaFixSetting": "সেটিংস ঠিক করুন",
+  "safetyCtaAcknowledge": "বুঝেছি",
+  "safetyAcknowledged": "দেখা হয়েছে",
+  "safetyCtaReturnHint": "ফিরে এলে আবার যাচাই হবে।",
+  "unknownNumber": "নতুন নম্বর",
+  "payeeRecent": "সাম্প্রতিক",
+  "payeeSavedLine": "সেভ করা প্রাপক",
+  "payeeUnfamiliarLine": "নতুন বা অচেনা প্রাপক। পাঠানোর আগে একবার ভাবুন।",
+  "reviewMoneySafe": "টাকা পাঠানো হয়নি, আপনার কাছেই আছে।",
+  "reviewInReview": "যাচাই চলছে।",
+  "reviewFinished": "যাচাই শেষ, টাকা আপনার কাছেই।",
+  "fraudDeskStaffTag": "স্টাফ ভিউ · ডেমো",
+  "fraudDeskTabWatchList": "নজরে থাকা অ্যাকাউন্ট",
+  "fraudDeskTabCases": "তদন্ত",
+  "fraudDeskWatchListEmpty": "এখন কোনো অ্যাকাউন্ট নজরে নেই",
+  "fraudDeskWatchListEmptyBody": "কোনো তদন্তে সন্দেহভাজন পাওয়া গেলে এখানে দেখা যাবে।",
+  "fraudDeskWatchListError": "নজরের তালিকা আনা যায়নি",
+  "fraudDeskRetry": "আবার চেষ্টা করুন",
+  "fraudDeskCasesEmpty": "এই ফোন থেকে কোনো তদন্ত খোলা হয়নি",
+  "fraudDeskCasesEmptyBody": "নজরে থাকা একটি অ্যাকাউন্ট বেছে তদন্ত শুরু করুন।",
+  "fraudDeskStartCase": "তদন্ত শুরু করুন",
+  "fraudDeskPickTitle": "কোন অ্যাকাউন্টের তদন্ত?",
+  "fraudDeskPickEmpty": "নজরে থাকা সব অ্যাকাউন্টের তদন্ত খোলা আছে",
+  "fraudDeskCooldown": "৩০ মিনিটে একবার। পরে আবার চেষ্টা করুন।",
+  "fraudDeskAnalystApproved": "বিশ্লেষক অনুমোদিত",
+  "fraudDeskNoCase": "তদন্ত খোলা হয়নি",
+  "fraudDeskRoleL1": "প্রথম স্তর",
+  "fraudDeskRoleL2": "দ্বিতীয় স্তর",
+  "fraudDeskRoleController": "নিয়ন্ত্রক",
+  "fraudDeskRoleCashout": "ক্যাশ-আউট এজেন্ট",
+  "fraudDeskRoleVictim": "ভুক্তভোগী",
+  "fraudDeskRoleOther": "অন্যান্য",
+  "fraudDeskStatusSuspected": "সন্দেহভাজন",
+  "fraudDeskStatusConfirmed": "নিশ্চিত",
+  "fraudDeskStatusCleared": "সন্দেহমুক্ত",
+  "fraudDeskStatusUnknown": "অজানা",
+  "fraudDeskOpenedAt": "খোলা: {time}",
+  "@fraudDeskOpenedAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "fraudDeskStarted": "তদন্ত শুরু হয়েছে",
+  "fraudDeskStartFailed": "তদন্ত শুরু করা যায়নি।",
+  "fraudDeskAccount": "অ্যাকাউন্ট {id}",
+  "@fraudDeskAccount": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "czCaseTitle": "তদন্ত",
+  "czStatusQueued": "সারিতে",
+  "czStatusRunning": "চলছে",
+  "czStatusDone": "শেষ",
+  "czStatusFailed": "ব্যর্থ",
+  "czStatusUnknown": "অজানা",
+  "czRecommendation": "সুপারিশ: {action}",
+  "@czRecommendation": {
+    "placeholders": {
+      "action": {
+        "type": "String"
+      }
+    }
+  },
+  "czActionFreeze": "অ্যাকাউন্ট আটকানো",
+  "czActionEdd": "বাড়তি যাচাই",
+  "czActionMonitor": "নজরে রাখা",
+  "czActionClose": "ব্যবস্থা নেই",
+  "czActionPending": "অপেক্ষায়",
+  "czActionReviewer": "পর্যালোচকের কাছে",
+  "czPendingApproval": "এজেন্টের সুপারিশ, বিশ্লেষকের অনুমোদন বাকি",
+  "czModelScore": "মডেল স্কোর {percent}%",
+  "@czModelScore": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "czCounts": "প্রমাণ {evidence} · রিং {ring}",
+  "@czCounts": {
+    "placeholders": {
+      "evidence": {
+        "type": "String"
+      },
+      "ring": {
+        "type": "String"
+      }
+    }
+  },
+  "czSummary": "সারাংশ",
+  "czShowOtherLanguage": "English",
+  "czEvidence": "প্রমাণ",
+  "czRing": "রিং",
+  "czFailed": "তদন্ত ব্যর্থ হয়েছে",
+  "czReviewerLine": "একজন ঝুঁকি পর্যালোচক বিষয়টি হাতে দেখবেন।",
+  "czStubFallback": "স্ক্রিপ্টেড উত্তর (তদন্তকারী ব্যস্ত)",
+  "czStale": "তদন্তটি আর পাওয়া যাচ্ছে না",
+  "czRunningLine": "তদন্ত চলছে। সাধারণত এক মিনিটের মতো লাগে।",
+  "czRefreshFailed": "এখন হালনাগাদ করা যায়নি, আবার চেষ্টা হবে।",
+  "czModelVersion": "মডেল: {version}",
+  "@czModelVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "czShowAppLanguage": "বাংলা",
+  "behaviourModeSection": "আচরণ",
+  "@behaviourModeSection": {
+    "description": "Demo panel group: what the app posts as the behaviour signal"
+  },
+  "behaviourModeLabel": "আচরণ সংকেত",
+  "@behaviourModeLabel": {
+    "description": "Demo panel: label over the behaviour mode segments"
+  },
+  "behaviourModeLive": "লাইভ",
+  "@behaviourModeLive": {
+    "description": "Behaviour mode: the measured touch is sent"
+  },
+  "behaviourModeOff": "বন্ধ",
+  "@behaviourModeOff": {
+    "description": "Behaviour mode: no behaviour is sent"
+  },
+  "behaviourModeStranger": "অন্য কেউ",
+  "@behaviourModeStranger": {
+    "description": "Behaviour mode: a stranger's touch is replayed"
+  },
+  "behaviourModeOffNote": "আচরণ সংকেত বন্ধ।",
+  "@behaviourModeOffNote": {
+    "description": "Demo note on the overlay when the behaviour mode is off"
+  },
+  "behaviourModeStrangerNote": "সিমুলেটেড: অন্য কারও হাতের ধরন।",
+  "@behaviourModeStrangerNote": {
+    "description": "Demo note on the overlay when a stranger's touch was replayed"
+  },
+  "enrolToggle": "নথিভুক্ত করা হচ্ছে",
+  "@enrolToggle": {
+    "description": "Demo panel switch: save each PIN entry's behaviour on this phone"
+  },
+  "enrolHint": "ডেমো: চালু থাকলে প্রতিটি পিনের আচরণ এই ফোনে জমা হয়।",
+  "@enrolHint": {
+    "description": "Demo note under the enrolment switch"
+  },
+  "enrolCount": "নথিভুক্ত সেশন: {count}",
+  "@enrolCount": {
+    "description": "Demo panel: how many enrolment rows this persona has",
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "enrolExport": "ফাইলে লিখুন",
+  "@enrolExport": {
+    "description": "Demo panel: export the enrolment rows as a JSONL file"
+  },
+  "enrolExported": "ফাইলে লেখা হয়েছে: {path}",
+  "@enrolExported": {
+    "description": "Snackbar after the export, with the file path",
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
+  "enrolExportFailed": "ফাইলে লেখা যায়নি। আবার চেষ্টা করুন।",
+  "@enrolExportFailed": {
+    "description": "Snackbar when the export failed"
+  },
+  "enrolClear": "মুছুন",
+  "@enrolClear": {
+    "description": "Demo panel: delete the enrolment rows of this persona"
+  },
+  "enrolCleared": "নথিভুক্ত সেশন মুছে ফেলা হয়েছে।",
+  "@enrolCleared": {
+    "description": "Snackbar after clearing the enrolment rows"
+  },
+  "stepUpConfirmTitle": "একবার নিশ্চিত করুন",
+  "@stepUpConfirmTitle": {
+    "description": "Step-up sheet title (identity and generic)"
+  },
+  "stepUpIsThisYou": "এটা আপনিই?",
+  "@stepUpIsThisYou": {
+    "description": "Question above the fingerprint step-up button: the hold is about identity, and the owner's own fingerprint answers it"
+  },
+  "actionKeepMoney": "টাকা আমার কাছেই থাকুক",
+  "@actionKeepMoney": {
+    "description": "Primary button on a hold overlay (hold_transaction): the customer keeps the money, the hold stays"
+  },
+  "stepUpBiometricButton": "হ্যাঁ, আঙুলের ছাপ দিয়ে নিশ্চিত করুন",
+  "@stepUpBiometricButton": {
+    "description": "Outlined step-up button on the sheet and the overlay"
+  },
+  "stepUpBiometricReason": "টাকা পাঠাতে আপনার আঙুলের ছাপ দিন।",
+  "@stepUpBiometricReason": {
+    "description": "Text of the system fingerprint prompt"
+  },
+  "stepUpAskTrusted": "আপনজনের মত নিন",
+  "@stepUpAskTrusted": {
+    "description": "Step-up sheet secondary: ask the trusted contact instead"
+  },
+  "stepUpCancel": "বাতিল",
+  "@stepUpCancel": {
+    "description": "Step-up sheet dismiss"
+  },
+  "stepUpFailed": "যাচাই হয়নি। আপনজনের মত নিন।",
+  "@stepUpFailed": {
+    "description": "Line after a failed or unavailable fingerprint step-up"
+  },
+  "stepUpExhausted": "তিনবার যাচাই হয়নি। এখন আপনজনের মত নিন।",
+  "@stepUpExhausted": {
+    "description": "Line in place of the fingerprint step-up once three prompts in this session did not pass (cancels count)"
+  },
+  "stepUpReleasedTitle": "ফোনে যাচাই করে পাঠানো হয়েছে",
+  "@stepUpReleasedTitle": {
+    "description": "Result title after a held transfer was released by the fingerprint step-up"
+  },
+  "stepUpReleasedDemoNote": "ডেমো: সার্ভারে লেনদেনটি আটকে রাখা হিসেবে লেখা আছে।",
+  "@stepUpReleasedDemoNote": {
+    "description": "Demo note on the result after a step-up release"
+  },
+  "stepUpHistorySubtitle": "ফোনে যাচাই করে পাঠানো",
+  "@stepUpHistorySubtitle": {
+    "description": "History row subtitle of a transfer released by the step-up"
+  },
+  "storySection": "গল্প",
+  "@storySection": {
+    "description": "Demo panel group: one-tap demo stories"
+  },
+  "storySuspectPayee": "প্রাপক সন্দেহভাজন",
+  "@storySuspectPayee": {
+    "description": "Demo story: send to the ring's first-level account"
+  },
+  "storySuspectPayeeNote": "ডেমো: এই গল্পে সার্ভার যা দেখবে: পরিষ্কার ফোন, আচরণ সংকেত বন্ধ, আর সন্দেহভাজন প্রাপক।",
+  "@storySuspectPayeeNote": {
+    "description": "Demo note under the suspicious-recipient story"
+  },
+  "storyStranger": "অন্য কেউ ফোন চালাচ্ছে",
+  "@storyStranger": {
+    "description": "Demo story: a stranger's touch is replayed"
+  },
+  "storyStrangerNote": "ডেমো: এই গল্পে সার্ভার যা দেখবে: মালিকের সাথে না মেলা হাতের ধরন, তাই লেনদেন আটকে থাকবে।",
+  "@storyStrangerNote": {
+    "description": "Demo note under the stranger story"
+  },
+  "storyInvestigation": "তদন্ত দেখুন",
+  "@storyInvestigation": {
+    "description": "Demo story: open the staff fraud desk"
+  },
+  "storyInvestigationNote": "ডেমো: এই গল্পে সার্ভার যা দেখবে: নজরে থাকা অ্যাকাউন্টের তালিকা আর তদন্ত।",
+  "@storyInvestigationNote": {
+    "description": "Demo note under the investigation story"
+  },
+  "behaviourModeTapPattern": "ট্যাপের ধরন বদলে গেছে",
+  "@behaviourModeTapPattern": {
+    "description": "Behaviour mode: only where and how hard the taps land changes"
+  },
+  "behaviourModeShaking": "হাত কাঁপছে, ফোন অন্যভাবে ধরা",
+  "@behaviourModeShaking": {
+    "description": "Behaviour mode: only how the phone moves and is held changes"
+  },
+  "behaviourModeCoached": "কেউ বলে দিচ্ছে: ধীরে, থেমে থেমে টাইপ",
+  "@behaviourModeCoached": {
+    "description": "Behaviour mode: only the typing speed and pauses change (a coached victim)"
+  },
+  "behaviourModeTapPatternNote": "সিমুলেটেড: ট্যাপের ধরন বদলানো।",
+  "@behaviourModeTapPatternNote": {
+    "description": "Demo note on the overlay when a changed tap pattern was replayed"
+  },
+  "behaviourModeShakingNote": "সিমুলেটেড: কাঁপা হাত, অন্যভাবে ধরা ফোন।",
+  "@behaviourModeShakingNote": {
+    "description": "Demo note on the overlay when a shaking hand was replayed"
+  },
+  "behaviourModeCoachedNote": "সিমুলেটেড: কেউ বলে দিচ্ছে, ধীরে টাইপ।",
+  "@behaviourModeCoachedNote": {
+    "description": "Demo note on the overlay when a coached, slow PIN entry was replayed"
+  },
+  "storyTapPattern": "ট্যাপের ধরন বদলে গেছে",
+  "@storyTapPattern": {
+    "description": "Demo story: only the tap pattern differs from the owner's"
+  },
+  "storyTapPatternNote": "ডেমো: এই গল্পে সার্ভার যা দেখবে: ট্যাপ যেখানে পড়ছে আর কতটা জোরে, তা মালিকের সাথে মেলে না; বাকি সব আগের মতো। সার্ভারের উত্তর: আচরণ মালিকের সাথে মেলেনি, তাই লেনদেন আটকে থাকবে। রেকর্ডে \"সিমুলেটেড\" লেখা থাকবে।",
+  "@storyTapPatternNote": {
+    "description": "Demo note under the tap pattern story"
+  },
+  "storyShaking": "হাত কাঁপছে",
+  "@storyShaking": {
+    "description": "Demo story: the hand shakes and the phone is held differently"
+  },
+  "storyShakingNote": "ডেমো: এই গল্পে সার্ভার যা দেখবে: ফোন কতটা নড়ছে আর কীভাবে ধরা, তা মালিকের সাথে মেলে না; বাকি সব আগের মতো। সার্ভারের উত্তর: আচরণ মালিকের সাথে মেলেনি, তাই লেনদেন আটকে থাকবে। রেকর্ডে \"সিমুলেটেড\" লেখা থাকবে।",
+  "@storyShakingNote": {
+    "description": "Demo note under the shaking hand story"
+  },
+  "storyCoached": "কেউ বলে দিচ্ছে",
+  "@storyCoached": {
+    "description": "Demo story: a coached victim types slowly, with pauses"
+  },
+  "storyCoachedNote": "ডেমো: এই গল্পে সার্ভার যা দেখবে: মালিকের নিজের হাত, কিন্তু পিন টাইপের গতি আর বিরতি বদলে গেছে: ধীরে, থেমে থেমে, ভুল মুছে আবার। কলও চালু করা হলো, কারণ কল চলার সময়েই সার্ভার এতে লেনদেন আটকায়। আজকের ডেমোতে সার্ভারের উত্তর: আচরণ মালিকের সাথে মেলেনি, আর কেউ বলে দিচ্ছে বলে সন্দেহ; মালিকের আচরণ এই ফোন থেকে এখনও শেখানো হয়নি, তাই দুটোই আসে। রেকর্ডে \"সিমুলেটেড\" লেখা থাকবে।",
+  "@storyCoachedNote": {
+    "description": "Demo note under the coached story; the story also switches the call on"
+  },
+  "voiceSourceBundled": "অ্যাপে রাখা অডিও",
+  "@voiceSourceBundled": {
+    "description": "Demo panel: FNA's last line played from a clip shipped in the app"
+  },
+  "voiceSourceServerClip": "সার্ভারে আগে তৈরি অডিও",
+  "@voiceSourceServerClip": {
+    "description": "Demo panel: FNA's last line played from the server's pre-rendered clip"
+  },
+  "voiceSourceServerLive": "সার্ভারের লাইভ অডিও",
+  "@voiceSourceServerLive": {
+    "description": "Demo panel: FNA's last line played from /v1/apa/why-audio"
+  },
+  "voiceSourceGemini": "জেমিনাই ভয়েস (ভার্টেক্স এআই)",
+  "@voiceSourceGemini": {
+    "description": "Demo panel: FNA's last line spoken by Gemini TTS on Vertex AI"
+  },
+  "voiceSourceOnDevice": "ফোনের নিজের ভয়েস",
+  "@voiceSourceOnDevice": {
+    "description": "Demo panel: FNA's last line spoken by the phone's TTS (fallback)"
+  },
+  "voiceSourceNone": "কোনো অডিও বাজেনি",
+  "@voiceSourceNone": {
+    "description": "Demo panel: FNA said nothing"
+  },
+  "voiceSourceNote": "ডেমো: শেষ অডিও এসেছে: {source}",
+  "@voiceSourceNote": {
+    "description": "Demo panel note under the audio preview; source is one of the voiceSource* labels",
+    "placeholders": {
+      "source": {
+        "type": "String"
+      }
+    }
+  },
+  "demoPreviewGeminiVoice": "জেমিনি কণ্ঠে শুনুন",
+  "overlayBlockedLabel": "আটকানো হয়েছে",
+  "simulatedTagOff": "সিমুলেটেড: আচরণ সংকেত বন্ধ",
+  "simulatedTagStranger": "সিমুলেটেড: অন্য কারও হাতের ধরন",
+  "simulatedTagTapPattern": "সিমুলেটেড: ট্যাপের ধরন বদলানো",
+  "simulatedTagShaking": "সিমুলেটেড: কাঁপা হাত",
+  "simulatedTagCoached": "সিমুলেটেড: কেউ বলে দিচ্ছে",
+  "pendingSummaryTitle": "{count, plural, other{{countText}টি লেনদেন আটকে আছে}}",
+  "@pendingSummaryTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "countText": {
+        "type": "String"
+      }
+    }
+  },
+  "pendingSummarySee": "দেখুন ›",
+  "historyFilterHeld": "আটকে আছে",
+  "fraudDeskFactPrefix": "তথ্য:",
+  "czNoEvidence": "প্রমাণ পাওয়া যায়নি",
+  "czCountsNoEvidence": "প্রমাণ পাওয়া যায়নি · রিং {ring}",
+  "@czCountsNoEvidence": {
+    "placeholders": {
+      "ring": {
+        "type": "String"
+      }
+    }
+  },
+  "czCitedTxns": "সারাংশে উল্লেখিত লেনদেন",
+  "txnTypeReceived": "টাকা এসেছে",
+  "behaviourModeLiveHelp": "এই ফোনের আসল স্পর্শ যায়",
+  "behaviourModeOffHelp": "আচরণ সংকেত বন্ধ: সার্ভার আচরণ দেখবে না",
+  "behaviourModeStrangerHelp": "সিমুলেটেড: অন্য কারও হাতের ধরন; সার্ভার আটকে রাখবে",
+  "demoPreviewPlaying": "চলছে…",
+  "demoPreviewStop": "থামান",
+  "approveNotConfirmedLine": "আপনজন নিশ্চিত করেননি",
+  "@approveNotConfirmedLine": {
+    "description": "Approve screen: the server says the decision did not come from the named trusted contact (contact_verified false); the hold stays"
+  },
+  "czStatusDegraded": "শেষ, সূত্র যাচাই হয়নি",
+  "@czStatusDegraded": {
+    "description": "Staff Fraud desk: a Case Zero report delivered but failing the citation check (status degraded)"
+  },
+  "fnaTalk": "কথা বলুন",
+  "@fnaTalk": {
+    "description": "FNA chat: the large microphone button that opens voice mode"
+  },
+  "fnaHearIt": "শুনুন",
+  "@fnaHearIt": {
+    "description": "FNA chat: speaker button under an FNA answer and on the call summary card"
+  },
+  "fnaHearStop": "থামান",
+  "@fnaHearStop": {
+    "description": "FNA chat: the Hear it button while that answer is playing"
+  },
+  "fnaStateConnecting": "সংযোগ হচ্ছে…",
+  "@fnaStateConnecting": {
+    "description": "FNA voice mode state label (live region)"
+  },
+  "fnaStateListening": "এফএনএ শুনছে",
+  "@fnaStateListening": {
+    "description": "FNA voice mode state label (live region)"
+  },
+  "fnaStateThinking": "এফএনএ ভাবছে…",
+  "@fnaStateThinking": {
+    "description": "FNA voice mode state label (live region)"
+  },
+  "fnaStateSpeaking": "এফএনএ বলছে",
+  "@fnaStateSpeaking": {
+    "description": "FNA voice mode state label (live region)"
+  },
+  "fnaStatePaused": "বিরতি চলছে · কথা বলতে চাপুন",
+  "@fnaStatePaused": {
+    "description": "FNA voice mode state label (live region)"
+  },
+  "fnaPinStrip": "পিন বা কোড মুখে বলবেন না, এফএনএ-কেও না।",
+  "@fnaPinStrip": {
+    "description": "FNA voice mode: permanent strip at the top"
+  },
+  "fnaNumberHidden": "একটি নম্বর লুকিয়ে রাখা হয়েছে। কোড কাউকে বলবেন না।",
+  "@fnaNumberHidden": {
+    "description": "FNA voice mode: a code-like number was heard and masked"
+  },
+  "fnaMicRationale": "এফএনএ-র সাথে কথা বলতে মাইক্রোফোন লাগবে। এফএনএ শুধু এই স্ক্রিন খোলা থাকলে শোনে। আপনার ফোনকল কখনো শোনে না।",
+  "@fnaMicRationale": {
+    "description": "FNA: explanation shown before the Android microphone dialog"
+  },
+  "fnaMicTurnOn": "মাইক্রোফোন চালু করুন",
+  "@fnaMicTurnOn": {
+    "description": "FNA: button on the microphone explanation"
+  },
+  "fnaOpenSettings": "সেটিংস খুলুন",
+  "@fnaOpenSettings": {
+    "description": "FNA: the microphone was denied for good; opens the app settings"
+  },
+  "fnaTypeInstead": "লিখে বলুন",
+  "@fnaTypeInstead": {
+    "description": "FNA: leave voice mode and type"
+  },
+  "fnaStop": "থামান",
+  "@fnaStop": {
+    "description": "FNA voice mode control: stop FNA speaking"
+  },
+  "fnaPause": "বিরতি",
+  "@fnaPause": {
+    "description": "FNA voice mode control"
+  },
+  "fnaResume": "আবার কথা বলুন",
+  "@fnaResume": {
+    "description": "FNA voice mode control"
+  },
+  "fnaEnd": "শেষ করুন",
+  "@fnaEnd": {
+    "description": "FNA voice mode control: close voice mode"
+  },
+  "fnaVoiceDown": "এখন কথা বলা যাচ্ছে না। লিখে জিজ্ঞাসা করুন, এফএনএ উত্তর পড়ে শোনাবে।",
+  "@fnaVoiceDown": {
+    "description": "FNA: voice mode could not connect or failed"
+  },
+  "fnaOffline": "ইন্টারনেট নেই। নিচের প্রশ্ন বেছে নিন। উত্তর আপনার ফোনেই আছে।",
+  "@fnaOffline": {
+    "description": "FNA: voice mode fell back because there is no network"
+  },
+  "fnaCallCardTitle": "সন্দেহজনক কল · {time}",
+  "@fnaCallCardTitle": {
+    "description": "FNA call summary card heading",
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "fnaCallAskedFor": "ফোনে চেয়েছিল",
+  "@fnaCallAskedFor": {
+    "description": "FNA call summary card row label"
+  },
+  "fnaCallTheySaid": "ফোনে বলেছিল",
+  "@fnaCallTheySaid": {
+    "description": "FNA call summary card row label"
+  },
+  "fnaCallDoNow": "এখন কী করবেন",
+  "@fnaCallDoNow": {
+    "description": "FNA call summary card row label"
+  },
+  "fnaCallNextTime": "পরের বার যা করবেন",
+  "@fnaCallNextTime": {
+    "description": "FNA call summary card row label"
+  },
+  "fnaCallHelpline": "হেল্পলাইনে কল করুন",
+  "@fnaCallHelpline": {
+    "description": "FNA call summary card button: opens the dialer, never dials"
+  },
+  "fnaCallDoHangUp": "আবার ফোন করলে কেটে দিন। টাকা পাঠাবেন না, কোনো কোড বলবেন না।",
+  "@fnaCallDoHangUp": {
+    "description": "FNA call summary card: what to do now"
+  },
+  "fnaCallDoCareful": "সাবধান থাকুন, তাড়াহুড়ো করবেন না।",
+  "@fnaCallDoCareful": {
+    "description": "FNA call summary card: what to do now"
+  },
+  "fnaSecretCard": "কার্ডের নম্বর",
+  "@fnaSecretCard": {
+    "description": "FNA call summary card: the caller asked for a card number"
+  },
+  "fnaNoCallYet": "এখনো কোনো সন্দেহজনক কল ধরা পড়েনি। কেউ কোড চাইলে, কলার কী বলছে এফএনএ-কে বলুন।",
+  "@fnaNoCallYet": {
+    "description": "FNA: Summarise the call when no call was flagged"
+  },
+  "fnaQuickSummary": "সন্দেহজনক কলের কথা",
+  "@fnaQuickSummary": {
+    "description": "FNA chat topic chip: the last flagged call"
+  },
+  "fnaVoiceControls": "ভয়েস নিয়ন্ত্রণ",
+  "@fnaVoiceControls": {
+    "description": "FNA voice mode: TalkBack label of the controls row"
+  },
+  "fnaSecretSpoken": "আপনার কথায় একটি কোডের মতো নম্বর ছিল, সেটা লুকিয়ে রাখা হয়েছে। কোড বা পিন কাউকে বলবেন না, এফএনএ-কেও না।",
+  "fnaHearItLabel": "শুনুন: {text}",
+  "@fnaHearItLabel": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
+  },
+  "fnaHearStopLabel": "পড়া থামান: {text}",
+  "@fnaHearStopLabel": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
+  },
+  "fnaShowAll": "পুরোটা দেখুন",
+  "fnaShowLess": "কম দেখুন"
+}

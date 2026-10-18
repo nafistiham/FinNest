@@ -1,0 +1,12 @@
+{
+  "case_id": "CZ-0003",
+  "acct_id": "acct_01070",
+  "status": "running",
+  "summary_en": "Investigation in progress.",
+  "summary_bn": "তদন্ত চলছে।",
+  "evidence": [],
+  "ring": [],
+  "confidence": 0.0,
+  "recommended_action": "pending",
+  "model_version": "mule-lgbm-0.1+gemini-3.8-flash"
+}

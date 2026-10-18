@@ -1,0 +1,18 @@
+{
+  "version": "payee-risk/1",
+  "generated_at": "2026-10-17T04:47:08+00:00",
+  "payees": [
+    {
+      "acct_id": "acct_00036",
+      "status": "suspected",
+      "case_id": "CZ-0002",
+      "role": "mule_L2",
+      "model_score": 0.0,
+      "as_of": "2026-11-10T14:35:00",
+      "analyst_approved": false,
+      "facts": [
+        "Seed acct_01070 split incoming funds to five separate recipients."
+      ]
+    }
+  ]
+}

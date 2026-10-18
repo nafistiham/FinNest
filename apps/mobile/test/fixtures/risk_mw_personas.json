@@ -1,0 +1,9 @@
+{
+  "_source": "libs/synth/load_seed.py PERSONAS (written to Firestore users/{uid}); tests/test_device_signals.py keeps the two in step",
+  "personas": [
+    {"uid": "rina", "acct_id": "acct_rina", "p95_send_bdt": 5000},
+    {"uid": "rafiq", "acct_id": "acct_rafiq", "p95_send_bdt": 3000},
+    {"uid": "rahima", "acct_id": "acct_rahima", "p95_send_bdt": 2000},
+    {"uid": "sumon", "acct_id": "acct_newphone_benign", "p95_send_bdt": 4000}
+  ]
+}

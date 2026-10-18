@@ -1,0 +1,24 @@
+{
+  "case_id": "CZ-0002",
+  "acct_id": "acct_01070",
+  "status": "done",
+  "summary_en": "On 2026-11-10 at 14:13:00, victim acct_rina transferred Tk 7,900 to first-layer mule acct_01070…",
+  "summary_bn": "২০২৬-১১-১০ তারিখে ১৪:১৩:০০ সময়ে ভুক্তভোগী acct_rina থেকে টেকওভারের পর txn_011308 এর মাধ্যমে…",
+  "evidence": [
+    {
+      "row_id": "txn_011308",
+      "claim": "Seed acct_01070 forwarded received funds rapidly within minutes."
+    }
+  ],
+  "ring": [
+    "acct_01070",
+    "acct_01341",
+    "acct_01870",
+    "acct_00036",
+    "acct_01288",
+    "acct_01635"
+  ],
+  "confidence": 0.8697,
+  "recommended_action": "freeze",
+  "model_version": "mule-lgbm-0.1+gemini-3.8-flash"
+}

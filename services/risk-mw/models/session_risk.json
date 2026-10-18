@@ -1,0 +1,33 @@
+{
+  "version": "session-hgb-0.2",
+  "features": [
+    "call_active",
+    "caller_not_in_contacts",
+    "screen_shared",
+    "obscured_touch",
+    "accessibility_services",
+    "sim_changed_recent",
+    "sim_changed_hours",
+    "rooted",
+    "device_age_days",
+    "app_safety_caution",
+    "app_safety_block",
+    "inbound_mule_score",
+    "scam_score",
+    "txn_pin_reset",
+    "txn_send_money",
+    "txn_new_payee",
+    "is_new_payee",
+    "amount_log",
+    "amount_over_p95",
+    "hesitation",
+    "time_on_screen_s"
+  ],
+  "holdout_auc": 0.9188,
+  "n": 20000,
+  "scam_rate": 0.12,
+  "label_noise": 0.03,
+  "seed": 32,
+  "device_age_unknown_days": 365.0,
+  "trained_on": "synthetic sessions from scripts/train_session_model.py; illustrative, not real data"
+}

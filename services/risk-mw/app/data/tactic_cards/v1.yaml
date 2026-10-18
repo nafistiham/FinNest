@@ -1,0 +1,278 @@
+# Tactic cards v1: the detector's knowledge, loaded at runtime. The live version is named in ./active_version.
+# Real brand names are kept only so the detector can recognise them: they appear in signature_moves and phrasings,
+# which describe what a scam caller says. Facts and norms use generic wording.
+# Every Bangla or Banglish string is a non-native draft and carries native_check: pending until a native speaker signs it off.
+# Ids must stay stable: the six original archetype ids are what older clients already see in scam_type.
+version: v1
+examples: v1
+
+official_facts:
+  - Mobile wallet help lines are short codes such as 16247 and 16167; a genuine call never needs a PIN, an OTP or a password.
+  - Mobile wallets say they never ask for a PIN or verification code and tell customers not to type one while on a call.
+  - FinNest does not ask anyone for their PIN.
+  - Police, courts and government offices do not take payments to a personal mobile wallet number.
+  - A stipend or allowance reaches the registered wallet without any code from the recipient.
+  - No genuine caller needs a remote-access app, an app from a link or a USSD code dialled on their dictation.
+  - The safe move is always to hang up and call back on a number the customer already knows.
+
+rules:
+  courier_code:
+    id: COURIER_CODE
+    identities: [any]
+    asks: [otp]
+    fact: >-
+      Any caller who asks the customer to read out or send a code is running a scam, whatever the cover story (courier, rider,
+      delivery, bank, office). A courier may ask to see a code at the door, in person; never on the phone.
+  norm_table:
+    - id: NORM_STAFF_SECRET
+      identities: [bank_mfs_staff]
+      asks: [otp, pin, password]
+      fact: Mobile wallet, bank and FinNest staff never ask for a PIN, an OTP or a password, on any call.
+    - id: NORM_AUTHORITY_SECRET
+      identities: [govt_or_police]
+      asks: [otp, pin, password]
+      fact: No police station, court, stipend or allowance office needs a customer's OTP or PIN.
+    - id: NORM_AUTHORITY_WALLET
+      identities: [govt_or_police]
+      asks: [personal_wallet_payment, send_money]
+      fact: Police and government offices do not take payments to a personal wallet; fines and fees go through official channels.
+    - id: NORM_INSTALL_APP
+      identities: [any]
+      asks: [install_app]
+      fact: Nobody genuine asks a customer to install a remote-access app or an app from a link during a call.
+
+cards:
+  - id: fake_customer_care
+    title: Fake customer care threatens a block or closure
+    claimed_identity: [bank_mfs_staff]
+    asks: [otp, pin]
+    signature_moves:
+      - claims to be bKash, Nagad, Rocket or the bank's customer care or head office
+      - says the account has a problem, a suspicious transaction or will be blocked or closed today
+      - offers to fix it on the call, then asks for a code or PIN or coaches a PIN reset
+    phrasings:
+      - {text: "আমি বিকাশ কাস্টমার কেয়ার থেকে বলছি, আপনার একাউন্টে সমস্যা হয়েছে।", script: bn, native_check: pending}
+      - {text: "আজকের মধ্যে ঠিক না করলে আপনার একাউন্ট বন্ধ হয়ে যাবে।", script: bn, native_check: pending}
+      - {text: "আপনার নগদ একাউন্ট ব্লক করা হয়েছে, খুলতে হলে আমাদের সাহায্য লাগবে।", script: bn, native_check: pending}
+      - {text: "হেড অফিস থেকে বলছি, আপনার একাউন্ট থেকে সন্দেহজনক লেনদেন হয়েছে।", script: bn, native_check: pending}
+      - {text: "Ami bKash head office theke bolchi, apnar account e problem hoyeche.", script: banglish, native_check: pending}
+      - {text: "Apnar account ajke block hoye jabe, ekhoni verify korte hobe.", script: banglish, native_check: pending}
+    benign_twin: A genuine help-line callback about a complaint or a new card, from a published help line or the bank's own number.
+    differs: The genuine call threatens nothing, asks for no code or PIN and tells the customer to call the number on the card.
+    official_facts:
+      - A genuine help line never asks for a PIN or OTP and never closes an account over the phone.
+
+  - id: otp_pin_harvest
+    title: OTP or PIN harvest
+    claimed_identity: [bank_mfs_staff, unknown, courier_or_company]
+    asks: [otp, pin, password]
+    signature_moves:
+      - tells the customer a code has just arrived on the phone and asks for it to be read out
+      - asks for the PIN or password "to verify" or "to stop" something
+      - avoids the trigger words ("the six numbers that came", "the number in the message")
+      - spreads the request over several turns after a harmless opening
+    phrasings:
+      - {text: "আপনার ফোনে একটা কোড গেছে, কোডটা এখনই বলুন।", script: bn, native_check: pending}
+      - {text: "ছয় সংখ্যার যে ওটিপি এসেছে সেটা বলে দিন।", script: bn, native_check: pending}
+      - {text: "আপনার পিন নম্বরটা একটু বলুন, ভেরিফাই করব।", script: bn, native_check: pending}
+      - {text: "মেসেজে যে নম্বরটা এসেছে সেটা পড়ে শোনান।", script: bn, native_check: pending}
+      - {text: "Sir apnar phone e ekta code gese, code ta ekhoni bolen.", script: banglish, native_check: pending}
+      - {text: "OTP ta bolen, naile account block hoye jabe.", script: banglish, native_check: pending}
+      - {text: "Pin ta din, ami check kore dichhi.", script: banglish, native_check: pending}
+    benign_twin: An agent or shop that asks the customer to type their own PIN on their own phone, or a bank call warning never to share a code.
+    differs: Nobody genuine asks for the code or PIN to be said aloud or sent; the genuine twin never hears it.
+    official_facts:
+      - Reading a code out on a call is how accounts are taken over; the bank never needs it.
+
+  - id: lottery_prize
+    title: Prize or lottery that needs a fee first
+    claimed_identity: [courier_or_company, bank_mfs_staff, unknown]
+    asks: [send_money, personal_wallet_payment, otp]
+    signature_moves:
+      - congratulates the customer on a lottery, lucky draw, cashback or prize they never entered
+      - says a processing, delivery or registration fee must be sent first
+      - gives a personal number for the fee and a deadline of today
+    phrasings:
+      - {text: "অভিনন্দন! আপনি ৫০ হাজার টাকার লটারি জিতেছেন।", script: bn, native_check: pending}
+      - {text: "পুরস্কার পেতে ৫০০ টাকা প্রসেসিং ফি এই নম্বরে সেন্ড মানি করুন।", script: bn, native_check: pending}
+      - {text: "আপনার নাম্বার লাকি ড্র তে উঠেছে, আজকেই টাকা তুলতে হবে।", script: bn, native_check: pending}
+      - {text: "ক্যাশব্যাক অফারের টাকা পেতে আগে রেজিস্ট্রেশন ফি দিতে হবে।", script: bn, native_check: pending}
+      - {text: "Apni ekta motorcycle jitechen, delivery charge ta age pathan.", script: banglish, native_check: pending}
+      - {text: "Prize er taka pete age 1000 taka fee lagbe.", script: banglish, native_check: pending}
+    benign_twin: A real promotion or cashback that the app credits automatically.
+    differs: A genuine prize never needs a fee, a send-money to a personal number or a code from the customer.
+    official_facts:
+      - Genuine cashback and prizes arrive in the app; nobody collects a fee for them by phone.
+
+  - id: wrong_send_refund
+    title: Money "sent by mistake", please send it back
+    claimed_identity: [unknown, relative]
+    asks: [send_money]
+    signature_moves:
+      - says money reached the customer's number by mistake, often after a fake credit SMS
+      - pleads hardship (a hospital, an emergency) and asks for it back to another number
+      - sometimes poses as an agent who cashed in to the wrong number
+    phrasings:
+      - {text: "ভুল করে আপনার নম্বরে ৫০০০ টাকা চলে গেছে, প্লিজ ফেরত পাঠান।", script: bn, native_check: pending}
+      - {text: "আপনার একাউন্টে আমার টাকা ঢুকেছে, মেসেজটা চেক করেন।", script: bn, native_check: pending}
+      - {text: "আমি খুব বিপদে আছি, টাকাটা এই নম্বরে ফেরত দিন।", script: bn, native_check: pending}
+      - {text: "এজেন্ট বলছি, ভুল নম্বরে ক্যাশ ইন হয়ে গেছে, ফেরত দিতে হবে।", script: bn, native_check: pending}
+      - {text: "Apa vul kore apnar number e 5000 taka chole gese, please ferot pathan.", script: banglish, native_check: pending}
+      - {text: "Message e dekhen taka dhukse, oita amake ferot den.", script: banglish, native_check: pending}
+    benign_twin: A genuine wrong send that shows in the customer's own balance and statement.
+    differs: The genuine fix goes through the help line's reversal; nobody genuine asks the customer to send money on their say-so.
+    official_facts:
+      - A credit SMS can be forged; only the balance in the app is proof. Mobile wallets tell customers to hang up on such calls and call their help line.
+
+  - id: job_loan_fee
+    title: Loan, job or investment that needs an upfront fee
+    claimed_identity: [courier_or_company, govt_or_police, unknown]
+    asks: [send_money, personal_wallet_payment]
+    signature_moves:
+      - announces an approved loan, a job abroad, a work-from-home task or a high-return investment the customer never applied for
+      - asks for a registration, file, visa or security fee before anything is paid out
+      - may show small early payouts, then ask for a "withdrawal fee"
+    phrasings:
+      - {text: "আপনার নামে ২ লাখ টাকার লোন অনুমোদন হয়েছে।", script: bn, native_check: pending}
+      - {text: "রেজিস্ট্রেশন ফি ১,০০০ টাকা আগে এই নম্বরে পাঠাতে হবে।", script: bn, native_check: pending}
+      - {text: "বিদেশে চাকরির ভিসা রেডি, প্রসেসিং খরচ আজকেই দিতে হবে।", script: bn, native_check: pending}
+      - {text: "ঘরে বসে কাজ, প্রতিদিন ২০০০ টাকা আয়, শুধু জয়েনিং ফি দিন।", script: bn, native_check: pending}
+      - {text: "Apnar loan approve hoye gese, file charge ta bkash e pathan.", script: banglish, native_check: pending}
+      - {text: "Chakrir jonno security deposit lagbe, ajkei dite hobe.", script: banglish, native_check: pending}
+    benign_twin: A real lender or employer the customer applied to, whose fees appear in a written offer and are paid officially.
+    differs: The scam's offer is unasked-for and the fee goes to a personal number before anything is paid.
+    official_facts:
+      - Licensed lenders deduct fees from the loan; they do not collect them first through send-money.
+
+  - id: relative_impersonation
+    title: A relative on a new number, in trouble
+    claimed_identity: [relative]
+    asks: [send_money, secrecy]
+    signature_moves:
+      - says they are the customer's son, daughter or sibling calling from another number because the phone was lost
+      - an emergency (an accident, a hospital, the police) that needs money now
+      - asks the customer not to tell anyone and not to call back
+    phrasings:
+      - {text: "মা, আমি তোমার ছেলে, অন্য নম্বর থেকে বলছি।", script: bn, native_check: pending}
+      - {text: "ফোন হারিয়ে গেছে, এখনই ১০ হাজার টাকা পাঠাও, কাউকে বলো না।", script: bn, native_check: pending}
+      - {text: "আব্বু, আমি একটা ঝামেলায় পড়েছি, এই নম্বরে টাকা পাঠাও।", script: bn, native_check: pending}
+      - {text: "আমি হাসপাতালে, এক্ষুনি টাকা লাগবে, বাবাকে কিছু বলো না।", script: bn, native_check: pending}
+      - {text: "Ma ami, notun number theke bolchi, taka ta ekhoni pathao.", script: banglish, native_check: pending}
+      - {text: "Kauke bolo na, ami pore sob bujhiye bolbo.", script: banglish, native_check: pending}
+    benign_twin: A real relative asking for money for a known need, from a saved number.
+    differs: The genuine relative asks for no secrecy, has no new number and is happy to be called back on the saved one.
+    official_facts:
+      - Call the relative back on the number already saved before sending anything.
+
+  - id: police_child_arrest
+    title: Police or DB say "your child has been caught"
+    claimed_identity: [govt_or_police]
+    asks: [personal_wallet_payment, send_money, secrecy]
+    signature_moves:
+      - poses as an SI, the OC or DB and says the customer's child was caught with narcotics or detained at a hotel
+      - knows the child's real name, class and school; siren or wireless sounds and a crying voice
+      - "money now to keep the child out of a case, by bKash or Nagad to a personal number; sometimes a second demand for journalists"
+      - do not hang up, do not discuss this with anyone
+    phrasings:
+      - {text: "আপনার সন্তান মাদকদ্রব্যসহ আমাদের হাতে ধরা পড়েছে।", script: bn, native_check: pending}
+      - {text: "আমি থানা থেকে এসআই বলছি, আপনার ছেলেকে আটক করা হয়েছে।", script: bn, native_check: pending}
+      - {text: "মামলা থেকে বাঁচাতে চাইলে এখনই বিকাশে টাকা পাঠান।", script: bn, native_check: pending}
+      - {text: "ফোন কাটবেন না, কারো সঙ্গে এ বিষয়ে আলোচনা করা যাবে না।", script: bn, native_check: pending}
+      - {text: "ডিবি অফিস থেকে বলছি, আপনার মেয়ে আমাদের কাছে আছে।", script: bn, native_check: pending}
+      - {text: "Apnar chele ke DB dhoreche, case na dite chaile taka pathan.", script: banglish, native_check: pending}
+      - {text: "Phone kata jabe na, ekhoni nagad e 20 hajar pathan.", script: banglish, native_check: pending}
+    benign_twin: A real police call that asks the parent to come to the station or gives a case or GD number.
+    differs: Real police never take money by mobile wallet, never forbid hanging up and can be called back at the thana.
+    official_facts:
+      - Police do not take payments to personal wallets; call 999 or the local thana on a known number.
+      - "Rajshahi, September 2026: about 150 parents called in a month, more than 50 paid Tk 20,000-40,000."
+    sources:
+      - https://samakal.com/whole-country/article/371079/
+
+  - id: stipend_benefit_otp
+    title: Stipend or government-benefit officer asks for the code
+    claimed_identity: [govt_or_police]
+    asks: [otp, pin]
+    signature_moves:
+      - poses as a stipend (upobritti), allowance or education-trust official
+      - says the money is stuck, unverified or will be sent today
+      - asks for the code or "the number in the message" to release it, often without saying OTP
+    phrasings:
+      - {text: "আমি উপবৃত্তি অফিস থেকে বলছি, আপনার সন্তানের উপবৃত্তির টাকা আটকে আছে।", script: bn, native_check: pending}
+      - {text: "টাকা ছাড়াতে আপনার মোবাইলে একটা কোড গেছে, সেটা বলুন।", script: bn, native_check: pending}
+      - {text: "প্রধানমন্ত্রীর শিক্ষা সহায়তা ট্রাস্ট থেকে বলছি, টাকা পেতে ওটিপি লাগবে।", script: bn, native_check: pending}
+      - {text: "বয়স্ক ভাতার টাকা পাঠাচ্ছি, মেসেজে যে নম্বর এসেছে বলেন।", script: bn, native_check: pending}
+      - {text: "Upobritti r taka pathabo, apnar phone e je code ta gese oita bolen.", script: banglish, native_check: pending}
+      - {text: "Sorkari bhata pete hole PIN ta verify korte hobe.", script: banglish, native_check: pending}
+    benign_twin: A school or upazila office reading out the payment date, or asking the family to bring documents to the office.
+    differs: The genuine office asks for no code, PIN or fee; the money arrives in the registered wallet by itself.
+    official_facts:
+      - "July 2026: the Prime Minister's Education Assistance Trust warned of callers posing as stipend officials to collect OTPs."
+    sources:
+      - https://www.bssnews.net/bangla/news/324576
+
+  - id: account_closure_kyc
+    title: Account closure, KYC or SIM re-registration after a SIM swap
+    claimed_identity: [bank_mfs_staff, courier_or_company]
+    asks: [otp, pin, install_app]
+    signature_moves:
+      - says the KYC is out of date, the SIM must be re-registered or a transaction was made in the customer's name
+      - threatens closure tonight; often comes right after a SIM change or a cloned SIM
+      - asks for the code that "proves it is you", the PIN, or an app install to "update"
+    phrasings:
+      - {text: "আপনার সিম রিরেজিস্ট্রেশন না করলে একাউন্ট বন্ধ হয়ে যাবে।", script: bn, native_check: pending}
+      - {text: "কেওয়াইসি আপডেট করতে হবে, না হলে আজ রাতেই একাউন্ট বন্ধ।", script: bn, native_check: pending}
+      - {text: "আপনার নামে একটা লেনদেন হয়েছে, আটকাতে চাইলে ভেরিফাই করুন।", script: bn, native_check: pending}
+      - {text: "আপনার নম্বরে নতুন সিম তোলা হয়েছে, আপনি না হলে কোডটা বলুন।", script: bn, native_check: pending}
+      - {text: "Apnar KYC update hoy nai, account ta close hoye jabe.", script: banglish, native_check: pending}
+      - {text: "Apnar nam e ekta transaction hoyeche, cancel korte code ta din.", script: banglish, native_check: pending}
+    benign_twin: A genuine KYC reminder that sends the customer to a branch or agent, or to update it in the app themselves.
+    differs: The genuine reminder never asks for a code, a PIN or an install on the call and gives days, not minutes.
+    official_facts:
+      - "Bagerhat, September 2026: a ring took SIMs with forged fingerprints, then talked MFS call centres past their checks."
+    sources:
+      - https://bangla.bdnews24.com/samagrabangladesh/u65qnbzmk8
+
+  - id: expat_relative_imo
+    title: An expatriate relative in trouble, through a hacked Imo account
+    claimed_identity: [relative]
+    asks: [send_money, personal_wallet_payment, secrecy]
+    signature_moves:
+      - a message or call from a relative abroad (Saudi Arabia, Malaysia, Australia) on Imo or WhatsApp, often a hacked account
+      - "is in trouble (\"bipode achi\"), or a remittance is stuck and needs a fee"
+      - gives a third person's bKash number, refuses a video call, asks for secrecy
+    phrasings:
+      - {text: "আমি সৌদি থেকে বলছি, খুব বিপদে আছি, এখনই টাকা লাগবে।", script: bn, native_check: pending}
+      - {text: "ইমোতে মেসেজ দিয়েছি, এই বিকাশ নম্বরে টাকা পাঠাও।", script: bn, native_check: pending}
+      - {text: "আমার রেমিট্যান্স আটকে গেছে, ছাড়াতে ফি লাগবে।", script: bn, native_check: pending}
+      - {text: "ভিডিও কল দিতে পারব না, নেট খারাপ, টাকাটা পাঠাও।", script: bn, native_check: pending}
+      - {text: "Bhai ami Malaysia theke, ekta bipode porsi, ei number e taka pathao.", script: banglish, native_check: pending}
+      - {text: "Imo te number dilam, kauke bolo na, pore ferot dibo.", script: banglish, native_check: pending}
+    benign_twin: The real relative abroad, reachable on the usual number or a video call, asking for help through known channels.
+    differs: The scam comes from a new or hijacked account, sends money to a third party's wallet and avoids a call back or video.
+    official_facts:
+      - A remittance never needs a fee sent from Bangladesh to release it; call the relative on the usual number first.
+    sources:
+      - https://bangla.bdnews24.com/samagrabangladesh/0ukdrl0ex2
+
+  - id: remote_access_coaching
+    title: Remote-access app or USSD coaching
+    claimed_identity: [bank_mfs_staff, courier_or_company, unknown]
+    asks: [install_app, otp]
+    signature_moves:
+      - asks the customer to install AnyDesk, TeamViewer, QuickSupport or an APK from a link "to fix the account"
+      - asks for the code on the screen, or for Accessibility or notification access
+      - dictates a USSD code to dial and buttons to press, which actually sends the balance
+    phrasings:
+      - {text: "প্লে স্টোর থেকে এনিডেস্ক অ্যাপটা ইনস্টল করুন, আমি ঠিক করে দিচ্ছি।", script: bn, native_check: pending}
+      - {text: "স্ক্রিনে যে নয় সংখ্যার নম্বর আসছে সেটা আমাকে বলুন।", script: bn, native_check: pending}
+      - {text: "আমি যা বলছি তাই ডায়াল করুন, তারপর এক চাপুন।", script: bn, native_check: pending}
+      - {text: "অ্যাপটা খুলে পারমিশন দিন, তারপর আর কিছু করতে হবে না।", script: bn, native_check: pending}
+      - {text: "Ekta link pathacchi, oita theke app ta install koren.", script: banglish, native_check: pending}
+      - {text: "Star dui char sat hash dial kore ek chapen, tarpor ami bolchi.", script: banglish, native_check: pending}
+    benign_twin: A shop or a family member helping the customer install the official app from the Play Store, with the customer in control.
+    differs: The bank's own support never needs the customer's screen, an app from a link or a USSD code dialled on its dictation.
+    official_facts:
+      - "2026 reporting describes a shift towards remote-access tools and malicious APKs; fake support has had victims dial USSD codes that moved their balance."
+    sources:
+      - https://observerbd.com/news/590829

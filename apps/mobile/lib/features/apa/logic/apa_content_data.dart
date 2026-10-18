@@ -1,0 +1,123 @@
+// GENERATED from assets/apa/rules.json. Do not edit by hand: change the JSON,
+// then copy it here (test/features/apa/apa_content_test.dart fails on drift).
+//
+// The embedded copy keeps Apa's guidance working when the asset is not
+// bundled (pubspec lists only assets/audio/ and assets/demo/ today).
+
+/// The bundled guidance, byte for byte the asset.
+const apaContentJson = r'''
+{
+  "version": 1,
+  "rules": [
+    {
+      "id": "never_share_code",
+      "source": "research finding scam-12 (fake customer-care call asks for the OTP/PIN); spec 01 section 1",
+      "title_bn": "কোড বা পিন কাউকে বলবেন না",
+      "title_en": "Never tell anyone your code or PIN",
+      "body_bn": "ফিননেস্ট কখনো ফোন করে কোড, ওটিপি বা পিন চায় না। কেউ চাইলে সে প্রতারক। কল কেটে দিন, তারপর {helpline} নম্বরে কল করুন।",
+      "body_en": "FinNest never calls to ask for a code, OTP or PIN. Anyone who asks is a scammer. Hang up, then call {helpline}."
+    },
+    {
+      "id": "ignore_block_threat",
+      "source": "research finding scam-12 (\"your account will be blocked\" pretext); spec 05 section 1",
+      "title_bn": "\"অ্যাকাউন্ট বন্ধ হবে\" শুনে ভয় পাবেন না",
+      "title_en": "Do not panic at \"your account will be blocked\"",
+      "body_bn": "ভয় দেখানো আর তাড়াহুড়ো করানো প্রতারকের কৌশল। কল কেটে দিন। নিজে {helpline} নম্বরে কল করে জেনে নিন।",
+      "body_en": "Fear and hurry are a scammer's tricks. Hang up. Call {helpline} yourself to check."
+    },
+    {
+      "id": "no_money_on_call",
+      "source": "spec 05 FR-2 and risk-mw rules.py (CALL_ACTIVE_NON_CONTACT, SCAM_CONVERSATION)",
+      "title_bn": "কলে থাকা অবস্থায় টাকা পাঠাবেন না",
+      "title_en": "Do not send money while on a call",
+      "body_bn": "কেউ ফোনে বলে বলে টাকা পাঠাতে বা পিন বদলাতে বললে আগে কল কেটে দিন। তারপর ঠান্ডা মাথায় ভাবুন।",
+      "body_en": "If someone on the phone talks you through sending money or changing your PIN, hang up first. Then think calmly."
+    },
+    {
+      "id": "no_apps_on_request",
+      "source": "spec 02 section 1 (remote-access tools and fake loan apps installed under instruction)",
+      "title_bn": "কারো কথায় অ্যাপ নামাবেন না",
+      "title_en": "Do not install an app because someone told you to",
+      "body_bn": "অচেনা লিংক থেকে নামানো অ্যাপ আপনার স্ক্রিন দেখতে বা ফোন চালাতে পারে। ঋণ বা পুরস্কারের অ্যাপও হতে পারে ফাঁদ।",
+      "body_en": "An app from an unknown link can see your screen or control your phone. Loan or prize apps can be traps too."
+    },
+    {
+      "id": "pause_before_new_payee",
+      "source": "spec 03 (mule payees), spec 05 (new-payee delay, trusted contact); research finding ux-09",
+      "title_bn": "নতুন কাউকে টাকা পাঠানোর আগে থামুন",
+      "title_en": "Pause before paying someone new",
+      "body_bn": "লটারি, চাকরি বা ঋণের কথা বলে আগে টাকা চাইলে সেটা প্রতারণা। সন্দেহ হলে আপনজনকে জিজ্ঞাসা করুন।",
+      "body_en": "If someone asks for money first for a lottery, job or loan, it is a scam. When in doubt, ask your trusted person."
+    }
+  ],
+  "tips": [
+    {
+      "id": "tip_hotline",
+      "title_bn": "আজকের টিপ",
+      "title_en": "Today's tip",
+      "body_bn": "নিজে {helpline} নম্বরে কল করুন।",
+      "body_en": "In doubt, call {helpline}."
+    },
+    {
+      "id": "tip_caller_id",
+      "title_bn": "আজকের টিপ",
+      "title_en": "Today's tip",
+      "body_bn": "ব্যাংকের নামে কলও নকল হতে পারে।",
+      "body_en": "Calls can fake a bank's name."
+    },
+    {
+      "id": "tip_trusted_contact",
+      "title_bn": "আজকের টিপ",
+      "title_en": "Today's tip",
+      "body_bn": "বড় লেনদেনে আপনজনের মত নিন।",
+      "body_en": "Big send? Ask your trusted person."
+    },
+    {
+      "id": "tip_screen_share",
+      "title_bn": "আজকের টিপ",
+      "title_en": "Today's tip",
+      "body_bn": "টাকা পাঠানোর সময় স্ক্রিন শেয়ার নয়।",
+      "body_en": "Paying? Never share your screen."
+    },
+    {
+      "id": "tip_ask_apa",
+      "title_bn": "আজকের টিপ",
+      "title_en": "Today's tip",
+      "body_bn": "কেউ কোড চাইলে এফএনএ-কে জানান।",
+      "body_en": "If anyone asks for a code, tell FNA."
+    }
+  ],
+  "holds": [
+    {
+      "code": "SCAM_CONVERSATION",
+      "bn": "কলে কেউ কোড চাইলে বা প্রতারণার লক্ষণ পেলে টাকা আটকে রাখা হয়।",
+      "en": "Money is held when a caller asks for a code or the call shows signs of a scam."
+    },
+    {
+      "code": "SIM_CHANGED_24H",
+      "bn": "গত ২৪ ঘণ্টায় সিম বদলালে টাকা আটকে রাখা হয়।",
+      "en": "Money is held when your SIM changed in the last 24 hours."
+    },
+    {
+      "code": "NEW_PAYEE_ABOVE_P95",
+      "bn": "নতুন কাউকে স্বাভাবিকের চেয়ে বেশি টাকা পাঠালে কিছুক্ষণ দেরি হয়।",
+      "en": "A larger-than-usual payment to someone new waits for a while."
+    },
+    {
+      "code": "APP_SAFETY_BLOCK",
+      "bn": "ফোনে ঝুঁকিপূর্ণ অ্যাপ থাকলে লেনদেন বাতিল হয়।",
+      "en": "A transaction is cancelled when a risky app is on your phone."
+    },
+    {
+      "code": "DEST_MULE_RISK",
+      "bn": "যাকে পাঠাচ্ছেন তার হিসাবে অস্বাভাবিক লেনদেন থাকলে টাকা আটকে রাখা হয়।",
+      "en": "Money is held when the receiving account shows unusual activity."
+    },
+    {
+      "code": "SCREEN_SHARE_ACTIVE",
+      "bn": "স্ক্রিন শেয়ার চালু থাকলে আবার যাচাই করতে বলা হয়।",
+      "en": "You are asked to verify again when your screen is being shared."
+    }
+  ]
+}
+''';

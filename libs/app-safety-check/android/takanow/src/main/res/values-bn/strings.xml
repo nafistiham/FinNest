@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">টাকানাও লোন</string>
+    <string name="banner">DEMO — SAFE TEST APP\nডেমো — নিরাপদ পরীক্ষামূলক অ্যাপ</string>
+    <string name="headline">তাৎক্ষণিক ঋণ ৫০,০০০ টাকা পর্যন্ত</string>
+    <string name="hint_name">পুরো নাম</string>
+    <string name="hint_phone">মোবাইল নম্বর</string>
+    <string name="hint_amount">ঋণের পরিমাণ (টাকা)</string>
+    <string name="btn_apply">এখনই আবেদন করুন</string>
+    <string name="btn_accessibility">অ্যাকসেসিবিলিটি সার্ভিস চালু করুন (ডেমো)</string>
+    <string name="toast_demo">শুধু ডেমো — কোথাও কিছু পাঠানো হয় না।</string>
+    <string name="footnote">এটি ফিননেস্ট অ্যাপ সেফটি চেকের একটি নিরাপদ পরীক্ষামূলক অ্যাপ। এটি ঝুঁকিপূর্ণ অনুমতি ঘোষণা করে, কিন্তু কখনো ব্যবহার করে না।</string>
+    <string name="accessibility_label">টাকানাও লোন (ডেমো)</string>
+    <string name="accessibility_description">ফিননেস্ট অ্যাপ-সেফটি পরীক্ষার ডেমো সার্ভিস। এটি আপনার স্ক্রিনে কিছুই পড়ে না।</string>
+</resources>

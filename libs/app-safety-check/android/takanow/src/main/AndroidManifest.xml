@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  TakaNow Loan: harmless demo fixture for the FinNest App Safety Check.
+  It DECLARES the permissions a fake loan app would, so the detector has something to find,
+  but never requests any of them at runtime and has no code that reads SMS, contacts, media
+  or location. See README.md.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Google Play Personal Loans policy: loan apps may not access contacts, SMS, photos/media
+         or fine location (rule LOAN_APP_DATA_HARVEST). Declared on purpose, never used. -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- Overlay + accessibility is the banking-trojan pair; REQUEST_INSTALL_PACKAGES is the
+         dropper signal. Both appear in the Play Protect fraud-permission set. -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
+    <application
+        android:label="@string/app_name"
+        android:allowBackup="false"
+        android:theme="@android:style/Theme.Material.Light">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Accessibility service with an empty event handler. Enabling it on Android 13+ from a
+             browser-installed APK requires "Allow restricted settings" (Restricted Settings / ECM),
+             which is exactly the user journey the detector scores as SIDELOADED_ACCESSIBILITY. -->
+        <service
+            android:name=".EmptyAccessibilityService"
+            android:exported="true"
+            android:label="@string/accessibility_label"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config" />
+        </service>
+    </application>
+</manifest>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TakaNow Loan</string>
+    <!-- Both languages are always shown so the banner reads in either locale. -->
+    <string name="banner">DEMO — SAFE TEST APP\nডেমো — নিরাপদ পরীক্ষামূলক অ্যাপ</string>
+    <string name="headline">Instant loan up to ৳50,000</string>
+    <string name="hint_name">Full name</string>
+    <string name="hint_phone">Mobile number</string>
+    <string name="hint_amount">Loan amount (BDT)</string>
+    <string name="btn_apply">Apply now</string>
+    <string name="btn_accessibility">Enable accessibility service (demo)</string>
+    <string name="toast_demo">Demo only — nothing is sent anywhere.</string>
+    <string name="footnote">This is a harmless test app for the FinNest App Safety Check. It declares risky permissions but never uses them.</string>
+    <string name="accessibility_label">TakaNow Loan (demo)</string>
+    <string name="accessibility_description">Demo service for the FinNest app-safety test. It reads nothing on your screen.</string>
+</resources>

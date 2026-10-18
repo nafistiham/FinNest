@@ -1,0 +1,62 @@
+rules_version = '2';
+// FinNest prototype rules, demo scope only. Every client signs in
+// anonymously and then acts as a seeded persona (rina, rahima), so documents
+// are keyed by persona uid, not by the anonymous auth uid. Reads and writes
+// are therefore allowed for any signed-in client on the demo collections and
+// nothing else, except that a status change on a transaction or intervention
+// is the owning phone's alone (see ownerOf below). Production replaces this
+// with per-uid ownership once passkey login mints real custom tokens.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+
+    // The phone that creates a transaction or intervention stamps it with its
+    // own anonymous auth uid (owner_auth_uid). Personas stay the document key, so the demo's
+    // anonymous sign-in keeps working; what changes is who may move money.
+    function ownerOf(data) { return data.get('owner_auth_uid', null); }
+    // A create must carry the creator's own auth uid, nobody else's.
+    function stampedByCaller() {
+      return request.resource.data.get('owner_auth_uid', null) == request.auth.uid;
+    }
+    // An update never changes (or adds, or drops) the owner stamp.
+    function ownerKept() {
+      return ownerOf(request.resource.data) == ownerOf(resource.data);
+    }
+    // Only the owner may change `status` (held -> released_by_step_up, done,
+    // cancelled ...); any signed-in client may still touch the other fields.
+    // A document without a stamp (written before this rule, or by risk-mw
+    // through the Admin SDK, which bypasses these rules) cannot have its
+    // status changed by a client at all.
+    function statusChangeAllowed() {
+      return request.resource.data.get('status', null) == resource.data.get('status', null)
+          || ownerOf(resource.data) == request.auth.uid;
+    }
+
+    match /users/{uid} {
+      allow read: if signedIn();
+      allow write: if false;
+    }
+    match /demo_state/{uid} {
+      allow read, write: if signedIn();
+    }
+    match /transactions/{txnId} {
+      allow read: if signedIn();
+      allow create: if signedIn() && stampedByCaller();
+      allow update: if signedIn() && ownerKept() && statusChangeAllowed();
+      allow delete: if false;
+    }
+    match /interventions/{id} {
+      allow read: if signedIn();
+      allow create: if signedIn() && stampedByCaller();
+      allow update: if signedIn() && ownerKept() && statusChangeAllowed();
+      allow delete: if false;
+    }
+    match /appsafety_reports/{id} {
+      allow read: if signedIn();
+      allow write: if false;
+    }
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

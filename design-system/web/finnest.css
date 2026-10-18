@@ -1,0 +1,743 @@
+/*
+ * FinNest web tokens and base styles.
+ *
+ * Source of truth: design-system/tokens.json (mirrors the Flutter theme exactly).
+ * The block between the @generated markers is rewritten by `python3 design-system/tools/sync.py web`;
+ * everything outside it is hand-written and safe to edit.
+ *
+ * Modes:   light by default; dark follows the system, or force it with <html data-theme="dark"> / "light".
+ * Presets: FinNest teal by default; <html data-preset="padma|jamdani|shapla|slate"> only where the user
+ *          chose a theme (the app's Settings). Status colours never change with the preset.
+ * Language: Bangla type scale by default; lang="en" on <html> (or any element) switches to the Latin scale.
+ * Rules:   design-system/README.md. Square corners, no shadows, status colours only for status.
+ */
+
+@font-face {
+  font-family: "SolaimanLipi";
+  src: url("fonts/SolaimanLipi.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SolaimanLipi";
+  src: url("fonts/SolaimanLipiBold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+/* Display face for big amounts only (variable, wght 400-800; Bangla and Latin digits). */
+@font-face {
+  font-family: "BalooDa2";
+  src: url("fonts/BalooDa2-Variable.ttf") format("truetype");
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* @generated tokens: start (tools/sync.py web; do not edit by hand) */
+
+:root {
+  color-scheme: only light;
+  /* Colour: light mode, default preset */
+  --fn-primary: #0F6E67;
+  --fn-on-primary: #FFFFFF;
+  --fn-primary-container: #D3ECE8;
+  --fn-on-primary-container: #06302C;
+  --fn-accent: #7B4B94;
+  --fn-surface: #FBFAF6;
+  --fn-surface-variant: #F1EFE8;
+  --fn-on-surface: #1B1B1B;
+  --fn-muted-text: #5B5F66;
+  --fn-outline: #878C88;
+  --fn-outline-variant: #D9D6CC;
+  --fn-danger: #B3261E;
+  --fn-danger-container: #FBE4E2;
+  --fn-on-danger-container: #410E0B;
+  --fn-warning: #8A5A00;
+  --fn-warning-container: #FFF1D6;
+  --fn-on-warning-container: #2E1F00;
+  --fn-success: #1E7B3A;
+  --fn-success-container: #DFF3E4;
+  --fn-on-success-container: #0A2E16;
+  --fn-info: #1F5FA8;
+  --fn-info-container: #E1ECF8;
+  --fn-on-info-container: #0B2545;
+  --fn-danger-fill: #B3261E;
+  --fn-on-danger-fill: #FFFFFF;
+  --fn-warning-fill: #D98E04;
+  --fn-on-warning-fill: #1B1B1B;
+  --fn-success-fill: #1E7B3A;
+  --fn-on-success-fill: #FFFFFF;
+  --fn-brand-leaf: #729C4A;
+  --fn-brand-navy: #1E3459;
+  --fn-preset-teal: #0F6E67;
+  --fn-preset-padma: #3D6A1E;
+  --fn-preset-jamdani: #33408F;
+  --fn-preset-shapla: #7E2E6F;
+  --fn-preset-slate: #2F5573;
+  --fn-icon-background: #F6F8EA;
+  /* Space and size (dp = px) */
+  --fn-space-xxs: 2px;
+  --fn-space-xs: 4px;
+  --fn-space-s: 8px;
+  --fn-space-m: 16px;
+  --fn-space-l: 24px;
+  --fn-space-xl: 32px;
+  --fn-space-xxl: 48px;
+  --fn-size-touch: 56px;
+  --fn-size-key: 72px;
+  --fn-size-key-amount: 64px;
+  --fn-size-key-compact: 56px;
+  --fn-size-row-height: 72px;
+  --fn-size-row-height-compact: 64px;
+  --fn-size-app-bar: 64px;
+  --fn-size-app-bar-compact: 56px;
+  --fn-size-bottom-bar: 56px;
+  --fn-size-tile: 100px;
+  --fn-size-avatar: 48px;
+  --fn-size-avatar-small: 40px;
+  --fn-size-stripe: 4px;
+  --fn-size-compact-below-height: 700px;
+  --fn-radius: 0px;
+  --fn-border-hairline: 1px;
+  --fn-border-focus: 2px;
+  --fn-border-stripe: 4px;
+  --fn-elevation: none;
+  /* Motion */
+  --fn-duration-press: 90ms;
+  --fn-duration-release: 150ms;
+  --fn-duration-fast: 150ms;
+  --fn-duration-normal: 240ms;
+  --fn-duration-exit: 200ms;
+  --fn-duration-slow: 360ms;
+  --fn-duration-counter: 600ms;
+  --fn-duration-pulse: 1200ms;
+  --fn-duration-nudge: 120ms;
+  --fn-duration-caret-blink: 530ms;
+  --fn-duration-emphasis: 400ms;
+  --fn-duration-check-draw: 480ms;
+  --fn-duration-stagger: 40ms;
+  --fn-duration-prepare: 180ms;
+  --fn-duration-overlay: 280ms;
+  --fn-duration-key-tint: 120ms;
+  --fn-duration-shimmer: 1200ms;
+  --fn-duration-breathe: 1600ms;
+  --fn-duration-shake: 420ms;
+  --fn-duration-crossfade: 120ms;
+  --fn-ease-press: cubic-bezier(0, 0, 0.58, 1);
+  --fn-ease-release: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --fn-ease-enter: cubic-bezier(0.2, 0, 0, 1);
+  --fn-ease-exit: cubic-bezier(0.3, 0, 0.8, 0.15);
+  --fn-ease-slow: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --fn-ease-pulse: cubic-bezier(0.42, 0, 0.58, 1);
+  --fn-ease-counter: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --fn-ease-firm: cubic-bezier(0.2, 0, 0, 1);
+  --fn-ease-emphasis: cubic-bezier(0.34, 1.26, 0.64, 1);
+  /* Font stacks */
+  --fn-font-bangla: "SolaimanLipi", "Roboto", sans-serif;
+  --fn-font-latin: "Roboto", system-ui, -apple-system, "Segoe UI", "SolaimanLipi", sans-serif;
+  --fn-font-display: "BalooDa2", "SolaimanLipi", "Roboto", sans-serif;
+}
+
+/* Type scale follows the language: Bangla by default, Latin under lang="en". */
+:root, :lang(bn) {
+  --fn-font-text: var(--fn-font-bangla);
+  --fn-display-large-size: 2.75rem;
+  --fn-display-large-weight: 700;
+  --fn-display-large-line: 1.15;
+  --fn-display-large-tracking: 0px;
+  --fn-display-medium-size: 2.5rem;
+  --fn-display-medium-weight: 700;
+  --fn-display-medium-line: 1.15;
+  --fn-display-medium-tracking: 0px;
+  --fn-display-small-size: 2.125rem;
+  --fn-display-small-weight: 700;
+  --fn-display-small-line: 1.25;
+  --fn-display-small-tracking: 0px;
+  --fn-headline-large-size: 1.875rem;
+  --fn-headline-large-weight: 700;
+  --fn-headline-large-line: 1.3;
+  --fn-headline-large-tracking: 0px;
+  --fn-headline-medium-size: 1.625rem;
+  --fn-headline-medium-weight: 700;
+  --fn-headline-medium-line: 1.3;
+  --fn-headline-medium-tracking: 0px;
+  --fn-headline-small-size: 1.375rem;
+  --fn-headline-small-weight: 700;
+  --fn-headline-small-line: 1.35;
+  --fn-headline-small-tracking: 0px;
+  --fn-title-large-size: 1.375rem;
+  --fn-title-large-weight: 700;
+  --fn-title-large-line: 1.35;
+  --fn-title-large-tracking: 0px;
+  --fn-title-medium-size: 1.25rem;
+  --fn-title-medium-weight: 700;
+  --fn-title-medium-line: 1.35;
+  --fn-title-medium-tracking: 0px;
+  --fn-title-small-size: 1.125rem;
+  --fn-title-small-weight: 700;
+  --fn-title-small-line: 1.4;
+  --fn-title-small-tracking: 0px;
+  --fn-body-large-size: 1.25rem;
+  --fn-body-large-weight: 400;
+  --fn-body-large-line: 1.5;
+  --fn-body-large-tracking: 0px;
+  --fn-body-medium-size: 1.125rem;
+  --fn-body-medium-weight: 400;
+  --fn-body-medium-line: 1.5;
+  --fn-body-medium-tracking: 0px;
+  --fn-body-small-size: 1rem;
+  --fn-body-small-weight: 400;
+  --fn-body-small-line: 1.45;
+  --fn-body-small-tracking: 0px;
+  --fn-label-large-size: 1.25rem;
+  --fn-label-large-weight: 700;
+  --fn-label-large-line: 1.2;
+  --fn-label-large-tracking: 0px;
+  --fn-label-medium-size: 1.125rem;
+  --fn-label-medium-weight: 700;
+  --fn-label-medium-line: 1.2;
+  --fn-label-medium-tracking: 0px;
+  --fn-label-small-size: 1rem;
+  --fn-label-small-weight: 700;
+  --fn-label-small-line: 1.2;
+  --fn-label-small-tracking: 0px;
+  --fn-amount-hero-size: 2.75rem;
+  --fn-amount-hero-weight: 700;
+  --fn-amount-hero-line: 1.15;
+  --fn-amount-hero-tracking: 0px;
+  --fn-amount-entry-size: 3rem;
+  --fn-amount-entry-weight: 700;
+  --fn-amount-entry-line: 1.15;
+  --fn-amount-entry-tracking: 0px;
+  --fn-amount-entry-compact-size: 2.5rem;
+  --fn-amount-entry-compact-weight: 700;
+  --fn-amount-entry-compact-line: 1.15;
+  --fn-amount-entry-compact-tracking: 0px;
+  --fn-numpad-digit-size: 2rem;
+  --fn-numpad-digit-weight: 700;
+  --fn-numpad-digit-line: 1;
+  --fn-numpad-digit-tracking: 0px;
+  --fn-number-entry-size: 2rem;
+  --fn-number-entry-weight: 700;
+  --fn-number-entry-line: 1.2;
+  --fn-number-entry-tracking: 0px;
+  --fn-pin-digit-counter-size: 1rem;
+  --fn-pin-digit-counter-weight: 400;
+  --fn-pin-digit-counter-line: 1.2;
+  --fn-pin-digit-counter-tracking: 0px;
+  --fn-script-size: 1.375rem;
+  --fn-script-weight: 700;
+  --fn-script-line: 1.5;
+  --fn-script-tracking: 0px;
+  --fn-display-amount-size: 2.75rem;
+  --fn-display-amount-line: 0.95;
+  --fn-display-amount-tracking: 0em;
+  --fn-display-hero-size: 3.25rem;
+  --fn-display-hero-line: 0.95;
+  --fn-display-hero-tracking: 0em;
+}
+:lang(en) {
+  --fn-font-text: var(--fn-font-latin);
+  --fn-display-large-size: 2.75rem;
+  --fn-display-large-weight: 500;
+  --fn-display-large-line: 1.1;
+  --fn-display-large-tracking: -0.5px;
+  --fn-display-medium-size: 2.5rem;
+  --fn-display-medium-weight: 500;
+  --fn-display-medium-line: 1.1;
+  --fn-display-medium-tracking: -0.5px;
+  --fn-display-small-size: 2rem;
+  --fn-display-small-weight: 500;
+  --fn-display-small-line: 1.2;
+  --fn-display-small-tracking: -0.25px;
+  --fn-headline-large-size: 1.75rem;
+  --fn-headline-large-weight: 500;
+  --fn-headline-large-line: 1.25;
+  --fn-headline-large-tracking: 0px;
+  --fn-headline-medium-size: 1.5rem;
+  --fn-headline-medium-weight: 500;
+  --fn-headline-medium-line: 1.25;
+  --fn-headline-medium-tracking: 0px;
+  --fn-headline-small-size: 1.375rem;
+  --fn-headline-small-weight: 500;
+  --fn-headline-small-line: 1.27;
+  --fn-headline-small-tracking: 0px;
+  --fn-title-large-size: 1.25rem;
+  --fn-title-large-weight: 500;
+  --fn-title-large-line: 1.3;
+  --fn-title-large-tracking: 0px;
+  --fn-title-medium-size: 1.125rem;
+  --fn-title-medium-weight: 500;
+  --fn-title-medium-line: 1.33;
+  --fn-title-medium-tracking: 0.1px;
+  --fn-title-small-size: 1.0625rem;
+  --fn-title-small-weight: 500;
+  --fn-title-small-line: 1.35;
+  --fn-title-small-tracking: 0.1px;
+  --fn-body-large-size: 1.125rem;
+  --fn-body-large-weight: 400;
+  --fn-body-large-line: 1.45;
+  --fn-body-large-tracking: 0.15px;
+  --fn-body-medium-size: 1.0625rem;
+  --fn-body-medium-weight: 400;
+  --fn-body-medium-line: 1.45;
+  --fn-body-medium-tracking: 0.15px;
+  --fn-body-small-size: 1rem;
+  --fn-body-small-weight: 400;
+  --fn-body-small-line: 1.4;
+  --fn-body-small-tracking: 0.2px;
+  --fn-label-large-size: 1.125rem;
+  --fn-label-large-weight: 500;
+  --fn-label-large-line: 1.2;
+  --fn-label-large-tracking: 0.1px;
+  --fn-label-medium-size: 1rem;
+  --fn-label-medium-weight: 500;
+  --fn-label-medium-line: 1.2;
+  --fn-label-medium-tracking: 0.2px;
+  --fn-label-small-size: 1rem;
+  --fn-label-small-weight: 500;
+  --fn-label-small-line: 1.2;
+  --fn-label-small-tracking: 0.3px;
+  --fn-amount-hero-size: 2.75rem;
+  --fn-amount-hero-weight: 500;
+  --fn-amount-hero-line: 1.1;
+  --fn-amount-hero-tracking: -0.5px;
+  --fn-amount-entry-size: 3rem;
+  --fn-amount-entry-weight: 500;
+  --fn-amount-entry-line: 1.1;
+  --fn-amount-entry-tracking: -0.5px;
+  --fn-amount-entry-compact-size: 2.5rem;
+  --fn-amount-entry-compact-weight: 500;
+  --fn-amount-entry-compact-line: 1.1;
+  --fn-amount-entry-compact-tracking: -0.5px;
+  --fn-numpad-digit-size: 1.875rem;
+  --fn-numpad-digit-weight: 500;
+  --fn-numpad-digit-line: 1;
+  --fn-numpad-digit-tracking: 0px;
+  --fn-number-entry-size: 2rem;
+  --fn-number-entry-weight: 500;
+  --fn-number-entry-line: 1.2;
+  --fn-number-entry-tracking: 0px;
+  --fn-pin-digit-counter-size: 1rem;
+  --fn-pin-digit-counter-weight: 400;
+  --fn-pin-digit-counter-line: 1.2;
+  --fn-pin-digit-counter-tracking: 0px;
+  --fn-script-size: 1.375rem;
+  --fn-script-weight: 700;
+  --fn-script-line: 1.5;
+  --fn-script-tracking: 0px;
+  --fn-display-amount-size: 2.75rem;
+  --fn-display-amount-line: 0.9;
+  --fn-display-amount-tracking: -0.01em;
+  --fn-display-hero-size: 3.25rem;
+  --fn-display-hero-line: 0.9;
+  --fn-display-hero-tracking: -0.01em;
+}
+
+:root[data-preset="padma"] {
+  --fn-primary: #3D6A1E;
+  --fn-on-primary: #FFFFFF;
+  --fn-primary-container: #DCEBCB;
+  --fn-on-primary-container: #17300A;
+  --fn-accent: #7B4B94;
+  --fn-surface: #FAFAF5;
+  --fn-surface-variant: #EEF0E6;
+  --fn-on-surface: #1A1C17;
+  --fn-muted-text: #5A5F55;
+  --fn-outline: #868B80;
+  --fn-outline-variant: #D5D9CB;
+}
+:root[data-preset="jamdani"] {
+  --fn-primary: #33408F;
+  --fn-on-primary: #FFFFFF;
+  --fn-primary-container: #DFE2F7;
+  --fn-on-primary-container: #141C4F;
+  --fn-accent: #00796B;
+  --fn-surface: #FAFAFC;
+  --fn-surface-variant: #EEEFF5;
+  --fn-on-surface: #1A1B21;
+  --fn-muted-text: #5A5D6B;
+  --fn-outline: #878A99;
+  --fn-outline-variant: #D6D8E3;
+}
+:root[data-preset="shapla"] {
+  --fn-primary: #7E2E6F;
+  --fn-on-primary: #FFFFFF;
+  --fn-primary-container: #F5DDEE;
+  --fn-on-primary-container: #3A0C32;
+  --fn-accent: #0F6E67;
+  --fn-surface: #FCFAF9;
+  --fn-surface-variant: #F3EEEF;
+  --fn-on-surface: #1E1A1D;
+  --fn-muted-text: #62595F;
+  --fn-outline: #8E858A;
+  --fn-outline-variant: #DDD3D8;
+}
+:root[data-preset="slate"] {
+  --fn-primary: #2F5573;
+  --fn-on-primary: #FFFFFF;
+  --fn-primary-container: #D8E5F0;
+  --fn-on-primary-container: #0D2638;
+  --fn-accent: #7B4B94;
+  --fn-surface: #F9FAFB;
+  --fn-surface-variant: #ECEFF2;
+  --fn-on-surface: #191C1F;
+  --fn-muted-text: #59616A;
+  --fn-outline: #858D95;
+  --fn-outline-variant: #D3D9DF;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --fn-primary: #7FD1C8;
+    --fn-on-primary: #00302B;
+    --fn-primary-container: #0E4A45;
+    --fn-on-primary-container: #C6EFEA;
+    --fn-accent: #D2B3E3;
+    --fn-surface: #121615;
+    --fn-surface-variant: #1C2120;
+    --fn-on-surface: #F2F1EC;
+    --fn-muted-text: #B4B8BD;
+    --fn-outline: #6F7774;
+    --fn-outline-variant: #3A403E;
+    --fn-danger: #F2B8B5;
+    --fn-danger-container: #4A1714;
+    --fn-on-danger-container: #FFDAD6;
+    --fn-warning: #FFC95C;
+    --fn-warning-container: #3D2C05;
+    --fn-on-warning-container: #FFE7B0;
+    --fn-success: #7DD99A;
+    --fn-success-container: #12361E;
+    --fn-on-success-container: #C3F0CF;
+    --fn-info: #9CC3F2;
+    --fn-info-container: #14304F;
+    --fn-on-info-container: #D6E6FA;
+    --fn-danger-fill: #B3261E;
+    --fn-on-danger-fill: #FFFFFF;
+    --fn-warning-fill: #D98E04;
+    --fn-on-warning-fill: #1B1B1B;
+    --fn-success-fill: #1E7B3A;
+    --fn-on-success-fill: #FFFFFF;
+    --fn-brand-leaf: #9CCB6E;
+    --fn-brand-navy: #B7C8E8;
+    --fn-preset-teal: #7FD1C8;
+    --fn-preset-padma: #A9D483;
+    --fn-preset-jamdani: #B7C0F5;
+    --fn-preset-shapla: #F0B0DF;
+    --fn-preset-slate: #9EC4E4;
+  }
+  :root:not([data-theme="light"])[data-preset="padma"] {
+    --fn-primary: #A9D483;
+    --fn-on-primary: #1B3505;
+    --fn-primary-container: #2C4D14;
+    --fn-on-primary-container: #D6EEC0;
+    --fn-accent: #D2B3E3;
+    --fn-surface: #131611;
+    --fn-surface-variant: #1D211A;
+    --fn-on-surface: #F1F2EA;
+    --fn-muted-text: #B6BBAF;
+    --fn-outline: #6F766A;
+    --fn-outline-variant: #3B4136;
+  }
+  :root:not([data-theme="light"])[data-preset="jamdani"] {
+    --fn-primary: #B7C0F5;
+    --fn-on-primary: #1A2366;
+    --fn-primary-container: #2C3778;
+    --fn-on-primary-container: #DFE2FB;
+    --fn-accent: #80CBC4;
+    --fn-surface: #121318;
+    --fn-surface-variant: #1C1D24;
+    --fn-on-surface: #F1F1F6;
+    --fn-muted-text: #B6B8C6;
+    --fn-outline: #6F7283;
+    --fn-outline-variant: #3B3D4A;
+  }
+  :root:not([data-theme="light"])[data-preset="shapla"] {
+    --fn-primary: #F0B0DF;
+    --fn-on-primary: #4A1340;
+    --fn-primary-container: #622357;
+    --fn-on-primary-container: #FBDDF2;
+    --fn-accent: #7FD1C8;
+    --fn-surface: #171315;
+    --fn-surface-variant: #221C1F;
+    --fn-on-surface: #F5EFF2;
+    --fn-muted-text: #BEB4BA;
+    --fn-outline: #7A6F75;
+    --fn-outline-variant: #463C42;
+  }
+  :root:not([data-theme="light"])[data-preset="slate"] {
+    --fn-primary: #9EC4E4;
+    --fn-on-primary: #0F2E47;
+    --fn-primary-container: #1F4260;
+    --fn-on-primary-container: #D2E5F6;
+    --fn-accent: #D2B3E3;
+    --fn-surface: #111417;
+    --fn-surface-variant: #1B1F23;
+    --fn-on-surface: #EFF2F5;
+    --fn-muted-text: #B3BAC2;
+    --fn-outline: #6C757E;
+    --fn-outline-variant: #39414A;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --fn-primary: #7FD1C8;
+  --fn-on-primary: #00302B;
+  --fn-primary-container: #0E4A45;
+  --fn-on-primary-container: #C6EFEA;
+  --fn-accent: #D2B3E3;
+  --fn-surface: #121615;
+  --fn-surface-variant: #1C2120;
+  --fn-on-surface: #F2F1EC;
+  --fn-muted-text: #B4B8BD;
+  --fn-outline: #6F7774;
+  --fn-outline-variant: #3A403E;
+  --fn-danger: #F2B8B5;
+  --fn-danger-container: #4A1714;
+  --fn-on-danger-container: #FFDAD6;
+  --fn-warning: #FFC95C;
+  --fn-warning-container: #3D2C05;
+  --fn-on-warning-container: #FFE7B0;
+  --fn-success: #7DD99A;
+  --fn-success-container: #12361E;
+  --fn-on-success-container: #C3F0CF;
+  --fn-info: #9CC3F2;
+  --fn-info-container: #14304F;
+  --fn-on-info-container: #D6E6FA;
+  --fn-danger-fill: #B3261E;
+  --fn-on-danger-fill: #FFFFFF;
+  --fn-warning-fill: #D98E04;
+  --fn-on-warning-fill: #1B1B1B;
+  --fn-success-fill: #1E7B3A;
+  --fn-on-success-fill: #FFFFFF;
+  --fn-brand-leaf: #9CCB6E;
+  --fn-brand-navy: #B7C8E8;
+  --fn-preset-teal: #7FD1C8;
+  --fn-preset-padma: #A9D483;
+  --fn-preset-jamdani: #B7C0F5;
+  --fn-preset-shapla: #F0B0DF;
+  --fn-preset-slate: #9EC4E4;
+}
+:root[data-theme="dark"][data-preset="padma"] {
+  --fn-primary: #A9D483;
+  --fn-on-primary: #1B3505;
+  --fn-primary-container: #2C4D14;
+  --fn-on-primary-container: #D6EEC0;
+  --fn-accent: #D2B3E3;
+  --fn-surface: #131611;
+  --fn-surface-variant: #1D211A;
+  --fn-on-surface: #F1F2EA;
+  --fn-muted-text: #B6BBAF;
+  --fn-outline: #6F766A;
+  --fn-outline-variant: #3B4136;
+}
+:root[data-theme="dark"][data-preset="jamdani"] {
+  --fn-primary: #B7C0F5;
+  --fn-on-primary: #1A2366;
+  --fn-primary-container: #2C3778;
+  --fn-on-primary-container: #DFE2FB;
+  --fn-accent: #80CBC4;
+  --fn-surface: #121318;
+  --fn-surface-variant: #1C1D24;
+  --fn-on-surface: #F1F1F6;
+  --fn-muted-text: #B6B8C6;
+  --fn-outline: #6F7283;
+  --fn-outline-variant: #3B3D4A;
+}
+:root[data-theme="dark"][data-preset="shapla"] {
+  --fn-primary: #F0B0DF;
+  --fn-on-primary: #4A1340;
+  --fn-primary-container: #622357;
+  --fn-on-primary-container: #FBDDF2;
+  --fn-accent: #7FD1C8;
+  --fn-surface: #171315;
+  --fn-surface-variant: #221C1F;
+  --fn-on-surface: #F5EFF2;
+  --fn-muted-text: #BEB4BA;
+  --fn-outline: #7A6F75;
+  --fn-outline-variant: #463C42;
+}
+:root[data-theme="dark"][data-preset="slate"] {
+  --fn-primary: #9EC4E4;
+  --fn-on-primary: #0F2E47;
+  --fn-primary-container: #1F4260;
+  --fn-on-primary-container: #D2E5F6;
+  --fn-accent: #D2B3E3;
+  --fn-surface: #111417;
+  --fn-surface-variant: #1B1F23;
+  --fn-on-surface: #EFF2F5;
+  --fn-muted-text: #B3BAC2;
+  --fn-outline: #6C757E;
+  --fn-outline-variant: #39414A;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --fn-duration-press: 0ms;
+    --fn-duration-release: 0ms;
+    --fn-duration-fast: 0ms;
+    --fn-duration-normal: 0ms;
+    --fn-duration-exit: 0ms;
+    --fn-duration-slow: 0ms;
+    --fn-duration-counter: 0ms;
+    --fn-duration-pulse: 0ms;
+    --fn-duration-nudge: 0ms;
+    --fn-duration-caret-blink: 0ms;
+    --fn-duration-emphasis: 0ms;
+    --fn-duration-check-draw: 0ms;
+    --fn-duration-stagger: 0ms;
+    --fn-duration-prepare: 0ms;
+    --fn-duration-overlay: 0ms;
+    --fn-duration-key-tint: 0ms;
+    --fn-duration-shimmer: 0ms;
+    --fn-duration-breathe: 0ms;
+    --fn-duration-shake: 0ms;
+  }
+}
+
+/* One class per type role: .fn-body-medium, .fn-title-large, ... */
+.fn-display-large { font-family: var(--fn-font-text); font-size: var(--fn-display-large-size); font-weight: var(--fn-display-large-weight); line-height: var(--fn-display-large-line); letter-spacing: var(--fn-display-large-tracking); }
+.fn-display-medium { font-family: var(--fn-font-text); font-size: var(--fn-display-medium-size); font-weight: var(--fn-display-medium-weight); line-height: var(--fn-display-medium-line); letter-spacing: var(--fn-display-medium-tracking); }
+.fn-display-small { font-family: var(--fn-font-text); font-size: var(--fn-display-small-size); font-weight: var(--fn-display-small-weight); line-height: var(--fn-display-small-line); letter-spacing: var(--fn-display-small-tracking); }
+.fn-headline-large { font-family: var(--fn-font-text); font-size: var(--fn-headline-large-size); font-weight: var(--fn-headline-large-weight); line-height: var(--fn-headline-large-line); letter-spacing: var(--fn-headline-large-tracking); }
+.fn-headline-medium { font-family: var(--fn-font-text); font-size: var(--fn-headline-medium-size); font-weight: var(--fn-headline-medium-weight); line-height: var(--fn-headline-medium-line); letter-spacing: var(--fn-headline-medium-tracking); }
+.fn-headline-small { font-family: var(--fn-font-text); font-size: var(--fn-headline-small-size); font-weight: var(--fn-headline-small-weight); line-height: var(--fn-headline-small-line); letter-spacing: var(--fn-headline-small-tracking); }
+.fn-title-large { font-family: var(--fn-font-text); font-size: var(--fn-title-large-size); font-weight: var(--fn-title-large-weight); line-height: var(--fn-title-large-line); letter-spacing: var(--fn-title-large-tracking); }
+.fn-title-medium { font-family: var(--fn-font-text); font-size: var(--fn-title-medium-size); font-weight: var(--fn-title-medium-weight); line-height: var(--fn-title-medium-line); letter-spacing: var(--fn-title-medium-tracking); }
+.fn-title-small { font-family: var(--fn-font-text); font-size: var(--fn-title-small-size); font-weight: var(--fn-title-small-weight); line-height: var(--fn-title-small-line); letter-spacing: var(--fn-title-small-tracking); }
+.fn-body-large { font-family: var(--fn-font-text); font-size: var(--fn-body-large-size); font-weight: var(--fn-body-large-weight); line-height: var(--fn-body-large-line); letter-spacing: var(--fn-body-large-tracking); }
+.fn-body-medium { font-family: var(--fn-font-text); font-size: var(--fn-body-medium-size); font-weight: var(--fn-body-medium-weight); line-height: var(--fn-body-medium-line); letter-spacing: var(--fn-body-medium-tracking); }
+.fn-body-small { font-family: var(--fn-font-text); font-size: var(--fn-body-small-size); font-weight: var(--fn-body-small-weight); line-height: var(--fn-body-small-line); letter-spacing: var(--fn-body-small-tracking); color: var(--fn-muted-text); }
+.fn-label-large { font-family: var(--fn-font-text); font-size: var(--fn-label-large-size); font-weight: var(--fn-label-large-weight); line-height: var(--fn-label-large-line); letter-spacing: var(--fn-label-large-tracking); }
+.fn-label-medium { font-family: var(--fn-font-text); font-size: var(--fn-label-medium-size); font-weight: var(--fn-label-medium-weight); line-height: var(--fn-label-medium-line); letter-spacing: var(--fn-label-medium-tracking); }
+.fn-label-small { font-family: var(--fn-font-text); font-size: var(--fn-label-small-size); font-weight: var(--fn-label-small-weight); line-height: var(--fn-label-small-line); letter-spacing: var(--fn-label-small-tracking); color: var(--fn-muted-text); }
+.fn-amount-hero { font-family: var(--fn-font-text); font-size: var(--fn-amount-hero-size); font-weight: var(--fn-amount-hero-weight); line-height: var(--fn-amount-hero-line); letter-spacing: var(--fn-amount-hero-tracking); }
+.fn-amount-entry { font-family: var(--fn-font-text); font-size: var(--fn-amount-entry-size); font-weight: var(--fn-amount-entry-weight); line-height: var(--fn-amount-entry-line); letter-spacing: var(--fn-amount-entry-tracking); }
+.fn-amount-entry-compact { font-family: var(--fn-font-text); font-size: var(--fn-amount-entry-compact-size); font-weight: var(--fn-amount-entry-compact-weight); line-height: var(--fn-amount-entry-compact-line); letter-spacing: var(--fn-amount-entry-compact-tracking); }
+.fn-numpad-digit { font-family: var(--fn-font-text); font-size: var(--fn-numpad-digit-size); font-weight: var(--fn-numpad-digit-weight); line-height: var(--fn-numpad-digit-line); letter-spacing: var(--fn-numpad-digit-tracking); }
+.fn-number-entry { font-family: var(--fn-font-text); font-size: var(--fn-number-entry-size); font-weight: var(--fn-number-entry-weight); line-height: var(--fn-number-entry-line); letter-spacing: var(--fn-number-entry-tracking); }
+.fn-pin-digit-counter { font-family: var(--fn-font-text); font-size: var(--fn-pin-digit-counter-size); font-weight: var(--fn-pin-digit-counter-weight); line-height: var(--fn-pin-digit-counter-line); letter-spacing: var(--fn-pin-digit-counter-tracking); color: var(--fn-muted-text); }
+.fn-script { font-family: var(--fn-font-text); font-size: var(--fn-script-size); font-weight: var(--fn-script-weight); line-height: var(--fn-script-line); letter-spacing: var(--fn-script-tracking); }
+
+/* @generated tokens: end */
+
+/* ------------------------------------------------------------------------------------------
+ * Base. Opt in with class="fn" on <html> or <body> so an existing app is not restyled wholesale.
+ * ---------------------------------------------------------------------------------------- */
+.fn {
+  background: var(--fn-surface);
+  color: var(--fn-on-surface);
+  font-family: var(--fn-font-text);
+  -webkit-text-size-adjust: 100%;
+}
+/* The body size goes on <body> (or a non-root element), never on <html>: a rem-based font-size on
+   the root element resolves against the browser default and then becomes the rem for the whole
+   page, so <html class="fn"> would have scaled every token by 18/16. */
+:not(html).fn, html.fn > body {
+  font-size: var(--fn-body-medium-size);
+  line-height: var(--fn-body-medium-line);
+  letter-spacing: var(--fn-body-medium-tracking);
+}
+.fn :focus-visible {
+  outline: var(--fn-border-focus) solid var(--fn-primary);
+  outline-offset: 2px;
+}
+
+/* Two-tone wordmark: text, never an image. <span class="fn-wordmark"><span>Fin</span><span>Nest</span></span> */
+.fn-wordmark {
+  font-family: var(--fn-font-latin);
+  font-size: var(--fn-display-small-size);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+.fn-wordmark > :first-child { color: var(--fn-brand-leaf); }
+.fn-wordmark > :last-child { color: var(--fn-brand-navy); }
+
+/* Big amounts: the display face, heavy, tight leading. Digits only, never words. */
+.fn-amount {
+  font-family: var(--fn-font-display);
+  font-size: var(--fn-display-amount-size);
+  font-weight: 800;
+  font-variation-settings: "wght" 800;
+  line-height: var(--fn-display-amount-line);
+  letter-spacing: var(--fn-display-amount-tracking);
+  font-variant-numeric: tabular-nums;
+  color: var(--fn-on-surface);
+}
+.fn-amount--hero {
+  font-size: var(--fn-display-hero-size);
+  line-height: var(--fn-display-hero-line);
+}
+/* The taka sign at 60 % of the digits, muted. */
+.fn-amount .fn-taka {
+  font-size: 0.6em;
+  color: var(--fn-muted-text);
+  margin-inline-end: 6px;
+}
+
+/* Buttons: 56 px tall, square, one primary per screen. */
+.fn-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--fn-space-s);
+  min-height: var(--fn-size-touch);
+  min-width: var(--fn-size-touch);
+  padding: var(--fn-space-m) var(--fn-space-l);
+  border: var(--fn-border-focus) solid transparent;
+  border-radius: var(--fn-radius);
+  background: var(--fn-primary);
+  color: var(--fn-on-primary);
+  font-family: var(--fn-font-text);
+  font-size: var(--fn-label-large-size);
+  font-weight: var(--fn-label-large-weight);
+  line-height: var(--fn-label-large-line);
+  letter-spacing: var(--fn-label-large-tracking);
+  cursor: pointer;
+  transition: transform var(--fn-duration-press) var(--fn-ease-press),
+              background-color var(--fn-duration-fast) var(--fn-ease-release);
+}
+.fn-button:active { transform: scale(0.97); }
+.fn-button:disabled { opacity: 0.38; cursor: not-allowed; }
+.fn-button--outlined { background: transparent; color: var(--fn-primary); border-color: var(--fn-primary); }
+.fn-button--danger { background: var(--fn-danger-fill); color: var(--fn-on-danger-fill); }
+.fn-button--block { display: flex; width: 100%; }
+
+/* Status tag: icon + word, colour never alone. <span class="fn-tag" data-status="warning">⏸ আটকে আছে</span> */
+.fn-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--fn-space-xs);
+  padding: var(--fn-space-xxs) var(--fn-space-s);
+  border-radius: var(--fn-radius);
+  font-family: var(--fn-font-text);
+  font-size: var(--fn-label-small-size);
+  font-weight: var(--fn-label-small-weight);
+  line-height: var(--fn-label-small-line);
+  background: var(--fn-surface-variant);
+  color: var(--fn-muted-text);
+}
+.fn-tag[data-status="danger"] { background: var(--fn-danger-container); color: var(--fn-on-danger-container); }
+.fn-tag[data-status="warning"] { background: var(--fn-warning-container); color: var(--fn-on-warning-container); }
+.fn-tag[data-status="success"] { background: var(--fn-success-container); color: var(--fn-on-success-container); }
+.fn-tag[data-status="info"] { background: var(--fn-info-container); color: var(--fn-on-info-container); }
+
+/* Cards: flat fill, square, no border, no shadow. Status cards add a 4 px leading stripe. */
+.fn-card {
+  background: var(--fn-surface-variant);
+  border-radius: var(--fn-radius);
+  padding: var(--fn-space-m);
+  box-shadow: var(--fn-elevation);
+}
+.fn-card[data-status] { border-inline-start: var(--fn-border-stripe) solid var(--fn-outline); }
+.fn-card[data-status="danger"] { background: var(--fn-danger-container); color: var(--fn-on-danger-container); border-color: var(--fn-danger-fill); }
+.fn-card[data-status="warning"] { background: var(--fn-warning-container); color: var(--fn-on-warning-container); border-color: var(--fn-warning-fill); }
+.fn-card[data-status="success"] { background: var(--fn-success-container); color: var(--fn-on-success-container); border-color: var(--fn-success-fill); }
+.fn-card[data-status="info"] { background: var(--fn-info-container); color: var(--fn-on-info-container); border-color: var(--fn-info); }
+
+.fn-divider { border: 0; border-top: var(--fn-border-hairline) solid var(--fn-outline-variant); margin: 0; }

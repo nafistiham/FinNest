@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="bn" class="fn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FinNest tokens</title>
+  <link rel="stylesheet" href="finnest.css">
+  <style>
+    /* Page layout only; every colour, size and face comes from finnest.css. */
+    body { margin: 0; }
+    main { max-width: 960px; margin: 0 auto; padding: var(--fn-space-l) var(--fn-space-m) var(--fn-space-xxl); }
+    header.top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--fn-space-m); }
+    .lockup { display: flex; flex-direction: column; align-items: flex-start; gap: var(--fn-space-xs); }
+    .lockup img { width: 88px; height: 88px; }
+    .controls { display: flex; flex-wrap: wrap; gap: var(--fn-space-s); }
+    .controls label { display: flex; flex-direction: column; gap: var(--fn-space-xxs); }
+    select { min-height: var(--fn-size-touch); padding: 0 var(--fn-space-s); border: var(--fn-border-hairline) solid var(--fn-outline);
+             border-radius: var(--fn-radius); background: var(--fn-surface); color: var(--fn-on-surface); font: inherit; }
+    section { margin-top: var(--fn-space-xl); }
+    h2 { margin: 0 0 var(--fn-space-m); }
+    .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--fn-space-s); }
+    .swatch { border: var(--fn-border-hairline) solid var(--fn-outline-variant); }
+    .swatch .chip { height: 56px; }
+    .swatch .meta { padding: var(--fn-space-s); }
+    .swatch code { font-size: 1rem; }
+    .type-row { display: grid; grid-template-columns: minmax(120px, 180px) 1fr; gap: var(--fn-space-m); align-items: baseline;
+                padding: var(--fn-space-s) 0; border-bottom: var(--fn-border-hairline) solid var(--fn-outline-variant); }
+    .row { display: flex; flex-wrap: wrap; gap: var(--fn-space-s); align-items: center; }
+    .stack { display: grid; gap: var(--fn-space-m); }
+    .hero-caption { display: block; margin-bottom: var(--fn-space-xs); }
+    @media (max-width: 520px) { .type-row { grid-template-columns: 1fr; gap: var(--fn-space-xxs); } }
+  </style>
+</head>
+<body>
+<main>
+  <header class="top">
+    <div class="lockup" role="img" aria-label="ফিননেস্ট">
+      <img src="../assets/finnest-mark.png" alt="" onerror="this.remove()">
+      <span class="fn-wordmark" aria-hidden="true"><span>Fin</span><span>Nest</span></span>
+    </div>
+    <div class="controls">
+      <label class="fn-label-small"><span data-bn="রং" data-en="Theme"></span>
+        <select id="preset">
+          <option value="">ফিননেস্ট টিল / FinNest teal</option>
+          <option value="padma">পদ্মা সবুজ / Padma green</option>
+          <option value="jamdani">জামদানি নীল / Jamdani indigo</option>
+          <option value="shapla">শাপলা বেগুনি / Shapla plum</option>
+          <option value="slate">বর্ষা স্লেট / Monsoon slate</option>
+        </select>
+      </label>
+      <label class="fn-label-small"><span data-bn="আলো / অন্ধকার" data-en="Light / dark"></span>
+        <select id="mode">
+          <option value="">ফোনের মতো / System</option>
+          <option value="light">আলো / Light</option>
+          <option value="dark">অন্ধকার / Dark</option>
+        </select>
+      </label>
+      <label class="fn-label-small"><span data-bn="ভাষা" data-en="Language"></span>
+        <select id="lang">
+          <option value="bn">বাংলা</option>
+          <option value="en">English</option>
+        </select>
+      </label>
+    </div>
+  </header>
+
+  <p class="fn-body-large" data-bn="আপনার টাকার নিরাপদ ঘর" data-en="A safe nest for your money"></p>
+
+  <section>
+    <h2 class="fn-title-medium" data-bn="টাকার পরিমাণ" data-en="Amount"></h2>
+    <span class="fn-body-small hero-caption" data-bn="মোট ব্যালেন্স" data-en="Total balance"></span>
+    <div class="fn-amount fn-amount--hero" id="hero"></div>
+    <div class="fn-amount" id="amount" style="margin-top: var(--fn-space-m)"></div>
+  </section>
+
+  <section>
+    <h2 class="fn-title-medium" data-bn="বোতাম" data-en="Buttons"></h2>
+    <div class="stack">
+      <button class="fn-button fn-button--block" data-bn="টাকা পাঠান" data-en="Send money"></button>
+      <div class="row">
+        <button class="fn-button fn-button--outlined" data-bn="বাতিল" data-en="Cancel"></button>
+        <button class="fn-button fn-button--danger" data-bn="ব্লক করুন" data-en="Block"></button>
+        <button class="fn-button" disabled data-bn="অপেক্ষা করুন" data-en="Please wait"></button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="fn-title-medium" data-bn="অবস্থা" data-en="Status"></h2>
+    <div class="row">
+      <span class="fn-tag" data-status="danger" data-bn="✕ ব্লক করা হয়েছে" data-en="✕ Blocked"></span>
+      <span class="fn-tag" data-status="warning" data-bn="‖ আটকে আছে" data-en="‖ On hold"></span>
+      <span class="fn-tag" data-status="success" data-bn="✓ নিরাপদ" data-en="✓ Safe"></span>
+      <span class="fn-tag" data-status="info" data-bn="ⓘ সিমুলেটেড" data-en="ⓘ Simulated"></span>
+      <span class="fn-tag" data-bn="বাতিল" data-en="Cancelled"></span>
+    </div>
+    <div class="stack" style="margin-top: var(--fn-space-m)">
+      <div class="fn-card" data-status="warning">
+        <div class="fn-title-small" data-bn="টাকা আটকে রাখা হয়েছে" data-en="Your money is on hold"></div>
+        <div class="fn-body-medium" data-bn="আমি ফিননেস্ট সহকারী বলছি। পাঠানোর আগে একটু যাচাই করি।" data-en="This is FinNest Assistant. Let's check this before it goes."></div>
+      </div>
+      <div class="fn-card" data-status="danger">
+        <div class="fn-title-small" data-bn="লেনদেন ব্লক করা হয়েছে" data-en="This payment is blocked"></div>
+        <div class="fn-body-medium" data-bn="ফিননেস্ট কখনো আপনার পিন বা ওটিপি চায় না।" data-en="FinNest never asks for your PIN or OTP."></div>
+      </div>
+      <div class="fn-card">
+        <div class="fn-title-small" data-bn="সাধারণ কার্ড" data-en="Plain card"></div>
+        <div class="fn-body-small" data-bn="ছায়া নেই, কোণ সোজা।" data-en="No shadow, square corners."></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="fn-title-medium" data-bn="লেখার মাপ" data-en="Type scale"></h2>
+    <div id="type"></div>
+  </section>
+
+  <section>
+    <h2 class="fn-title-medium" data-bn="রং" data-en="Colour"></h2>
+    <div class="swatches" id="swatches"></div>
+  </section>
+</main>
+
+<script>
+  const root = document.documentElement;
+  const ROLES = ['display-small', 'headline-medium', 'headline-small', 'title-large', 'title-medium', 'title-small',
+    'body-large', 'body-medium', 'body-small', 'label-large', 'label-medium', 'label-small', 'script'];
+  const COLORS = ['primary', 'on-primary', 'primary-container', 'on-primary-container', 'accent', 'surface',
+    'surface-variant', 'on-surface', 'muted-text', 'outline', 'outline-variant', 'danger', 'danger-fill',
+    'danger-container', 'warning', 'warning-fill', 'warning-container', 'success', 'success-fill',
+    'success-container', 'info', 'info-container', 'brand-leaf', 'brand-navy', 'icon-background'];
+
+  function lang() { return root.lang === 'en' ? 'en' : 'bn'; }
+
+  function render() {
+    const l = lang();
+    document.querySelectorAll('[data-bn]').forEach(el => { el.textContent = el.dataset[l]; });
+    // Bangla digits and lakh grouping (bn-BD), or lakh grouping with Latin digits (en-IN).
+    const fmt = new Intl.NumberFormat(l === 'bn' ? 'bn-BD' : 'en-IN');
+    document.getElementById('hero').innerHTML = '<span class="fn-taka">৳</span>' + fmt.format(984150);
+    document.getElementById('amount').innerHTML = '<span class="fn-taka">৳</span>' + fmt.format(5000);
+
+    const sample = l === 'bn' ? 'মা-কে ৳ ৫,০০০ পাঠান' : 'Send ৳ 5,000 to Ma';
+    const css = getComputedStyle(root);
+    document.getElementById('type').innerHTML = ROLES.map(r => {
+      const size = parseFloat(css.getPropertyValue(`--fn-${r}-size`)) * 16;
+      const w = css.getPropertyValue(`--fn-${r}-weight`).trim();
+      const lh = css.getPropertyValue(`--fn-${r}-line`).trim();
+      return `<div class="type-row"><code class="fn-body-small">${r} · ${size}/${w}/${lh}</code>` +
+             `<div class="fn-${r}">${sample}</div></div>`;
+    }).join('');
+
+    const bodyCss = getComputedStyle(document.body);
+    document.getElementById('swatches').innerHTML = COLORS.map(c => {
+      const v = bodyCss.getPropertyValue(`--fn-${c}`).trim();
+      return `<div class="swatch"><div class="chip" style="background: var(--fn-${c})"></div>` +
+             `<div class="meta"><div class="fn-label-small">${c}</div><code>${v}</code></div></div>`;
+    }).join('');
+  }
+
+  function bind(id, apply) {
+    const el = document.getElementById(id);
+    el.addEventListener('change', () => { apply(el.value); render(); });
+  }
+  bind('preset', v => v ? root.dataset.preset = v : delete root.dataset.preset);
+  bind('mode', v => v ? root.dataset.theme = v : delete root.dataset.theme);
+  bind('lang', v => { root.lang = v; });
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', render);
+  render();
+</script>
+</body>
+</html>

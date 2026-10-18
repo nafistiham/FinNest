@@ -1,0 +1,12 @@
+SolaimanLipi (regular, version 1.6.1) and SolaimanLipi Bold (version 2.000)
+Designer: Solaiman Karim (bold cut: Al Mamun Sumon), http://www.ekushey.org
+
+Licence, as embedded verbatim in the name table of both font files:
+
+  This Font Software is licensed under the SIL Open Font License, Version 1.0.
+  No modification of the license is permitted, only verbatim copy is allowed.
+  This license and a FAQ is also available at: http://scripts.sil.org/OFL
+
+The full text of the SIL Open Font License is at https://openfontlicense.org
+(see also OFL-BalooDa2.txt beside this file, which carries the OFL 1.1 text).
+The files here are unmodified copies of apps/mobile/assets/fonts/.
